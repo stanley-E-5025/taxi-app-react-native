@@ -1,9 +1,14 @@
 import React from 'react';
 import { Text, View , Pressable,Alert } from 'react-native';
 import MapView from 'react-native-maps';
-
+import { useNavigation} from '@react-navigation/native'
 
 const  Home = () => {
+const   navigation = useNavigation ();
+
+ const move =( ) => {
+   navigation.navigate('p2')
+ } 
   return (
     <View style={{ flex: 1,   alignItems: "center" , backgroundColor:"#838383" }}>
      <MapView style={{  width:500
@@ -17,12 +22,16 @@ const  Home = () => {
   />
   
   
-   <Pressable onPress={() => Alert.alert('Simple Button pressed')}
+   <Pressable onPress={move }
    
    style={{backgroundColor:"#505050" ,  position:"absolute" ,  width:250 , height:  50, borderRadius: 70, marginTop: 700
    }} >
-    <Text style={{ textAlign:"center" , marginTop:13, color:"#ffffff" , fontSize: 20 , fontWeight:"bold" }}>were</Text>
+    <Text style={{ textAlign:"center" , marginTop:13, color:"#ffffff" , fontSize: 20 , fontWeight:"bold" }}>pedir</Text>
 </Pressable>
+
+
+
+ 
     </View>
   );
 }

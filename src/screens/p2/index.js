@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View ,TextInput, SafeAreaView , Pressable  , Alert} from 'react-native';
+import { Text, View ,TextInput, SafeAreaView , Pressable  , Alert ,} from 'react-native';
 import { useNavigation} from '@react-navigation/native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import P3 from '../p3';
 
 
 
@@ -17,7 +18,7 @@ const P2 = () => {
 
   return (
       
-<View style={{   height:500 , margin:10, borderRadius: 20 ,    }}>
+<View style={{   height:400 , margin:10, borderRadius: 20 ,      }}>
 
 
 <GooglePlacesAutocomplete
@@ -31,9 +32,14 @@ const P2 = () => {
         language: 'en',
       }}
     />
-
-</View>
  
+<Pressable onPress={move}
+style={{backgroundColor:"#525252" , padding:5  , borderRadius: 10 , }}>
+<Text style={{color:"#ffffff" , fontWeight:"bold" , fontSize:15 , textAlign:"center"  }}>  listo </Text>
+</Pressable>
+</View>
+  
+   
         
    
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View ,TextInput, SafeAreaView , Pressable  , Alert} from 'react-native';
 import { useNavigation} from '@react-navigation/native'
-
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 
 
@@ -16,70 +16,24 @@ const P2 = () => {
  
 
   return (
-      <View  >
+      
+<View style={{   height:500 , margin:10, borderRadius: 20 ,    }}>
 
 
-          
+<GooglePlacesAutocomplete
+      placeholder='Search'
+      onPress={(data, details = null) => {
+        // 'details' is provided when fetchDetails = true
+        console.log(data, details);
+      }}
+      query={{
+        key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE',
+        language: 'en',
+      }}
+    />
 
-<TextInput 
-
-style=
-{{
-    backgroundColor:"#C4C4C4",
-    margin: 10 , 
-    padding: 6, 
-    borderRadius : 10 ,
-    marginTop: 50
-}}
+</View>
  
-placeholder="aqui"/>
-
-<TextInput 
-         
-style=
-{{
-    backgroundColor:"#C4C4C4",
-    margin: 10 , 
-    padding: 6, 
-    borderRadius : 10 ,
-}}
-         
-placeholder="donde?"  />
-
-
-
-
-
-<Pressable  onPress={ 
-  move
-}
-
-style=
-{{
-backgroundColor:"#939393" ,
-width:200 ,
-height:  40,
-borderRadius: 70,
-alignItems:"center" ,
-alignSelf:"center" ,
-marginTop: 100 
-}}>
-   
-<Text 
-style=
-{{
-marginTop: 10 ,
-color:"#ffffff" ,
-fontWeight:"bold" 
-}}
-
-
->listo </Text>
- </Pressable>
-
-
-
-      </View>
         
    
   );

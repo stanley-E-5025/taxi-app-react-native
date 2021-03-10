@@ -11,8 +11,8 @@ const   navigation = useNavigation ();
  } 
   return (
     <View style={{ flex: 1,   alignItems: "center" , backgroundColor:"#838383" }}>
-     <MapView style={{  width:500
-     ,height:1000 }}
+     <MapView style={{  width:1000 
+     , height:1000  }}
     initialRegion={{
       latitude: 37.78825,
       longitude: -122.4324,

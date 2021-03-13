@@ -2,17 +2,19 @@ import React from 'react';
 import { Text, View , Pressable,Alert } from 'react-native';
 import MapView from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
+import styles from './styles'
+import Pres from './press'
+
+
 
 const  Home = () => {
 const   navigation = useNavigation ();
 
- const move =( ) => {
-   navigation.navigate('p2')
- } 
-  return (
-    <View style={{ flex: 1,   alignItems: "center" , backgroundColor:"#838383" }}>
-     <MapView style={{  width:1000 
-     , height:1000  }}
+  
+ 
+ return (
+    <View style={styles.view}>
+     <MapView style={styles.map}
     initialRegion={{
       latitude: 37.78825,
       longitude: -122.4324,
@@ -21,18 +23,11 @@ const   navigation = useNavigation ();
     }}
   />
   
-  
-   <Pressable onPress={move }
-   
-   style={{backgroundColor:"#505050" ,  position:"absolute" ,  width:250 , height:  50, borderRadius: 70, marginTop: 700
-   }} >
-    <Text style={{ textAlign:"center" , marginTop:13, color:"#ffffff" , fontSize: 20 , fontWeight:"bold" }}>pedir</Text>
-</Pressable>
+  <Pres/>
 
-
-
- 
     </View>
+
+
   );
 }
 

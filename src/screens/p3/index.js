@@ -1,34 +1,35 @@
 import React from 'react';
-import { Text, View , Image , Pressable} from 'react-native';
- 
+import { Text, View , Image , Pressable, SafeAreaView} from 'react-native';
+import styles from './styles'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const P3 = () => {
- 
- 
+   
 
   return (
      
-    <View>
+<SafeAreaView>
+<View style={styles.view2}>
     
-          <View style={{backgroundColor:"#CDCDCD" , width:150, height: 100 , marginTop:120, borderRadius: 20 , marginLeft:10 , flexDirection:"row"   }} >
-     <Image style={{height:100, width:200 , borderRadius:20 }}
-     
-     source={require('../p3/')} />
-
-<View style={{alignContent:"center"  , marginTop:20, marginRight:10}}> 
-    <Text style={{ fontSize:15 , fontWeight:"bold" ,    }}>
-        *descripcion del veiculo*
-    </Text>
-</View>
-
-<Pressable  
-style={{backgroundColor:"#525252" , height:30  , borderRadius: 10 , alignContent:"center" , marginTop:20 , width: 50}}>
-<Text style={{color:"#ffffff" , fontWeight:"bold" , fontSize:15 , textAlign:"center" ,  marginTop:4  }}>  listo </Text>
-</Pressable>
- 
-
-      </View>
-     </View>
+    <View style={styles.car}>
+     <Text><Icon name="taxi" size={50} color="#222222" /></Text>
+    </View>
+    
+    <View style={styles.des}>
+    <Text style={styles.textdes}>taxi estandar,      descripcion*,descripcion*   </Text>
+    </View>
+    
+    
+    <View style={styles.view1}>
+    <Pressable>
+      <Text style={styles.text}>
+      <Icon name="angle-right" size={50} color="#222222" />
+      </Text>
+    </Pressable>
+    </View>
+    
+    </View>
+</SafeAreaView>
      
   );
 }

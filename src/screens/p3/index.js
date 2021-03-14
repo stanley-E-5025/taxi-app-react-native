@@ -12,7 +12,7 @@ const P3 = () => {
 <View style={styles.view2}>
     
     <View style={styles.car}>
-     <Text><Icon name="taxi" size={50} color="#222222" /></Text>
+     <Text><Icon name="taxi" size={40} color="#222222" /></Text>
     </View>
     
     <View style={styles.des}>
@@ -23,7 +23,7 @@ const P3 = () => {
     <View style={styles.view1}>
     <Pressable>
       <Text style={styles.text}>
-      <Icon name="angle-right" size={50} color="#222222" />
+      <Icon name="angle-right" size={40} color="#222222" />
       </Text>
     </Pressable>
     </View>

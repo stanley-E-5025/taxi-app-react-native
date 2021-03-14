@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
 
 
     textdes:{
-fontSize:20,
-fontWeight:"600",
+
+ 
  
     }
    

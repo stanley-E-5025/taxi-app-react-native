@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View , Pressable,Alert } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView , {PROVIDER_GOOGLE} from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
@@ -14,7 +14,8 @@ const   navigation = useNavigation ();
  
  return (
     <View style={styles.view}>
-     <MapView style={styles.map}
+    
+    <MapView style={styles.map}
     initialRegion={{
       latitude: 37.78825,
       longitude: -122.4324,

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         width:70,
         height:70,
         justifyContent:'center',
-         
+         marginTop:100,
         alignSelf:"center"
       },
        
@@ -20,9 +20,28 @@ const styles = StyleSheet.create({
         textAlign:"center" 
       },
 
-      view: {
-        height:450, margin:10, borderRadius: 20 ,   
-      }
+      view2: {
+        height:500,    
+        borderRadius: 20 ,
+            margin:20,
+            width:350,
+            position:"absolute"
+      },
+     
+      view1: {
+        width:400,
+        height:300,
+        alignSelf:"center",
+        alignItems:"center"
+      }, 
+
+      view3: {
+        height:450,    
+        borderRadius: 20 ,
+            marginTop:80,
+            width:350,
+            position:"absolute"
+      }  
      
 });
 

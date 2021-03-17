@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View , Pressable,Alert } from 'react-native';
-import MapView , {PROVIDER_GOOGLE} from 'react-native-maps';
+import { Text, View , Pressable,Alert,Image } from 'react-native';
+import MapView , {PROVIDER_GOOGLE , Marker} from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
+import cars from '../data/cars'
+
 
 
 
@@ -15,6 +17,7 @@ const   navigation = useNavigation ();
  return (
     <View style={styles.view}>
     
+      
     <MapView style={styles.map}
     initialRegion={{
       latitude: 37.78825,
@@ -22,8 +25,29 @@ const   navigation = useNavigation ();
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}
-  />
+  >  
+
+     {cars.map((car)=> (
+
+<Marker
+
+key={car.id}
+  coordinate={{ latitude : car.latitude , longitude : car.longitude}}
   
+  image={require('../gg.png')}
+ 
+/>
+
+     ))}
+
+
+   
+ 
+
+  
+  </MapView>
+  
+
   <Pres/>
 
     </View>

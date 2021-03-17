@@ -3,60 +3,87 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
    
  view1:{
-      
-    width:40, 
-    height: 100, 
-    borderRadius: 100 , 
-    alignItems:"center",
-    justifyContent:"center",
-    alignContent:"center",
+backgroundColor:"#cccccc",
+   height:150,
+   width:200,
+   alignSelf:"center",
+   marginTop:50,
+   borderRadius:20,
+   alignItems:"center",
+   justifyContent:"center"
       
     
      
     
   },
 
- car:{
+ info:{
    
-    width:60, 
-    height: 100 , 
-    borderRadius: 20 , 
-     justifyContent:'center'
+    width:300, 
+    height:50 , 
+    alignSelf:"center",
+    borderColor:"#ffffff",
+    marginTop:20
+    
     
  },
     
- des:{
+ Text:{
      
-  width:250, 
-  height: 100 , 
-  borderRadius: 20 , 
-  alignItems:"center",
-  justifyContent:"center"
+   color:"#FFFFFF",
+   fontWeight:"bold"
+
+    
+
  },
 
 
     view2:{
-       flexDirection:"row",
-      justifyContent:"space-between",
-       margin:10,
-       marginTop:50
+       backgroundColor:"#cccccc", 
+       width:350, 
+       height:100,
+       alignSelf:"center",
 
-        
+       marginTop:100 ,
+       borderRadius:20,
+       
+
     },
 
 
-    text:{
+    presable:{
 
-      textAlign:"left"
+      width:150,
+      height:50,
+      backgroundColor:"#033683", 
+      alignSelf:"center", 
+      marginTop:10,
+      borderRadius:20,
+      alignItems:"center",
+      flexDirection:"row",
+      justifyContent:"center"
     },
 
-
-    textdes:{
-
+    
+     
+   presablecont:{
+ height:50,
+ width:350,
  
- 
-    }
-   
+ flexDirection:"row",
+ justifyContent:"space-between"
+
+   },
+
+
+
+presable2:{
+marginTop:30
+
+}
+
+
+
 });
 
 

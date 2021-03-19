@@ -1,11 +1,14 @@
 import React from 'react';
 import { Text, View ,TextInput, SafeAreaView , Pressable  , Alert, ListView ,} from 'react-native';
-import { useNavigation} from '@react-navigation/native'
+import { CurrentRenderContext, useNavigation} from '@react-navigation/native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import  styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
+navigator.geolocation = require('react-native-geolocation-service');
+
+navigator.geolocation = require('@react-native-community/geolocation');
 // constantes para la funcion del boton o pressable
 
 const P2 = () => {
@@ -25,18 +28,22 @@ const P2 = () => {
      <View style={styles.view2}>
      <GooglePlacesAutocomplete
            placeholder='Search'
+           currentLocation={true}
+           currentLocationLabel='Current location'
+           renderDescription={(data)=> data.description || data.vicinity}
            styles={
             {
               listView: {
                 top: 60,
               }
             }
- 
+            
  
              }
            onPress={(data, details = null) => {
              // 'details' is provided when fetchDetails = true 
-            console.log(data, details);}}
+            console.log(data, details); }}
+            
            query={{key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE', language: 'en',}}
          />
      </View>
@@ -50,7 +57,11 @@ const P2 = () => {
            onPress={(data, details = null) => {
              // 'details' is provided when fetchDetails = true 
             console.log(data, details);}}
+
+            
+          
            query={{key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE', language: 'en',}}
+
          />
      </View>
      </View>

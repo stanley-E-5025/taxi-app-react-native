@@ -18,10 +18,14 @@ const   navigation = useNavigation ();
     <View style={styles.view}>
     
       
-    <MapView style={styles.map}
+    <MapView 
+    
+    showsUserLocation={true}
+    style={styles.map}
+    
     initialRegion={{
-      latitude: 37.78825,
-      longitude: -122.4324,
+      latitude:  12.153102831450843,  
+      longitude: -86.22988338908118,  
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}

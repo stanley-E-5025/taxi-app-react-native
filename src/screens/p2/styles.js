@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       },
 
       view2: {
-        height:500,    
+        height:400,    
         borderRadius: 20 ,
             margin:20,
             width:350,

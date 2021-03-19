@@ -2,8 +2,8 @@ export default [
   {
     id: '0',
     type: 'UberX',
-    latitude: 37.78825,
-      longitude: -122.4324,
+    latitude:  12.153102831450843,  
+      longitude:-86.22988338908118,
     heading: 130,
   },
   {

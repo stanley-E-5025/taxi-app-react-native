@@ -13,12 +13,12 @@ const  Home = () => {
 const   navigation = useNavigation ();
 
   const origin ={
-    latitude: 37.78825,
-      longitude: -122.4324,
+    latitude: 12.139568192856526,
+      longitude:-86.22920703809714
   };
   const destination ={
-    latitude: 37.74825,
-      longitude: -122.2324,
+    latitude:  12.153102831450843,  
+      longitude:-86.22988338908118,
   };
 
 
@@ -31,8 +31,8 @@ const   navigation = useNavigation ();
   style={{height:1000,width:1000}}
 
   initialRegion={{
-    latitude: 37.78825,
-      longitude: -122.4324,
+    latitude: 12.139568192856526,
+      longitude:-86.22920703809714,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
   }}

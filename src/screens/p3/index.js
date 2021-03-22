@@ -1,9 +1,19 @@
 import React from 'react';
-import { Text, View , Image , Pressable, SafeAreaView} from 'react-native';
+import { Text, View , Image , Pressable, SafeAreaView , ImageBackground} from 'react-native';
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useNavigation} from '@react-navigation/native'
+import { useNavigation , useRoute} from '@react-navigation/native'
+   
+
+
+  
 const P3 = () => {
+
+
+  const route = useRoute();
+
+  console.log(route.params)
+  
   const   navigation = useNavigation ();
   const move =( ) => 
   {
@@ -20,6 +30,9 @@ const P3 = () => {
   return (
  
  <View>
+   
+ <ImageBackground   source={require('./ggg.jpg')} style={{ resizeMode: "cover",
+    justifyContent: "center"}} >
  <Pressable style={styles.presable2} onPress={move} ><Text>   <Icon name="angle-left" size={50} color="#333333"  /></Text></Pressable>
    
    <View style={styles.view1}  >
@@ -48,6 +61,7 @@ const P3 = () => {
      </View>
    </View>
 
+ </ImageBackground>
  </View>
   
 

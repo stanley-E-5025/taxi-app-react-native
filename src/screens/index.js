@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View , Pressable,Alert,Image } from 'react-native';
+import { Text, View , Pressable,Alert,Image,SafeAreaView } from 'react-native';
 import MapView , {PROVIDER_GOOGLE , Marker} from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
@@ -15,13 +15,16 @@ const   navigation = useNavigation ();
   
  
  return (
-    <View style={styles.view}>
+   
+ 
+<View style={styles.view}>
     
       
     <MapView 
     
     showsUserLocation={true}
     style={styles.map}
+    
     
     initialRegion={{
       latitude:  12.153102831450843,  
@@ -51,11 +54,11 @@ key={car.id}
   
   </MapView>
   
-
+     
   <Pres/>
 
     </View>
-
+ 
 
   );
 }

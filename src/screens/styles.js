@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
    
    map:{
-    width:1000 
-    , height:1000
+    
+       height:800, 
+       width:400
    },
 
 
    view:{
-    flex: 1,   alignItems: "center" , backgroundColor:"#838383"
+  flex:1 ,   alignItems: "center" , backgroundColor:"#838383" , 
    },
     presable:{
         

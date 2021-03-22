@@ -10,6 +10,7 @@ import MapViewDirections from 'react-native-maps-directions';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE'
 
 const  Home = () => {
+  
 const   navigation = useNavigation ();
 
   const origin ={
@@ -41,7 +42,7 @@ const   navigation = useNavigation ();
     origin={origin}
     destination={destination}
     apikey={GOOGLE_MAPS_APIKEY}
-    strokeWidth={5}
+    strokeWidth={3}
     strokeColor="black"
   />
 </MapView>

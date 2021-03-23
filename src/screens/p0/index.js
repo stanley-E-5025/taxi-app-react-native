@@ -16,9 +16,9 @@ const p0= () => {
     
     <View    >
     <ImageBackground source= {require("./gd.jpg" )}  style={{ height:1000 ,
-    justifyContent: "center" , width:500 , alignSelf:"center"}}>
+    justifyContent: "center" , width:800 , alignSelf:"center"}}>
     <View style={{alignSelf:"center" , justifyContent:"center"}}>
-    <Pressable onPress={move} style={{height:40, width:200 , backgroundColor:"#033683", borderRadius:20  , justifyContent:"center"}}>
+    <Pressable onPress={move} style={{height:50, width:200, backgroundColor:"#033683", borderRadius:20  , justifyContent:"center" , marginTop:300}}>
         <Text style={{alignSelf:"center" , justifyContent:"center", color:"#ffffff" , fontWeight:"bold"}}>comenzemos </Text>
       </Pressable>
     </View>

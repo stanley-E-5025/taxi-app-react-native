@@ -9,25 +9,32 @@ import MapViewDirections from 'react-native-maps-directions';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE'
 
-const  Home = () => {
+const  p4 = () => {
 
 
   const route = useRoute();
+const origin ={
+  latitude: route.params.originPlace.details.geometry.location.lat ,
+  longitude:  route.params.originPlace.details.geometry.location.lng,
+ 
+}
 
-  console.log(route.params)
+
+ const destination ={
+  
+  latitude:route.params.destinationPlace.details.geometry.location.lat,
+  longitude:route.params.destinationPlace.details.geometry.location.lng,
+ 
+} 
+
+   
+  console.log(route.params.destinationPlace.details.geometry.location.lat, route.params.destinationPlace.details.geometry.location.lng)
+ 
   
   
 const   navigation = useNavigation ();
 
-  const origin ={
-    latitude: 12.139568192856526,
-      longitude:-86.22920703809714
-  };
-  const destination ={
-    latitude:  12.153102831450843,  
-      longitude:-86.22988338908118,
-  };
-
+  
 
  return (
      
@@ -48,8 +55,8 @@ const   navigation = useNavigation ();
     origin={origin}
     destination={destination}
     apikey={GOOGLE_MAPS_APIKEY}
-    strokeWidth={3}
-    strokeColor="black"
+    strokeWidth={4}
+    strokeColor="#033683"
   />
 </MapView>
 
@@ -64,4 +71,4 @@ const   navigation = useNavigation ();
   );
 }
 
-export default  Home;
+export default  p4;

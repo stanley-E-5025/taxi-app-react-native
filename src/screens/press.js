@@ -9,7 +9,7 @@ const Pres = () => {
     const   navigation = useNavigation ();
 
     const move =( ) => {
-        navigation.navigate('p2')
+        navigation.navigate('p3')
       } 
   return (
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View , Pressable,Alert,Image,SafeAreaView } from 'react-native';
-import MapView , {PROVIDER_GOOGLE , Marker} from 'react-native-maps';
+import { View } from 'react-native';
+import   MapView , { PROVIDER_GOOGLE , Marker ,  } from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
@@ -10,10 +10,15 @@ import cars from '../data/cars'
 
 
 const  Home = () => {
-const   navigation = useNavigation ();
 
-  
+
  
+const   navigation = useNavigation ();
+    
+
+ 
+ 
+
  return (
    
  
@@ -21,14 +26,14 @@ const   navigation = useNavigation ();
     
       
     <MapView 
-    
+    provider={PROVIDER_GOOGLE}
     showsUserLocation={true}
     style={styles.map}
-    
-    
+   
+    showsCompass={true}
     initialRegion={{
-      latitude:  12.153102831450843,  
-      longitude: -86.22988338908118,  
+      latitude: 37.78825,
+      longitude: -122.4324,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}

@@ -26,7 +26,7 @@ const DestinationSearch = (props) => {
 
   const checkNavigation = () => {
     if (originPlace && destinationPlace) {
-      navigation.navigate('p3', {
+      navigation.navigate('p4', {
         originPlace,
         destinationPlace,
       })

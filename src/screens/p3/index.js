@@ -17,13 +17,13 @@ const P3 = () => {
   const   navigation = useNavigation ();
   const move =( ) => 
   {
-    navigation.navigate('p2')
+    navigation.navigate('home')
   } 
 
 
   const movet =( ) => 
   {
-    navigation.navigate('p4')
+    navigation.navigate('p2')
   } 
    
 

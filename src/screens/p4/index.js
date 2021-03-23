@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View , Pressable,Alert,Image } from 'react-native';
 import MapView , {PROVIDER_GOOGLE , Marker} from 'react-native-maps';
-import { useNavigation} from '@react-navigation/native'
+import { useNavigation , useRoute} from '@react-navigation/native'
 import MapViewDirections from 'react-native-maps-directions';
  
  
@@ -10,6 +10,12 @@ import MapViewDirections from 'react-native-maps-directions';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE'
 
 const  Home = () => {
+
+
+  const route = useRoute();
+
+  console.log(route.params)
+  
   
 const   navigation = useNavigation ();
 

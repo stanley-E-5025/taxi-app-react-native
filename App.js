@@ -2,12 +2,12 @@ import React , {useEffect} from 'react';
 import {PermissionsAndroid , Platform} from 'react-native';
  import Nav from './src/Nav/index'
  import 'react-native-gesture-handler';
- 
+
 import Geolocation from '@react-native-community/geolocation';
 
 
 //add rec to next step 
-
+ 
 const all = () => {
   const  Permission = async () => {
     try {

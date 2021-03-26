@@ -1,20 +1,32 @@
 import React from 'react';
-import { View } from 'react-native';
-import   MapView , { PROVIDER_GOOGLE , Marker ,  } from 'react-native-maps';
+import { View , SafeAreaView , Pressable} from 'react-native';
+import   MapView , { PROVIDER_GOOGLE , Marker , EventUserLocation } from 'react-native-maps';
 import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
 import cars from '../data/cars'
-
-
-
-
-const  Home = () => {
-
+import MapViewDirections from 'react-native-maps-directions';
+ 
+import Geolocation from '@react-native-community/geolocation';
+import RNLocation  from 'react-native-location';
+import { getCurrentPosition } from 'react-native-geolocation-service';
 
  
+ 
+ 
+
+const  Home = () => {
+ 
+
+  
+  
+ 
+  
+
+  
+  
 const   navigation = useNavigation ();
-    
+ 
 
  
  
@@ -22,14 +34,22 @@ const   navigation = useNavigation ();
  return (
    
  
-<View style={styles.view}>
+ 
+  
+   
     
-      
+
+
+<View style={styles.view}  >
+    
+
     <MapView 
     provider={PROVIDER_GOOGLE}
     showsUserLocation={true}
     style={styles.map}
-   
+    showsMyLocationButton={true}
+     
+    
     showsCompass={true}
     initialRegion={{
       latitude: 37.78825,
@@ -55,14 +75,17 @@ key={car.id}
 
    
  
-
+ 
   
   </MapView>
-  
+ 
      
-  <Pres/>
-
+ <Pres/>
+  
     </View>
+ 
+
+ 
  
 
   );

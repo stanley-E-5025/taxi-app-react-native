@@ -4,14 +4,29 @@ const styles = StyleSheet.create({
    
    map:{
     
-       height:800, 
-       width:400
+    height:1000,
+    width:400,
+    alignSelf:"center",
+    
    },
 
 
    view:{
-  flex:1 ,   alignItems: "center" , backgroundColor:"#838383" , 
-   },
+  flex:1 ,  
+   alignItems: "center" ,
+   backgroundColor:"#838383" , 
+    
+    
+
+
+
+
+
+},
+
+
+
+
     presable:{
         
      

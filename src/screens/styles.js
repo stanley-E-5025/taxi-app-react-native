@@ -4,46 +4,57 @@ const styles = StyleSheet.create({
    
    map:{
     
-    height:1000,
-    width:400,
-    alignSelf:"center",
-    
+       width:"100%",
+       height:"100%"
    },
 
 
    view:{
-  flex:1 ,  
-   alignItems: "center" ,
-   backgroundColor:"#838383" , 
-    
-    
-
-
-
-
-
-},
-
-
-
-
+     width:"100%", 
+     height:"100%",
+     backgroundColor:"#000000" ,
+     alignItems:"center",
+     
+     
+   },
     presable:{
         
      
     backgroundColor:"#033683" , 
-    position:"absolute" , 
+    
      width:250 ,
       height:  50,
        borderRadius: 70,
-        marginTop: 700
+        marginTop: 700,
+        justifyContent:'center'
     },
 
 
     text:{textAlign:"center" ,
-    marginTop:13,
+   
      color:"#ffffff" , 
-     fontSize: 19 ,
-      fontWeight:"bold"}
+     fontSize: 20 ,
+      fontWeight:"bold"},
+
+
+      viev2:{
+
+        position:'absolute', 
+        alignSelf:"center"
+
+    
+
+      },
+
+
+       menu:{
+           height:30,
+           width:60,
+           
+           position:"absolute",
+           borderRadius:10,
+           margin:20
+       }
 });
 
 

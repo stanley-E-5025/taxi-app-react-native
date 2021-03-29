@@ -1,91 +1,65 @@
 import React from 'react';
-import { View , SafeAreaView , Pressable} from 'react-native';
-import   MapView , { PROVIDER_GOOGLE , Marker , EventUserLocation } from 'react-native-maps';
-import { useNavigation} from '@react-navigation/native'
+import { View , SafeAreaView , Pressable , Text } from 'react-native';
+import   MapView , { PROVIDER_GOOGLE , Marker ,  } from 'react-native-maps';
+import { useNavigation , RouteProp} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
 import cars from '../data/cars'
-import MapViewDirections from 'react-native-maps-directions';
- 
-import Geolocation from '@react-native-community/geolocation';
-import RNLocation  from 'react-native-location';
-import { getCurrentPosition } from 'react-native-geolocation-service';
 
- 
- 
- 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 
 const  Home = () => {
- 
 
   
-  
- 
-  
-
-  
-  
-const   navigation = useNavigation ();
- 
 
  
+  
+    const   navigation = useNavigation ();
+
+    const move =( ) => {
+      navigation.navigate('menu')
+    } 
+
  
+ 
+    
+
 
  return (
    
  
+
  
-  
-   
-    
-
-
-<View style={styles.view}  >
-    
-
-    <MapView 
-    provider={PROVIDER_GOOGLE}
-    showsUserLocation={true}
-    style={styles.map}
-    showsMyLocationButton={true}
+  <SafeAreaView>
+  <View style={styles.view}>
+   <MapView  provider={PROVIDER_GOOGLE}
+   showsUserLocation={true}
+ 
+  style={styles.map}
+   showsCompass={true}
+   initialRegion={ {
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }
      
-    
-    showsCompass={true}
-    initialRegion={{
-      latitude: 37.78825,
-      longitude: -122.4324,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    }}
-  >  
-
-     {cars.map((car)=> (
-
-<Marker
-
-key={car.id}
-  coordinate={{ latitude : car.latitude , longitude : car.longitude}}
-  
-  image={require('../gg.png')}
- 
-/>
-
-     ))}
+  }  >
 
 
-   
- 
- 
-  
-  </MapView>
- 
-     
- <Pres/>
-  
-    </View>
- 
 
- 
+   </MapView>
+</View>
+  <Pressable style={styles.menu} onPress={move}>
+<Text style={styles.text}><Icon name="bars" size={30} color="#ffffff"  /></Text>
+  </Pressable>
+
+ <View style={styles.viev2}>
+   <Pres/>
+ </View>
+</SafeAreaView>
  
 
   );

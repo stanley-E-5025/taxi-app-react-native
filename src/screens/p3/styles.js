@@ -2,90 +2,106 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
    
-   view1:{
-      backgroundColor:"#033683",
-         height:25,
-         width:200,
-         alignSelf:"center",
-         marginTop:50,
-         borderRadius:10,
-         alignItems:"center",
-         justifyContent:"center"
-            
-          
-           
-          
-        },
+ view1:{
+backgroundColor:"#cccccc",
+   height:40,
+   width:60,
+    
+    margin:10,
+   borderRadius:10,
+   alignItems:"center",
+   justifyContent:"center"
       
-       info:{
-         
-          width:300, 
-          height:50 , 
-          alignSelf:"center",
-          borderColor:"#ffffff",
-          marginTop:100
-          
-          
-       },
-          
-       Text:{
-           
-         color:"#FFFFFF",
-         fontWeight:"bold"
-      
-          
-      
-       },
-      
-      
-          view2:{
-             backgroundColor:"#cccccc", 
-             width:300, 
-             height:600,
-             alignSelf:"center",
-      
-             marginTop:100 ,
-             borderRadius:20,
-             
-      
-          },
-      
-      
-          presable:{
-      
-            width:150,
-            height:50,
-            backgroundColor:"#033683", 
-            
-            marginTop:200,
-            borderRadius:10,
-            alignItems:"center",
-            flexDirection:"row",
-            justifyContent:"center", 
-            alignSelf:"center",
-            marginBottom:400
-          },
-      
-          
-           
-         presablecont:{
-       height:50,
-       width:350,
-       
-       alignItems:"center",
-       justifyContent:"center",
+    
+     
+    
+  },
 
-      
-         },
-      
-      
-      
-      presable2:{
-      marginTop:30,
-      
-      }
-      
-      
+ info:{
+   
+    marginLeft:10,
+   
+ },
+    
+ Text:{
+     
+   color:"#FFFFFF",
+   fontWeight:"bold",
+   marginLeft:10, 
+   color:"#000000",
+
+
+    
+
+ },
+
+
+
+
+ text2:{
+ color:"#ffffff",
+ marginLeft:20,
+ fontWeight:"bold",
+ 
+ },
+
+
+    view2:{
+       backgroundColor:"#cccccc", 
+       width:200, 
+       height:40,
+       
+
+       marginTop:100,
+       borderRadius:10,
+       flexDirection:"row",
+       alignItems:"center",
+       marginLeft:10
+
+       
+
+    },
+
+
+    presable:{
+
+      width:150,
+      height:50,
+      backgroundColor:"#033683", 
+      alignSelf:"center", 
+      marginTop:400,
+      borderRadius:20,
+      alignItems:"center",
+      flexDirection:"row",
+      justifyContent:"center"
+    },
+
+    
+     
+   presablecont:{
+ height:50,
+ width:350,
+ 
+ flexDirection:"row",
+ justifyContent:"space-between"
+
+   },
+
+
+
+presable2:{
+ height:100,
+ width:350, 
+ backgroundColor:"#000000",
+ borderRadius:10,
+ alignSelf:"center",
+ marginTop:100, 
+ alignItems:"center",
+flexDirection:"row",
+
+}
+
+
 
 });
 

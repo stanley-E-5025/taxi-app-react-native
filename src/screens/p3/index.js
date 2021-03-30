@@ -27,7 +27,7 @@ console.log("seleccionado")}
 <Pressable style={styles.view2}><Text style={styles.Text}> <Icon name="car" size={20} color="#000000"  />    seliciona un veiculo</Text></Pressable>
 
 
-<Pressable style={styles.presable2} onPress={movet}><View style={styles.info}><Icon name="taxi" size={25} color="#ffffff"  /></View><Text style={styles.text2}>taxi regular             <Icon name="circle" size={20} color="#ffffff"  />  90 C$  </Text></Pressable>
+<Pressable style={styles.presable2} onPress={movet}><View style={styles.info}><Icon name="taxi" size={25} color="#000000"  /></View><Text style={styles.text2}>taxi regular             <Icon name="circle" size={20} color="#000000"  />  90 C$  </Text></Pressable>
 
 
  

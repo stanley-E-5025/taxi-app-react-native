@@ -39,9 +39,10 @@ backgroundColor:"#cccccc",
 
 
  text2:{
- color:"#ffffff",
+ color:"#000000",
  marginLeft:20,
  fontWeight:"bold",
+ fontSize:17
  
  },
 
@@ -92,7 +93,7 @@ backgroundColor:"#cccccc",
 presable2:{
  height:100,
  width:350, 
- backgroundColor:"#000000",
+ backgroundColor:"#ffffff",
  borderRadius:10,
  alignSelf:"center",
  marginTop:100, 

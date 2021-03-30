@@ -8,8 +8,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const Pres = () => {
     const   navigation = useNavigation ();
     const tes = (props) => {
-      const [ on , off] = useState(true);
-    console.log("uuuu")
+    const [ on , off] = useState(true);
+      console.log("uuuu")
     
     }
     
@@ -19,9 +19,7 @@ const Pres = () => {
         
       } 
   return (
-
  
-      
 <Pressable onPress={move }
           style={styles.presable} >
     <Text style={styles.text}><Icon name="map" size={25} color="#ffffff"  /> pedir</Text>

@@ -1,0 +1,10 @@
+{
+  "webpackServerPort": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19000,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://a8-2gi.anonymous.awesomeproject.exp.direct",
+  "packagerNgrokUrl": "https://packager.a8-2gi.anonymous.awesomeproject.exp.direct",
+  "ngrokPid": 13256,
+  "devToolsPort": 19002
+}

@@ -3,7 +3,7 @@ import {View, TextInput, SafeAreaView} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { useNavigation } from '@react-navigation/native';
 navigator.geolocation = require('@react-native-community/geolocation');
-  navigator.geolocation = require('react-native-geolocation-service');
+navigator.geolocation = require('react-native-geolocation-service');
 
 
 import styles from './styles.js';

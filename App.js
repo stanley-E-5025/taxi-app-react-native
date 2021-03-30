@@ -1,9 +1,10 @@
-import React , {useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {PermissionsAndroid , Platform} from 'react-native';
- import Nav from './src/Nav/index'
- import 'react-native-gesture-handler';
+import AllScreens from './src/home/index';
+import 'react-native-gesture-handler';
 
 import Geolocation from '@react-native-community/geolocation';
+import p0 from './src/screens/p0';
 
 
 //add rec to next step 
@@ -45,15 +46,13 @@ else {
    Geolocation.requestAuthorization
 }
 
-
-
 }, [])
+return (
+  
+    <p0 />
 
-  return (
-      
-   <Nav/>
-      
-  );
+);
 }
+
 
 export default all; 

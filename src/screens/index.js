@@ -11,10 +11,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const  Home = () => {
-
-  
-
  
+ console.log("dd")
   
     const   navigation = useNavigation ();
 
@@ -22,7 +20,7 @@ const  Home = () => {
       navigation.navigate('menu')
     } 
 
- 
+
  
     
 
@@ -39,14 +37,12 @@ const  Home = () => {
  
   style={styles.map}
    showsCompass={true}
-   initialRegion={ {
+   initialRegion={{
     latitude: 37.78825,
     longitude: -122.4324,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
-  }
-     
-  }  >
+  }}  >
 
 
 

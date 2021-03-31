@@ -1,45 +1,55 @@
-import React, { useState } from 'react';
-import { Button, TextInput } from 'react-native';
-import auth from '@react-native-firebase/auth';
+import React from 'react';
+import { Text, View , Pressable} from 'react-native';
+ 
+import styles from './styles'
+import { useNavigation } from '@react-navigation/native'
+import RNLocation from 'react-native-location';
 
-function PhoneSignIn() {
-  // If null, no SMS has been sent
-  const [confirm, setConfirm] = useState(null);
 
-  const [code, setCode] = useState('');
-
-  // Handle the button press
-  async function signInWithPhoneNumber(phoneNumber) {
-    const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
-    setConfirm(confirmation);
-  }
-
-  async function confirmCode() {
-    try {
-      await confirm.confirm(code);
-    } catch (error) {
-      console.log('Invalid code.');
+RNLocation.requestPermission({
+  ios: 'whenInUse', // or 'always'
+  android: {
+    detail: 'coarse', // or 'fine'
+    rationale: {
+      title: "We need to access your location",
+      message: "We use your location to show where you are on the map",
+      buttonPositive: "OK",
+      buttonNegative: "Cancel"
     }
   }
+});
 
-  if (!confirm) {
-    return (
-      <Button
-        title="Phone Number Sign In"
-        onPress={() => signInWithPhoneNumber('+1 650-555-3434')}
-      />
-    );
+
+
+RNLocation.checkPermission({
+  ios: 'whenInUse', // or 'always'
+  android: {
+    detail: 'coarse' // or 'fine'
   }
+});
 
+
+
+RNLocation.getCurrentPermission()
+  .then(currentPermission => {
+    
+  })
+const  p0 = () => {
+  const   navigation = useNavigation ();
+
+const move =( ) => {
+  navigation.navigate('home')
+} 
   return (
-    <>
-      <TextInput value={code} onChangeText={text => setCode(text)} />
-      <Button title="Confirm Code" onPress={() => confirmCode()} />
-    </>
+  
+
+<Pressable style={styles.pers} onPress={move}>
+
+</Pressable>
+     
+    
   );
 }
 
-
-export default PhoneSignIn
-
+export default p0;
 

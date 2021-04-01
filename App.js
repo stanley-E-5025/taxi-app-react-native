@@ -2,12 +2,12 @@ import React , {useEffect} from 'react';
 import {PermissionsAndroid , Platform} from 'react-native';
  import Nav from './src/Nav/index'
  import 'react-native-gesture-handler';
+ import { useNavigation } from '@react-navigation/native'
 
-import Geolocation from '@react-native-community/geolocation';
 
 
-//add rec to next step 
- 
+   
+
 const all = () => {
   const  Permission = async () => {
     try {
@@ -24,7 +24,7 @@ const all = () => {
         }
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can use the camera");
+        console.log("d");
       } else {
         console.log("Camera permission denied");
       }
@@ -50,7 +50,8 @@ else {
 }, [])
 
   return (
-      
+    
+     
    <Nav/>
       
   );

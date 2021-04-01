@@ -1,18 +1,19 @@
 import React from 'react';
-import { View , SafeAreaView , Pressable , Text } from 'react-native';
+import { View , SafeAreaView , Pressable , Text , Alert} from 'react-native';
 import   MapView , { PROVIDER_GOOGLE , Marker ,  } from 'react-native-maps';
-import { useNavigation , RouteProp} from '@react-navigation/native'
+import { useNavigation , RouteProp , useRoute} from '@react-navigation/native'
 import styles from './styles'
 import Pres from './press'
 import cars from '../data/cars'
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Geolocation from '@react-native-community/geolocation';
 
 
 
 const  Home = () => {
- 
- console.log("dd")
+  const route = useRoute();
+  
   
     const   navigation = useNavigation ();
 
@@ -20,11 +21,7 @@ const  Home = () => {
       navigation.navigate('menu')
     } 
 
-
- 
-    
-
-
+ console.log(route.params._W.latitude)
  return (
    
  
@@ -38,8 +35,8 @@ const  Home = () => {
   style={styles.map}
    showsCompass={true}
    initialRegion={{
-    latitude: 37.78825,
-    longitude: -122.4324,
+    latitude: route.params._W.latitude,
+    longitude: route.params._W.longitude,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   }}  >
@@ -55,6 +52,7 @@ const  Home = () => {
  <View style={styles.viev2}>
    <Pres/>
  </View>
+  
 </SafeAreaView>
  
 

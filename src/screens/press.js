@@ -4,6 +4,29 @@ import { useNavigation} from '@react-navigation/native'
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Geolocation from '@react-native-community/geolocation';
+
+export const getCurrentLocation =()=> new Promise((resolve,reject)=>{
+  Geolocation.getCurrentPosition(
+    position => {
+      const coords ={
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        
+      
+      };
+      resolve(coords);
+    },
+     error => {
+       reject(error.message)
+     },
+     {enableHighAccuracy: true , timeout:15000 , maximumAge:10000}
+  )
+})
+//add rec tocon next step 
+const info = getCurrentLocation()
+
+
 
 const Pres = () => {
     const   navigation = useNavigation ();
@@ -15,7 +38,7 @@ const Pres = () => {
     
     
     const move =( ) => {
-        navigation.navigate('p3' ,{ tes})
+        navigation.navigate('p3' , info)
         
       } 
   return (

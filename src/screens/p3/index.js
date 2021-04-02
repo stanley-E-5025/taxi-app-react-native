@@ -11,10 +11,10 @@ const P3 = () => {
 const route = useRoute();
 const   navigation = useNavigation ();
 const move =( ) => {navigation.navigate('home')} 
-const movet =( ) => {navigation.navigate('p2') 
+const movet =( ) => {navigation.navigate('p2', route.params._W) 
 console.log("seleccionado")} 
    
-
+console.log(route.params._W.latitude)
   return (
  
  <SafeAreaView>

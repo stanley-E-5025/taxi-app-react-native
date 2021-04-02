@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {View, TextInput, SafeAreaView} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 navigator.geolocation = require('@react-native-community/geolocation');
   navigator.geolocation = require('react-native-geolocation-service');
 
 
 import styles from './styles.js';
 import PlaceRow from "./PlaceRow";
+
+
 
 const homePlace = {
   description: 'Home',
@@ -26,9 +28,10 @@ const DestinationSearch = (props) => {
 
   const checkNavigation = () => {
     if (originPlace && destinationPlace) {
-      navigation.navigate('p4', {
+      navigation.navigate('p4',       {
         originPlace,
         destinationPlace,
+        cc
       })
     }
   }
@@ -36,7 +39,15 @@ const DestinationSearch = (props) => {
   useEffect(() => {
     checkNavigation();
   }, [originPlace, destinationPlace]);
+const route = useRoute();
 
+  const cc ={
+    latitude: route.params.latitude ,
+    longitude:  route.params.longitude,
+   
+  }
+  console.log(origin)
+   
   return (
     <SafeAreaView>
       <View style={styles.container}>

@@ -7,7 +7,7 @@ import Pres from './press'
 import cars from '../data/cars'
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Geolocation from '@react-native-community/geolocation';
+ 
 
 
 
@@ -18,14 +18,16 @@ const  Home = () => {
     const   navigation = useNavigation ();
 
     const move =( ) => {
-      navigation.navigate('menu')
+      navigation.navigate('menu' )
     } 
 
- console.log(route.params._W.latitude)
+
+
+     
+ 
  return (
    
  
-
  
   <SafeAreaView>
   <View style={styles.view}>
@@ -38,7 +40,7 @@ const  Home = () => {
     latitude: route.params._W.latitude,
     longitude: route.params._W.longitude,
     latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
+    longitudeDelta: 0.0621,
   }}  >
 
 

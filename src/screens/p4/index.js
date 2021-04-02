@@ -13,7 +13,7 @@ const  p4 = () => {
 
 
   const route = useRoute();
-const origin ={
+const origins ={
   latitude: route.params.originPlace.details.geometry.location.lat ,
   longitude:  route.params.originPlace.details.geometry.location.lng,
  
@@ -27,8 +27,9 @@ const origin ={
  
 } 
 
+   console.log(route.params.cc)
+
    
-  console.log(route.params.destinationPlace.details.geometry.location.lat, route.params.destinationPlace.details.geometry.location.lng)
  
   
   
@@ -42,17 +43,17 @@ const   navigation = useNavigation ();
 
   <MapView
   
-  style={{height:1000,width:1000}}
+  style={{height:"100%",width:"100%"}}
 
   initialRegion={{
-    latitude: 12.139568192856526,
-      longitude:-86.22920703809714,
+    latitude: route.params.cc.latitude,
+      longitude: route.params.cc.longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
   }}
   >
   <MapViewDirections
-    origin={origin}
+    origin={origins}
     destination={destination}
     apikey={GOOGLE_MAPS_APIKEY}
     strokeWidth={4}

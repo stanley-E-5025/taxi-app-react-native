@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   listView: {
     position: 'absolute',
-      top: 105,
+    top: 105,
   },
   autocompleteContainer: {
     position: 'absolute',
@@ -38,9 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginRight: 15,
   },
-  locationText: {
-
-  },
+  locationText: {},
 
   circle: {
     width: 5,

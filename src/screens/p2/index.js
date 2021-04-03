@@ -1,24 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, TextInput, SafeAreaView} from 'react-native';
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import {useNavigation, useRoute} from '@react-navigation/native';
 navigator.geolocation = require('@react-native-community/geolocation');
-  navigator.geolocation = require('react-native-geolocation-service');
-
+navigator.geolocation = require('react-native-geolocation-service');
 
 import styles from './styles.js';
-import PlaceRow from "./PlaceRow";
-
-
-
-const homePlace = {
-  description: 'Home',
-  geometry: { location: { lat: 48.8152937, lng: 2.4597668 } },
-};
-const workPlace = {
-  description: 'Work',
-  geometry: { location: { lat: 48.8496818, lng: 2.2940881 } },
-};
+import PlaceRow from './PlaceRow';
 
 const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
@@ -28,39 +16,42 @@ const DestinationSearch = (props) => {
 
   const checkNavigation = () => {
     if (originPlace && destinationPlace) {
-      navigation.navigate('p4',       {
+      navigation.navigate('p4', {
         originPlace,
         destinationPlace,
-        cc
-      })
+        cc,
+      });
     }
-  }
+  };
 
   useEffect(() => {
     checkNavigation();
   }, [originPlace, destinationPlace]);
-const route = useRoute();
+  const route = useRoute();
 
-  const cc ={
-    latitude: route.params.latitude ,
-    longitude:  route.params.longitude,
-   
-  }
-  console.log(origin)
+  const cc = {
+    latitude: route.params.latitude,
+    longitude: route.params.longitude,
+  };
+  
+  const homePlace = {
+    description: 'GPS',
+    geometry: {location: {lat: cc.latitude, lng: cc.longitude}},
+  };
+
    
   return (
     <SafeAreaView>
       <View style={styles.container}>
-
         <GooglePlacesAutocomplete
-          placeholder="Where from?"
+          placeholder="aqui"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
           }}
           enablePoweredByContainer={false}
           suppressDefaultStyles
           currentLocation={true}
-          currentLocationLabel='Current location'
+          currentLocationLabel="alrededores"
           styles={{
             textInput: styles.textInput,
             container: styles.autocompleteContainer,
@@ -74,11 +65,11 @@ const route = useRoute();
           }}
           renderRow={(data) => <PlaceRow data={data} />}
           renderDescription={(data) => data.description || data.vicinity}
-          predefinedPlaces={[homePlace, workPlace]}
+          predefinedPlaces={[homePlace]}
         />
 
         <GooglePlacesAutocomplete
-          placeholder="Where to?"
+          placeholder="donde?"
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
           }}
@@ -108,7 +99,6 @@ const route = useRoute();
 
         {/* Square near Destination input */}
         <View style={styles.square} />
-
       </View>
     </SafeAreaView>
   );

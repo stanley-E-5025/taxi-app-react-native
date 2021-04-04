@@ -23,15 +23,13 @@ const p4 = () => {
 
   const move = () => {
     navigation.navigate('home');
-    console.log(origins, destination);
   };
   const confirmar = () => {
     navigation.navigate('end');
-    firebase.db.collection('all').add({
+    firebase.db.collection('gg').add({
       origen: origins,
       destino: destination,
     });
-    console.log(origins, destination);
   };
 
   return (

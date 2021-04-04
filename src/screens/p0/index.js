@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Pressable} from 'react-native';
-
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-
 import Geolocation from '@react-native-community/geolocation';
-import firestore from '@react-native-firebase/firestore';
+import firebase from '../../firebase/index';
 
 export const getCurrentLocation = () =>
   new Promise((resolve, reject) => {
@@ -24,22 +22,9 @@ export const getCurrentLocation = () =>
     );
   });
 //add rec tocon next step
-
 const info = getCurrentLocation();
 
-
-getInfo = async () => {
-  const userDocument = firestore()
-    .collection('user')
-    .doc('bHcA20cdqTrNTIRqQVm6');
-};
-console.log(getInfo);
-
 const p0 = () => {
-  
- 
-
- 
   const navigation = useNavigation();
 
   const move = () => {

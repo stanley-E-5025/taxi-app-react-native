@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, View, Pressable, Alert, Image, SafeAreaView} from 'react-native';
+import {Text, View, Pressable, SafeAreaView} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import firebase from '../../firebase/index';
 const p4 = () => {
   const route = useRoute();
   const origins = {
@@ -26,10 +26,13 @@ const p4 = () => {
     console.log(origins, destination);
   };
   const confirmar = () => {
-     
+    navigation.navigate('end');
+    firebase.db.collection('all').add({
+      origen: origins,
+      destino: destination,
+    });
     console.log(origins, destination);
   };
-
 
   return (
     <SafeAreaView>
@@ -55,12 +58,14 @@ const p4 = () => {
           <Icon name="edit" size={20} color="#ffffff" /> quieres confirmar la
           orden con esta ubicasion ?
         </Text>
+
         <View style={styles.op}>
           <Pressable style={styles.presable}>
             <Text style={styles.text2} onPress={confirmar}>
               <Icon name="check-circle-o" size={20} color="#080808" /> confirmar
             </Text>
           </Pressable>
+
           <Pressable style={styles.presable}>
             <Text style={styles.text2} onPress={move}>
               <Icon name="times-circle-o" size={20} color="#080808" /> cancelar

@@ -1,21 +1,18 @@
 import React from 'react';
 import {View, SafeAreaView, Pressable, Text, Alert} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import {useNavigation, RouteProp, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import Pres from './press';
-import cars from '../data/cars';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Home = () => {
-  const route = useRoute();
-
-  const navigation = useNavigation();
+const P1 = () => {
+  /* const navigation = useNavigation();
 
   const move = () => {
-    navigation.navigate('menu');
-  };
+    navigation.navigate('P2');
+  }; */
 
   return (
     <SafeAreaView>
@@ -26,18 +23,18 @@ const Home = () => {
           style={styles.map}
           showsCompass={true}
           initialRegion={{
-            latitude: route.params._W.latitude,
-            longitude: route.params._W.longitude,
+            latitude: 37.78825,
+            longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0621,
           }}></MapView>
       </View>
-      <Pressable style={styles.menu} onPress={move}>
+      {/*  <Pressable style={styles.menu} onPress={move}>
         <Text style={styles.text}>
-          <Icon name="bars" size={30} color="#080808" />
+          <Icon name="bars" size={30} color="#ffffff" />
         </Text>
       </Pressable>
-
+ */}
       <View style={styles.viev2}>
         <Pres />
       </View>
@@ -45,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default P1;

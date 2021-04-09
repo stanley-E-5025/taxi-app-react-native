@@ -6,8 +6,8 @@ import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from '../../firebase/index';
-const p4 = () => {
+
+const P4 = () => {
   const route = useRoute();
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,
@@ -22,23 +22,19 @@ const p4 = () => {
   const navigation = useNavigation();
 
   const move = () => {
-    navigation.navigate('home');
+    navigation.navigate('P1');
   };
-  const confirmar = () => {
-    navigation.navigate('end');
-    firebase.db.collection('gg').add({
-      origen: origins,
-      destino: destination,
-    });
+  /* const confirmar = () => {
+    navigation.navigate(console.log('ffffffffffff'));
   };
-
+ */
   return (
     <SafeAreaView>
       <MapView
         style={{height: '100%', width: '100%'}}
         initialRegion={{
-          latitude: route.params.cc.latitude,
-          longitude: route.params.cc.longitude,
+          latitude: 37.78825,
+          longitude: -122.4324,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
@@ -59,7 +55,7 @@ const p4 = () => {
 
         <View style={styles.op}>
           <Pressable style={styles.presable}>
-            <Text style={styles.text2} onPress={confirmar}>
+            <Text style={styles.text2}>
               <Icon name="check-circle-o" size={20} color="#080808" /> confirmar
             </Text>
           </Pressable>
@@ -75,4 +71,4 @@ const p4 = () => {
   );
 };
 
-export default p4;
+export default P4;

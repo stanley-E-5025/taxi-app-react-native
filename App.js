@@ -20,7 +20,6 @@ const all = () => {
         },
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('d');
       } else {
         console.log('Camera permission denied');
       }

@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   view1: {
-  
     height: 40,
     width: 60,
 
@@ -10,7 +9,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
 
   info: {
@@ -26,9 +24,9 @@ const styles = StyleSheet.create({
 
   text2: {
     color: '#000000',
-    marginLeft: 20,
+    marginLeft: 30,
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 15,
   },
 
   view2: {
@@ -61,7 +59,6 @@ const styles = StyleSheet.create({
 
     flexDirection: 'row',
     justifyContent: 'space-between',
-    
   },
 
   presable2: {

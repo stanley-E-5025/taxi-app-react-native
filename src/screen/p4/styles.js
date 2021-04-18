@@ -3,14 +3,21 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   contaier: {
     backgroundColor: '#171717',
-    width: 400,
+    width: 380,
     height: 170,
     position: 'absolute',
     alignSelf: 'center',
-    marginTop: 600,
+    marginTop: 575,
     borderRadius: 10,
+    
   },
-
+km : {
+  color: '#ffffff',
+  textAlign: 'center',
+  
+  fontWeight: 'bold',
+  fontSize: 15,
+},
   Text: {
     color: '#ffffff',
     textAlign: 'center',

@@ -1,17 +1,38 @@
-import React from 'react';
-import {Text, View, Pressable, SafeAreaView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Text, View, Pressable, SafeAreaView, Alert} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
+
+import Geolocation from '@react-native-community/geolocation';
 
 const P2 = () => {
+  const [lat, setLat] = useState();
+  const [lon, setLont] = useState();
+  console.log(lat, lon);
+
+  Geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      setLat(lat);
+      setLont(lon);
+    },
+    (error) => Alert.alert('Error', JSON.stringify(error)),
+    {enableHighAccuracy: true, timeout: 9000000, maximumAge: 0},
+  );
+
   const navigation = useNavigation();
   const move = () => {
     navigation.navigate('P1');
   };
   const movet = () => {
-    navigation.navigate('P3');
-    console.log('seleccionado');
+    navigation.navigate('P3', {
+      lat,
+      lon,
+    });
   };
 
   return (
@@ -28,10 +49,16 @@ const P2 = () => {
 
       <Pressable style={styles.presable2} onPress={movet}>
         <View style={styles.info}>
-          <Icon name="taxi" size={25} color="#000000" />
+          <LottieView
+            source={require('../../animations/car.json')}
+            autoPlay
+            loop
+            style={{height: 80, width: 800}}
+          />
         </View>
         <Text style={styles.text2}>
-          taxi regular <Icon name="money" size={20} color="#000000" /> 90 C${' '}
+          {'     '}
+          aproximado 90 C${'  '}
         </Text>
       </Pressable>
     </SafeAreaView>

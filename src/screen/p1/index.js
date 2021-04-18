@@ -1,41 +1,33 @@
 import React from 'react';
-import {View, SafeAreaView, Pressable, Text, Alert} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import {useNavigation} from '@react-navigation/native';
-import styles from './styles';
 import Pres from './press';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './styles';
+import Bt from './main';
+import {useRoute} from '@react-navigation/core';
 
 const P1 = () => {
-  /* const navigation = useNavigation();
+  const route = useRoute();
+  console.log(route.params);
 
-  const move = () => {
-    navigation.navigate('P2');
-  }; */
-
+  const lat = route.params.lat;
+  const lon = route.params.lon;
   return (
     <SafeAreaView>
       <View style={styles.view}>
         <MapView
+          style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
+          showsMyLocationButton={true}
           showsUserLocation={true}
-          style={styles.map}
-          showsCompass={true}
+          showsCompass={false}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: lat,
+            longitude: lon,
             latitudeDelta: 0.0922,
-            longitudeDelta: 0.0621,
+            longitudeDelta: 0.0421,
           }}></MapView>
-      </View>
-      {/*  <Pressable style={styles.menu} onPress={move}>
-        <Text style={styles.text}>
-          <Icon name="bars" size={30} color="#ffffff" />
-        </Text>
-      </Pressable>
- */}
-      <View style={styles.viev2}>
+        <Bt />
         <Pres />
       </View>
     </SafeAreaView>

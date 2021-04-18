@@ -23,9 +23,7 @@ const all = () => {
       } else {
         console.log('Camera permission denied');
       }
-    } catch (err) {
-      console.warn(err);
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {

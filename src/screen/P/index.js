@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, Pressable} from 'react-native';
+import { withAuthenticator } from 'aws-amplify-react-native'
 import styles from './styles';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -23,7 +24,7 @@ const P = () => {
         source={require('../../animations/ggg.json')}
         autoPlay
         loop
-        style={{
+        style={{ 
           height: 200,
           width: 100,
           alignSelf: 'center',
@@ -40,4 +41,4 @@ const P = () => {
   );
 };
 
-export default P;
+export default withAuthenticator(P);

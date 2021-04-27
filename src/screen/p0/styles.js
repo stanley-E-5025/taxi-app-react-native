@@ -24,5 +24,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
   },
+  vvv: {
+    backgroundColor:'#FFE71E',
+    width:'100%',
+    height:'100%',
+  }
 });
 export default styles;

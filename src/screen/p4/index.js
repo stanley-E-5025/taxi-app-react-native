@@ -73,12 +73,24 @@ const P4 = () => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
+
+
+<Marker
+  coordinate={{ latitude : origins.latitude, longitude : origins.longitude}}
+  image={require('./f.png')}
+/>
+
+
+<Marker
+  coordinate={{ latitude : destination.latitude, longitude : destination.longitude}}
+  image={require('./f.png')}
+/>
         <MapViewDirections
           origin={origins}
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={4}
-          strokeColor="#033683"
+          strokeColor="#000000"
         />
       </MapView>
       <View style={styles.contaier}>

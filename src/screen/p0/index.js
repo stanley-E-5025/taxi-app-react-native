@@ -25,30 +25,41 @@ const P0 = () => {
   const navigation = useNavigation();
 
   const movet = () => {
-    navigation.navigate('P', {
+    navigation.navigate('P1', {
       lat,
       lon,
     });
   };
 
   return (
-    <View>
+    <View style={styles.vvv}>
       <LottieView
         source={require('../../animations/ggg.json')}
-        autoPlay
-        loop
+        autoPlay={true}
+        loop={false}
+       onAnimationFinish={movet}
+       speed={0.13}
         style={{
-          height: 200,
+          height: 300,
           width: 100,
           alignSelf: 'center',
           justifyContent: 'center',
           marginTop: 100,
         }}
       />
-
-      <Pressable style={styles.presabale} onPress={movet}>
-        <Text style={styles.Text}>empezemos</Text>
-      </Pressable>
+        <LottieView
+        source={require('../../animations/6607-loading-drop (1).json')}
+        autoPlay={true}
+        loop={true}
+      
+        style={{
+          height: 50,
+          width:10,
+          alignSelf: 'center',
+        
+      
+        }}
+      />
     </View>
   );
 };

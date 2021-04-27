@@ -1,23 +1,22 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+ 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from './user'
- 
-import Main from './drawer'
+import P1 from '../screen/p1/index'
+
  const Drawer = createDrawerNavigator();
  
   
-const Nav = (props) => {
+const La = (props) => {
   return (
-    <NavigationContainer>
+    
         <Drawer.Navigator  drawerContent={(props) => <CustomDrawer {...props} />}>
 
-        <Drawer.Screen name="P1" component={Main} />
+        <Drawer.Screen name="P1" component={P1} />
          
       </Drawer.Navigator>
-    </NavigationContainer>
+    
   );
 }
-export default Nav
+export default La

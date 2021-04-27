@@ -41,4 +41,4 @@ const P = () => {
   );
 };
 
-export default withAuthenticator(P);
+export default P;

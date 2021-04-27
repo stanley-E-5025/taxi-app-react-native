@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 
   viewbt: {
-    backgroundColor: '#ffffff10',
+    backgroundColor: '#ffffff',
 
     width: 80,
     height: 600,
@@ -27,14 +27,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     marginLeft: 20,
+    alignSelf:"flex-start"
   },
 
   presable: {
     backgroundColor: '#171717',
 
-    width: 250,
+    width: 240,
     height: 50,
-    borderRadius: 70,
+    borderRadius: 15,
     marginTop: 700,
     justifyContent: 'center',
     position: 'absolute',
@@ -68,6 +69,22 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#000000',
   },
+
+
+  myLocationButton: {
+    backgroundColor:'#000000',
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    padding: 15,
+    elevation: 3,
+    alignItems: 'center',
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    borderRadius: 50
+  }
+
+
 });
 
 export default styles;

@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     color: '#000000',
+    alignSelf:"center"
   },
 
   t2: {

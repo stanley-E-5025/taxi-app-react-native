@@ -28,16 +28,23 @@ const P5 = () => {
           source={require('../../animations/dd.json')}
           autoPlay
           loop
-          style={{height: 300, width: 500}}
+             style={{height: 300, width: 500}}
+        />
+
+<LottieView
+          source={require('../../animations/6607-loading-drop (1).json')}
+          autoPlay={true}
+          loop={false}
+             style={{height: 1, width: 100}}
+             speed={0.4}
+             onAnimationFinish={move}
         />
       </View>
       <View style={styles.view}>
         <Text style={styles.Text}>
-          su pedido esta siendo creado desea confirmar ahora ?{' '}
+          Su pedido esta siendo creado!!! {' '}
         </Text>
-        <Pressable style={styles.map} onPress={move}>
-          <Text style={styles.t2}>confirmar </Text>
-        </Pressable>
+        
       </View>
     </View>
   );

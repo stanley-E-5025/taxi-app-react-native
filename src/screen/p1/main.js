@@ -11,18 +11,13 @@ const Bt = () => {
   const move = () => {
     navigation.navigate('P2');
   };
+   
   return (
-    <View style={styles.viewbt}>
-      <Pressable onPress={() => navigation.openDrawer()} style={styles.main}>
-        <LottieView
-          source={require('../../animations/menu.json')}
-          autoPlay
-          loop
-          style={{height: 105, width: 100}}
-        />
+       <Pressable style={styles.main}>
+      <Icon name="bars" size={30} color="#080808" /> 
+
       </Pressable>
-    </View>
-  );
+   );
 };
 
 export default Bt;

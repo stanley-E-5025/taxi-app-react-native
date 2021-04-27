@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import P from '../screen/P/index';
@@ -10,11 +11,13 @@ import P3 from '../screen/p3/index';
 import P4 from '../screen/p4/index';
 import P5 from '../screen/p5/index';
 import P6 from '../screen/P6/index';
+import La from './index'
 const Stack = createStackNavigator();
 
-export default function Main() {
+export default function Nav() {
   return (
-    <Stack.Navigator
+   <NavigationContainer>
+      <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
@@ -26,6 +29,9 @@ export default function Main() {
       <Stack.Screen name={'P4'} component={P4} />
       <Stack.Screen name={'P5'} component={P5} />
       <Stack.Screen name={'P6'} component={P6} />
+      <Stack.Screen name={'La'} component={La} />
+
     </Stack.Navigator>
+   </NavigationContainer>
   );
 }

@@ -2,27 +2,18 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, Pressable, SafeAreaView, Alert} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 
 import Geolocation from '@react-native-community/geolocation';
 
 const P2 = () => {
-  const [lat, setLat] = useState();
-  const [lon, setLont] = useState();
-  console.log(lat, lon);
 
-  Geolocation.getCurrentPosition(
-    (position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+const route = useRoute();
+  console.log(route.params)
 
-      setLat(lat);
-      setLont(lon);
-    },
-    (error) => Alert.alert('Error', JSON.stringify(error)),
-    {enableHighAccuracy: true, timeout: 9000000, maximumAge: 0},
-  );
+  const lat = route.params.lat
+  const lon = route.params.lon
 
   const navigation = useNavigation();
   const move = () => {

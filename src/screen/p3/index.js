@@ -64,7 +64,8 @@ const gps = {
           fetchDetails
           query={{
             key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE',
-            language: 'en',
+            language: 'es',
+            components : 'country:ni'
           }}
           renderRow={(data) => <PlaceRow data={data} />}
           renderDescription={(data) => data.description || data.vicinity}
@@ -89,7 +90,8 @@ const gps = {
           fetchDetails
           query={{
             key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE',
-            language: 'en',
+            language: 'es',
+            components : 'country:ni'
           }}
           renderRow={(data) => <PlaceRow data={data} />}
         />

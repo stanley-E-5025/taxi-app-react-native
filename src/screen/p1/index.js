@@ -1,17 +1,31 @@
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, View, Pressable, Text} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Pres from './press';
 import styles from './styles';
 import Bt from './main';
-import {useRoute} from '@react-navigation/core';
+import {useRoute, useNavigation} from '@react-navigation/core';
+import { withAuthenticator } from 'aws-amplify-react-native'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 
 const P1 = () => {
   const route = useRoute();
-  console.log(route.params);
+  const  lat = route.params.lat
+  const lon = route.params.lon
 
-  const lat = route.params.lat;
-  const lon = route.params.lon;
+
+  const navigation = useNavigation();
+  const move = () => {
+    navigation.navigate('P2',{
+      lat,
+      lon
+    });
+  };
+  
+  
+   
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -22,16 +36,30 @@ const P1 = () => {
           showsUserLocation={true}
           showsCompass={false}
           initialRegion={{
-            latitude: lat,
-            longitude: lon,
+            latitude: route.params.lat,
+            longitude: route.params.lon,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          }}></MapView>
+
+
+            
+          }}>
+
+<Marker
+  coordinate={{ latitude : route.params.lat, longitude : route.params.lon }}
+  image={require('./f.png')}
+/>
+
+          </MapView>
         <Bt />
-        <Pres />
+        <Pressable onPress={move} style={styles.presable}>
+      <Text style={styles.text}>
+        <Icon name="map" size={25} color="#ffffff" /> pedir
+      </Text>
+    </Pressable>
       </View>
     </SafeAreaView>
   );
 };
 
-export default P1;
+export default withAuthenticator (P1);

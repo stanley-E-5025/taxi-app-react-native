@@ -4,17 +4,27 @@ const styles = StyleSheet.create({
   map: {flex: 1, justifyContent: 'center', alignItems: 'center'},
 
   view: {
-    width: 300,
-    height: 200,
-
-    marginTop: 400,
+    width: '100%',
+    height: '100%',
   },
   Text: {
-    color: '#000000',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 
   t2: {
     color: '#ffffff',
+  },
+  pres: {
+    position: 'absolute',
+    width: 100,
+    height: 30,
+    alignSelf: 'flex-start',
+    margin: 20,
+    borderRadius: 10,
+
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
   },
 });
 

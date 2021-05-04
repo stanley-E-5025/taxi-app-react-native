@@ -11,13 +11,12 @@ const Bt = () => {
   const move = () => {
     navigation.navigate('P2');
   };
-   
-  return (
-       <Pressable style={styles.main}>
-      <Icon name="bars" size={30} color="#080808" /> 
 
-      </Pressable>
-   );
+  return (
+    <Pressable style={styles.main}>
+      <Icon name="bars" size={30} color="#ffffff" />
+    </Pressable>
+  );
 };
 
 export default Bt;

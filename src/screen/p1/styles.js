@@ -41,7 +41,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
   },
+  presable2: {
+    backgroundColor: '#171717',
 
+    width: 240,
+    height: 50,
+    borderRadius: 15,
+    marginTop: 400,
+    justifyContent: 'center',
+    position: 'absolute',
+    alignSelf: 'center',
+  },
   text: {
     textAlign: 'center',
 
@@ -83,7 +93,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50
   }
+, 
 
+
+test:{
+ height:"100%",
+ backgroundColor:"#ffffff",
+  width:200
+}
 
 });
 

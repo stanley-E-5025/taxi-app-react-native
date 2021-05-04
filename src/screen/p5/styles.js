@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     marginTop: 400,
   },
   Text: {
-    color: '#000000',
-    alignSelf:"center"
+    color: '#ffffff',
+    alignSelf: 'center',
   },
 
   t2: {

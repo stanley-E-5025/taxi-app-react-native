@@ -6,6 +6,7 @@ import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import map from '../map-style';
 // constantes para las coordenadas  de punto A y B
 const P4 = () => {
   const route = useRoute();
@@ -67,30 +68,34 @@ const P4 = () => {
     <SafeAreaView>
       <MapView
         style={{height: '100%', width: '100%'}}
+        customMapStyle={map}
         initialRegion={{
           latitude: route.params.gps.lat,
           longitude: route.params.gps.lon,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
+        <Marker
+          coordinate={{
+            latitude: origins.latitude,
+            longitude: origins.longitude,
+          }}
+          image={require('./rr.png')}
+        />
 
-
-<Marker
-  coordinate={{ latitude : origins.latitude, longitude : origins.longitude}}
-  image={require('./f.png')}
-/>
-
-
-<Marker
-  coordinate={{ latitude : destination.latitude, longitude : destination.longitude}}
-  image={require('./f.png')}
-/>
+        <Marker
+          coordinate={{
+            latitude: destination.latitude,
+            longitude: destination.longitude,
+          }}
+          image={require('./rr.png')}
+        />
         <MapViewDirections
           origin={origins}
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           strokeWidth={4}
-          strokeColor="#000000"
+          strokeColor="#ffffff"
         />
       </MapView>
       <View style={styles.contaier}>

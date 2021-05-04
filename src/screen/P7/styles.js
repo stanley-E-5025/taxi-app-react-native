@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   presable2: {
     height: 80,
     width: 350,
-    backgroundColor: '#232222',
+    backgroundColor: '#131313',
     alignSelf: 'center',
     marginTop: 50,
     borderRadius: 10,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
   list: {
     height: 45,
-    width: 250,
+    width: 350,
     backgroundColor: '#313131',
     alignSelf: 'flex-start',
     marginTop: 50,
@@ -34,6 +34,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 20,
+  },
+  list2: {
+    height: "100%",
+    width: 200,
+    backgroundColor: '#313131',
+    
+    borderRadius: 10,
+    
   },
 
   txt: {
@@ -86,6 +94,38 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
+
+tt1: {
+  width:300, 
+  height:300,
+  backgroundColor:"#000000"
+
+},
+
+
+tt2:{
+  width:300, 
+  height:"100%",
+  backgroundColor:"#ffffff"
+
+}, 
+
+
+container:{
+  backgroundColor:"#000000",
+  width:300,
+  height:"100%"
+},
+
+drawer :{
+  width:300, 
+  height:300,
+  backgroundColor:"#000000"
+
+},
+
+ 
+
 });
 
 export default styles;

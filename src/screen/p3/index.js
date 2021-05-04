@@ -40,13 +40,14 @@ const gps = {
 
   
   const workPlace = {
-    description: 'GPS',
+    description: 'Posición actual',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
   };
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <GooglePlacesAutocomplete
+        
           placeholder="aqui?"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});

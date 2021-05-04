@@ -7,16 +7,16 @@ const styles = StyleSheet.create({
   },
 
   presabale: {
-    backgroundColor: '#000000',
+    backgroundColor: '#ffffff',
     width: 200,
     height: 40,
-    position: 'absolute',
+     
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 350,
-    borderRadius: 10,
+     borderRadius: 10,
     alignContent: 'center',
     alignItems: 'center',
+    marginTop:10
   },
 
   Text: {
@@ -24,10 +24,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
   },
+
   vvv: {
-    backgroundColor:'#FFE71E',
-    width:'100%',
-    height:'100%',
-  }
+    backgroundColor: '#252525',
+    width: '100%',
+    height: '100%',
+    alignItems:"center",
+    justifyContent:"center"
+  },
+
+  img: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+    marginTop: 200,
+  },
 });
 export default styles;

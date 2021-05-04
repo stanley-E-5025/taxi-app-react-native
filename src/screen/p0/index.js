@@ -1,27 +1,36 @@
 import React, {useState} from 'react';
-import {Text, View, Pressable, Alert} from 'react-native';
+import {Text, View, Pressable, Alert, Image} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 
-import Geolocation from '@react-native-community/geolocation';
+import RNLocation from 'react-native-location';
 
 const P0 = () => {
-  const [lat, setLat] = useState();
-  const [lon, setLont] = useState();
+  const [lat, setLat] = useState(0);
+  const [lon, setLon] = useState(0);
 
-  Geolocation.getCurrentPosition(
-    (position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+  const gps = () => {
+    RNLocation.configure({
+      distanceFilter: 5.0,
+    });
 
-      setLat(lat);
-      setLont(lon);
-    },
-    (error) => Alert.alert('Error', JSON.stringify(error)),
-    {enableHighAccuracy: true, timeout: 9000000, maximumAge: 0},
-  );
-
+    RNLocation.requestPermission({
+      ios: 'whenInUse',
+      android: {
+        detail: 'coarse',
+      },
+    }).then((granted) => {
+      if (granted) {
+        const all = RNLocation.subscribeToLocationUpdates((locations) => {
+          let lat = locations[0].latitude;
+          let lon = locations[0].longitude;
+          setLat(lat);
+          setLon(lon);
+        });
+      }
+    });
+  };
   const navigation = useNavigation();
 
   const movet = () => {
@@ -33,31 +42,42 @@ const P0 = () => {
 
   return (
     <View style={styles.vvv}>
+      <Image style={styles.img} source={require('../../animations/dd.png')} />
       <LottieView
         source={require('../../animations/ggg.json')}
         autoPlay={true}
         loop={false}
-       onAnimationFinish={movet}
-       speed={0.13}
+        onAnimationFinish={movet}
+        speed={0.4}
         style={{
-          height: 300,
-          width: 100,
+          height: 1,
+          width: 1,
           alignSelf: 'center',
           justifyContent: 'center',
-          marginTop: 100,
         }}
       />
-        <LottieView
+
+      <LottieView
+        source={require('../../animations/6607-loading-drop (1).json')}
+        autoPlay={true}
+        loop={false}
+        onAnimationFinish={gps}
+        style={{
+          height: 1,
+          width: 1,
+          alignSelf: 'center',
+          marginTop: 50,
+        }}
+      />
+      <LottieView
         source={require('../../animations/6607-loading-drop (1).json')}
         autoPlay={true}
         loop={true}
-      
         style={{
           height: 50,
-          width:10,
+          width: 10,
           alignSelf: 'center',
-        
-      
+          marginTop: 50,
         }}
       />
     </View>

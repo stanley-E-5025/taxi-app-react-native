@@ -22,29 +22,34 @@ const P5 = () => {
     });
   };
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#252525',
+      }}>
       <View style={{position: 'absolute'}}>
         <LottieView
           source={require('../../animations/dd.json')}
           autoPlay
           loop
-             style={{height: 300, width: 500}}
+          style={{height: 300, width: 500}}
         />
 
-<LottieView
+        <LottieView
           source={require('../../animations/6607-loading-drop (1).json')}
           autoPlay={true}
           loop={false}
-             style={{height: 1, width: 100}}
-             speed={0.4}
-             onAnimationFinish={move}
+          style={{height: 1, width: 100}}
+          speed={0.4}
+          onAnimationFinish={move}
         />
       </View>
       <View style={styles.view}>
         <Text style={styles.Text}>
-          Su pedido esta siendo creado!!! {' '}
+          esperando que un conductor tome tu orden!!!{' '}
         </Text>
-        
       </View>
     </View>
   );

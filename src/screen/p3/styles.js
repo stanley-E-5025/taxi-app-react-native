@@ -72,6 +72,43 @@ const styles = StyleSheet.create({
     top: 80,
     left: 15,
   },
+
+  drivertxt: {
+    padding: 10,
+    backgroundColor: '#313131',
+    marginVertical: 5,
+    marginLeft: 20,
+    height: 40,
+    borderRadius: 10,
+    color: '#ffffff',
+  },
+
+  info: {
+    width: 100,
+    height: 30,
+    borderRadius: 10,
+    backgroundColor: '#313131',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 345,
+  },
+  save: {
+    width: 150,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  txt: {
+    fontWeight: 'bold',
+    color: '#D3D3D3',
+  },
+  txt2: {
+    fontWeight: 'bold',
+    color: '#171717',
+  },
 });
 
 export default styles;

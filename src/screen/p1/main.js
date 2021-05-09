@@ -13,7 +13,7 @@ const Bt = () => {
   };
 
   return (
-    <Pressable style={styles.main}>
+    <Pressable style={[styles.main, {top: 20, left: 10}]}>
       <Icon name="bars" size={30} color="#ffffff" />
     </Pressable>
   );

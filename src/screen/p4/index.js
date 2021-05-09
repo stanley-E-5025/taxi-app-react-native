@@ -7,6 +7,10 @@ import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import map from '../map-style';
+import {createOrder} from '../../graphql/mutations';
+import LottieView from 'lottie-react-native';
+
+import {API, graphqlOperation, Auth} from 'aws-amplify';
 // constantes para las coordenadas  de punto A y B
 const P4 = () => {
   const route = useRoute();
@@ -20,7 +24,7 @@ const P4 = () => {
     longitude: route.params.destinationPlace.details.geometry.location.lng,
   };
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  console.log(route.params.text);
   // constante para la funcion de los botones
   const navigation = useNavigation();
 
@@ -36,6 +40,46 @@ const P4 = () => {
     });
   };
 
+  const types = {
+    type: 'taxi1',
+  };
+
+  const type = types.type;
+
+  const order = async () => {
+    try {
+      const userInfo = await Auth.currentAuthenticatedUser();
+      console.log(userInfo);
+
+      const date = new Date();
+
+      const input = {
+        createdAt: date.toISOString(),
+        type: type,
+        originLatitude: route.params.originPlace.details.geometry.location.lat,
+        originLongitude: route.params.originPlace.details.geometry.location.lng,
+
+        destLatitude:
+          route.params.destinationPlace.details.geometry.location.lat,
+        destLongitude:
+          route.params.destinationPlace.details.geometry.location.lng,
+        nota: route.params.text,
+        userId: userInfo.attributes.sub,
+        carId: '1',
+      };
+
+      const response = await API.graphql(
+        graphqlOperation(createOrder, {
+          input,
+        }),
+      );
+      console.log(response);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  console.log(route.params.type.taxi);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // calculo para medir la distancia entre los A y B
@@ -105,6 +149,7 @@ const P4 = () => {
           orden con esta ubicasion ?{' '}
         </Text>
         <Text style={styles.km}>{sin} km</Text>
+
         <View style={styles.op}>
           <Pressable style={styles.presable} onPress={confirmar}>
             <Text style={styles.text2}>
@@ -117,6 +162,14 @@ const P4 = () => {
               <Icon name="times-circle-o" size={20} color="#080808" /> cancelar
             </Text>
           </Pressable>
+          <LottieView
+            source={require('../../animations/6607-loading-drop (1).json')}
+            autoPlay={true}
+            loop={false}
+            style={{height: 1, width: 1}}
+            speed={10}
+            onAnimationFinish={order}
+          />
         </View>
       </View>
     </SafeAreaView>

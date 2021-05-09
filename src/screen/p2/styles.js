@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   list: {
     height: 45,
     width: 250,
-    backgroundColor: '#313131',
     alignSelf: 'flex-start',
     marginTop: 50,
     borderRadius: 10,
@@ -49,13 +48,14 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     marginLeft: 10,
-
+    backgroundColor: '#313131',
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
 
   icon2: {

@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, SafeAreaView} from 'react-native';
+import {View, TextInput, SafeAreaView, Text, Pressable} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
-import {useNavigation , useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 navigator.geolocation = require('@react-native-community/geolocation');
 navigator.geolocation = require('react-native-geolocation-service');
@@ -9,18 +10,16 @@ navigator.geolocation = require('react-native-geolocation-service');
 import styles from './styles.js';
 import PlaceRow from './PlaceRow';
 
-
-
 const P3 = (props) => {
-  const route = useRoute ();
-  console.log(route.params)
+  const route = useRoute();
+  console.log(route.params);
+  const [text, onChangeText] = React.useState('');
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
-const gps = {
-  lat: route.params.lat,
-  lon: route.params.lon 
-
-}
+  const gps = {
+    lat: route.params.lat,
+    lon: route.params.lon,
+  };
   const navigation = useNavigation();
 
   const checkNavigation = () => {
@@ -28,7 +27,9 @@ const gps = {
       navigation.navigate('P4', {
         originPlace,
         destinationPlace,
-        gps
+        gps,
+        text,
+        type,
       });
     }
   };
@@ -37,8 +38,10 @@ const gps = {
     checkNavigation();
   }, [originPlace, destinationPlace]);
 
-
-  
+  const type = {
+    taxi: 'taxi',
+  };
+  console.log(type.taxi);
   const workPlace = {
     description: 'Posición actual',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
@@ -47,7 +50,6 @@ const gps = {
     <SafeAreaView>
       <View style={styles.container}>
         <GooglePlacesAutocomplete
-        
           placeholder="aqui?"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
@@ -66,13 +68,12 @@ const gps = {
           query={{
             key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE',
             language: 'es',
-            components : 'country:ni'
+            components: 'country:ni',
           }}
           renderRow={(data) => <PlaceRow data={data} />}
           renderDescription={(data) => data.description || data.vicinity}
-          predefinedPlaces={[  workPlace]}
+          predefinedPlaces={[workPlace]}
         />
-
         <GooglePlacesAutocomplete
           placeholder="donde?"
           onPress={(data, details = null) => {
@@ -92,9 +93,21 @@ const gps = {
           query={{
             key: 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE',
             language: 'es',
-            components : 'country:ni'
+            components: 'country:ni',
           }}
           renderRow={(data) => <PlaceRow data={data} />}
+        />
+        <View style={styles.info}>
+          <Text style={styles.txt}>
+            {' '}
+            <Icon name="edit" size={20} color="#ffffff" /> {'   '}nota
+          </Text>
+        </View>
+        <TextInput
+          style={[styles.drivertxt, {top: 350}]}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="nota para elconductor"
         />
 
         {/* Circle near Origin input */}
@@ -111,4 +124,3 @@ const gps = {
 };
 
 export default P3;
-

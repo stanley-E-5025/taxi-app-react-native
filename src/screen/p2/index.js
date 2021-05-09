@@ -13,6 +13,9 @@ const P2 = () => {
 
   const lat = route.params.lat;
   const lon = route.params.lon;
+  const sms = () => {
+    alert('fuk u ');
+  };
 
   const navigation = useNavigation();
   const move = () => {
@@ -33,12 +36,13 @@ const P2 = () => {
             <Icon name="angle-left" size={39} color="#ffffff" />
           </Text>
         </Pressable>
-        <View style={styles.info}>
+
+        <Pressable style={styles.info} onLongPress={sms}>
           <View style={styles.icon2}>
             <Icon name="edit" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt2}>seleccione su transporte</Text>
-        </View>
+          <Text style={styles.txt2}>seleccione un veiculo</Text>
+        </Pressable>
 
         <Pressable style={styles.presable2} onPress={movet}>
           <LottieView
@@ -59,6 +63,7 @@ const P2 = () => {
           </View>
           <Text style={styles.txt}>aire acondicionado </Text>
         </View>
+
         <View style={styles.list}>
           <View style={styles.icon}>
             <Icon name="clock-o" size={20} color="#ffffff" />

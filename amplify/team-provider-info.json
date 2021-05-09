@@ -15,7 +15,7 @@
       "function": {
         "awesomeprojectc2531cbfc2531cbfPostConfirmation": {
           "deploymentBucketName": "amplify-awesomeproject-dev-183443-deployment",
-          "s3Key": "amplify-builds/awesomeprojectc2531cbfc2531cbfPostConfirmation-374e556b776e33616752-build.zip"
+          "s3Key": "amplify-builds/awesomeprojectc2531cbfc2531cbfPostConfirmation-334578774a7257477575-build.zip"
         }
       },
       "auth": {

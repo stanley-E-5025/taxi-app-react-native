@@ -23,11 +23,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 10,
-    marginTop: 20,
+
     justifyContent: 'center',
     position: 'absolute',
-    marginLeft: 20,
-    alignSelf:"flex-start"
   },
 
   presable: {
@@ -36,7 +34,7 @@ const styles = StyleSheet.create({
     width: 240,
     height: 50,
     borderRadius: 15,
-    marginTop: 700,
+
     justifyContent: 'center',
     position: 'absolute',
     alignSelf: 'center',
@@ -80,9 +78,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
   },
 
-
   myLocationButton: {
-    backgroundColor:'#000000',
+    backgroundColor: '#000000',
     position: 'absolute',
     bottom: 10,
     right: 10,
@@ -91,17 +88,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'flex-end',
     justifyContent: 'center',
-    borderRadius: 50
-  }
-, 
-
-
-test:{
- height:"100%",
- backgroundColor:"#ffffff",
-  width:200
-}
-
+    borderRadius: 50,
+  },
+  test: {
+    height: '100%',
+    backgroundColor: '#ffffff',
+    width: 200,
+  },
 });
 
 export default styles;

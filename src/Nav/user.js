@@ -1,11 +1,29 @@
 import React, {useCallback, useState, useEffect} from 'react';
 import {View, Text, Pressable, Linking, Button, Alert} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
+import {API, graphqlOperation, Auth} from 'aws-amplify';
+import LottieView from 'lottie-react-native';
 
 import styles from './styles';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 const CustomDrawer = (props) => {
+  const [userInfo, setUserinfo] = useState('all');
+  const [email, setEmail] = useState('all');
+
+  const order = async () => {
+    try {
+      const userInfo = await Auth.currentAuthenticatedUser();
+      console.log(userInfo);
+      const name = userInfo.username;
+      const email = userInfo.attributes.email;
+      setEmail(email);
+      setUserinfo(name);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.user}>
@@ -15,21 +33,38 @@ const CustomDrawer = (props) => {
       </View>
 
       <View>
-        <Text style={styles.text}>stanley gordon</Text>
-        <Text style={styles.textn}>+505 89287688</Text>
+        <Text style={styles.text}>{userInfo}</Text>
+        <Text style={styles.textn}>{email}</Text>
       </View>
       <View style={styles.viewsocial}>
-        <Pressable style={styles.pres}>
+        <Pressable
+          style={styles.pres}
+          onPress={() =>
+            Linking.openURL('https://www.facebook.com/taxislosprimos/')
+          }>
           <Text>
             <Icon name="social-facebook" size={30} color="#000000" />
           </Text>
         </Pressable>
-        <Pressable>
+        <Pressable
+          onPress={() =>
+            Linking.openURL(
+              'https://www.instagram.com/taxis_losprimos_mga/?hl=es-la',
+            )
+          }>
           <Text>
             <Icon name="social-instagram" size={30} color="#000000" />
           </Text>
         </Pressable>
       </View>
+      <LottieView
+        source={require('../animations/4822-icon-test.json')}
+        autoPlay={true}
+        loop={false}
+        style={{height: 1, width: 1}}
+        speed={10}
+        onAnimationFinish={order}
+      />
     </DrawerContentScrollView>
   );
 };

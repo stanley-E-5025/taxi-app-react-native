@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
-    getUser(id: $id) {
+export const getTodo = /* GraphQL */ `
+  query GetTodo($id: ID!) {
+    getTodo(id: $id) {
       id
       username
       email
@@ -30,7 +30,6 @@ export const getUser = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -50,13 +49,13 @@ export const getUser = /* GraphQL */ `
     }
   }
 `;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $filter: ModelUserFilterInput
+export const listTodos = /* GraphQL */ `
+  query ListTodos(
+    $filter: ModelTodoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         username
@@ -70,7 +69,6 @@ export const listUsers = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -90,7 +88,6 @@ export const getCar = /* GraphQL */ `
       latitude
       longitude
       heading
-      oneline
       orders {
         items {
           id
@@ -122,7 +119,6 @@ export const getCar = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -148,7 +144,6 @@ export const listCars = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -193,7 +188,6 @@ export const getOrder = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -208,7 +202,6 @@ export const getOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -259,7 +252,6 @@ export const listOrders = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt

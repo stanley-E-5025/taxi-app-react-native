@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+export const onCreateTodo = /* GraphQL */ `
+  subscription OnCreateTodo {
+    onCreateTodo {
       id
       username
       email
@@ -30,7 +30,6 @@ export const onCreateUser = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -50,9 +49,9 @@ export const onCreateUser = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+export const onUpdateTodo = /* GraphQL */ `
+  subscription OnUpdateTodo {
+    onUpdateTodo {
       id
       username
       email
@@ -79,7 +78,6 @@ export const onUpdateUser = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -99,9 +97,9 @@ export const onUpdateUser = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+export const onDeleteTodo = /* GraphQL */ `
+  subscription OnDeleteTodo {
+    onDeleteTodo {
       id
       username
       email
@@ -128,7 +126,6 @@ export const onDeleteUser = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -156,7 +153,6 @@ export const onCreateCar = /* GraphQL */ `
       latitude
       longitude
       heading
-      oneline
       orders {
         items {
           id
@@ -188,7 +184,6 @@ export const onCreateCar = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -209,7 +204,6 @@ export const onUpdateCar = /* GraphQL */ `
       latitude
       longitude
       heading
-      oneline
       orders {
         items {
           id
@@ -241,7 +235,6 @@ export const onUpdateCar = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -262,7 +255,6 @@ export const onDeleteCar = /* GraphQL */ `
       latitude
       longitude
       heading
-      oneline
       orders {
         items {
           id
@@ -294,7 +286,6 @@ export const onDeleteCar = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -333,7 +324,6 @@ export const onCreateOrder = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -348,7 +338,6 @@ export const onCreateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -393,7 +382,6 @@ export const onUpdateOrder = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -408,7 +396,6 @@ export const onUpdateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }
@@ -453,7 +440,6 @@ export const onDeleteOrder = /* GraphQL */ `
           latitude
           longitude
           heading
-          oneline
           userId
           createdAt
           updatedAt
@@ -468,7 +454,6 @@ export const onDeleteOrder = /* GraphQL */ `
         latitude
         longitude
         heading
-        oneline
         orders {
           nextToken
         }

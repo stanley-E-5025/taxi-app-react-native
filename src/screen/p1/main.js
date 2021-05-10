@@ -13,7 +13,9 @@ const Bt = () => {
   };
 
   return (
-    <Pressable style={[styles.main, {top: 20, left: 10}]}>
+    <Pressable
+      style={[styles.main, {top: 20, left: 10}]}
+      onPress={navigation.openDrawer}>
       <Icon name="bars" size={30} color="#ffffff" />
     </Pressable>
   );

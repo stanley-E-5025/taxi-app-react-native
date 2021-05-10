@@ -8,8 +8,8 @@ import {withAuthenticator} from 'aws-amplify-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import map from '../map-style';
 
-import {API, graphqlOperation} from 'aws-amplify';
-import {listCars} from '../../graphql/queries';
+import {API, graphqlOperation, Auth} from 'aws-amplify';
+import {listCars, listTodos} from '../../graphql/queries';
 
 const P1 = () => {
   const route = useRoute();
@@ -46,6 +46,17 @@ const P1 = () => {
     setLat(lat);
     setLon(lon);
   };
+
+  const infouser = Auth.currentAuthenticatedUser({bypassCache: true});
+
+  console.log(infouser);
+
+  const data = API.graphql(
+    graphqlOperation(listTodos, {
+      username: Auth.currentAuthenticatedUser,
+    }),
+  );
+  console.log(data);
 
   const getImage = (type) => {
     if (type === 'taxi1') {

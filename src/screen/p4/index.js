@@ -9,8 +9,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import map from '../map-style';
 import {createOrder} from '../../graphql/mutations';
 import LottieView from 'lottie-react-native';
+import {listCars} from '../../graphql/queries';
 
 import {API, graphqlOperation, Auth} from 'aws-amplify';
+
 // constantes para las coordenadas  de punto A y B
 const P4 = () => {
   const route = useRoute();
@@ -49,7 +51,7 @@ const P4 = () => {
   const order = async () => {
     try {
       const userInfo = await Auth.currentAuthenticatedUser();
-      console.log(userInfo);
+      console.log(userInfo.username);
 
       const date = new Date();
 

@@ -33,6 +33,7 @@ export const createTodo = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }
@@ -84,6 +85,7 @@ export const updateTodo = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }
@@ -135,6 +137,7 @@ export const deleteTodo = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }
@@ -165,6 +168,7 @@ export const createCar = /* GraphQL */ `
       latitude
       longitude
       heading
+      oneline
       orders {
         items {
           id
@@ -196,6 +200,7 @@ export const createCar = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -219,6 +224,7 @@ export const updateCar = /* GraphQL */ `
       latitude
       longitude
       heading
+      oneline
       orders {
         items {
           id
@@ -250,6 +256,7 @@ export const updateCar = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -273,6 +280,7 @@ export const deleteCar = /* GraphQL */ `
       latitude
       longitude
       heading
+      oneline
       orders {
         items {
           id
@@ -304,6 +312,7 @@ export const deleteCar = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -345,6 +354,7 @@ export const createOrder = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -359,6 +369,7 @@ export const createOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }
@@ -406,6 +417,7 @@ export const updateOrder = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -420,6 +432,7 @@ export const updateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }
@@ -467,6 +480,7 @@ export const deleteOrder = /* GraphQL */ `
           latitude
           longitude
           heading
+          oneline
           userId
           createdAt
           updatedAt
@@ -481,6 +495,7 @@ export const deleteOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        oneline
         orders {
           nextToken
         }

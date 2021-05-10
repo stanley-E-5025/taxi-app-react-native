@@ -57,7 +57,7 @@ const P4 = () => {
 
       const input = {
         createdAt: date.toISOString(),
-        type: type,
+        type: userInfo.username,
         originLatitude: route.params.originPlace.details.geometry.location.lat,
         originLongitude: route.params.originPlace.details.geometry.location.lng,
 
@@ -66,7 +66,7 @@ const P4 = () => {
         destLongitude:
           route.params.destinationPlace.details.geometry.location.lng,
         nota: route.params.text,
-        userId: userInfo.attributes.sub,
+        userId: userInfo.username,
         carId: '1',
       };
 

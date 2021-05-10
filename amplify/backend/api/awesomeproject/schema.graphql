@@ -14,7 +14,7 @@ type Car @model @key(name: "byTodo", fields: ["userId"]) {
   latitude: Float!
   longitude: Float!
   heading: Float!
-
+  oneline: Boolean
   orders: [Order] @connection(keyName: "byCar", fields: ["id"])
 
   userId: ID!

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, Pressable, Alert, Image} from 'react-native';
+import {Text, View, Pressable, Alert, Image, StatusBar} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';

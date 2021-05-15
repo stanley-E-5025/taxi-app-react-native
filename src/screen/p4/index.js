@@ -19,7 +19,6 @@ const P4 = () => {
     distance: 10,
     duration: 1000,
   });
-
   const route = useRoute();
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,
@@ -66,6 +65,7 @@ const P4 = () => {
         originLongitude: route.params.originPlace.details.geometry.location.lng,
         distance: distance,
         duration: duration,
+        cost: tarifa,
         destLatitude:
           route.params.destinationPlace.details.geometry.location.lat,
         destLongitude:
@@ -100,7 +100,9 @@ const P4 = () => {
   const distance = allinfo.distance.toFixed(1);
   const duration = allinfo.duration.toFixed(1);
   const durationClientside = allinfo.distance.toFixed(0);
-  console.log(duration, distance);
+  const cal = distance * 10;
+
+  const tarifa = 80 + cal;
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <SafeAreaView>
@@ -156,7 +158,7 @@ const P4 = () => {
         <Text style={styles.text2}>
           <Icon name="database" size={15} color="#ffffff" />
           {'  '}
-          00 C${' '}
+          {tarifa}C${' '}
         </Text>
       </View>
 

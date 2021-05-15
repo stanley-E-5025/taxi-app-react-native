@@ -33,6 +33,7 @@ type Order
   originLongitude: Float!
   duration: Float!
   distance: Float!
+  cost: Float!
 
   destLatitude: Float!
   destLongitude: Float!

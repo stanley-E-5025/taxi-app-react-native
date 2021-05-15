@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, Pressable, SafeAreaView} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -15,6 +15,11 @@ import {API, graphqlOperation, Auth} from 'aws-amplify';
 
 // constantes para las coordenadas  de punto A y B
 const P4 = () => {
+  const [allinfo, setAllinfo] = useState({
+    distance: 10,
+    duration: 1000,
+  });
+
   const route = useRoute();
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,
@@ -36,7 +41,6 @@ const P4 = () => {
 
   const confirmar = () => {
     navigation.navigate('P5', {
-      sin,
       destination,
       origins,
     });
@@ -60,7 +64,8 @@ const P4 = () => {
         type: userInfo.username,
         originLatitude: route.params.originPlace.details.geometry.location.lat,
         originLongitude: route.params.originPlace.details.geometry.location.lng,
-
+        distance: distance,
+        duration: duration,
         destLatitude:
           route.params.destinationPlace.details.geometry.location.lat,
         destLongitude:
@@ -83,32 +88,19 @@ const P4 = () => {
 
   console.log(route.params.type.taxi);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  const info = (event) => {
+    setAllinfo({
+      distance: event.distance,
+      duration: event.duration,
+    });
+  };
 
   // calculo para medir la distancia entre los A y B
 
-  Number.prototype.toRad = function () {
-    return (this * Math.PI) / 180;
-  };
-
-  var lat2 = origins.latitude;
-  var lon2 = origins.longitude;
-  var lat1 = destination.latitude;
-  var lon1 = destination.longitude;
-
-  var R = 6371;
-  var x1 = lat2 - lat1;
-  var dLat = x1.toRad();
-  var x2 = lon2 - lon1;
-  var dLon = x2.toRad();
-  var a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1.toRad()) *
-      Math.cos(lat2.toRad()) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  var d = R * c;
-  var sin = d.toFixed(0);
+  const distance = allinfo.distance.toFixed(1);
+  const duration = allinfo.duration.toFixed(1);
+  const durationClientside = allinfo.distance.toFixed(0);
+  console.log(duration, distance);
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <SafeAreaView>
@@ -140,40 +132,49 @@ const P4 = () => {
           origin={origins}
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
+          onReady={info}
           strokeWidth={4}
           strokeColor="#ffffff"
         />
       </MapView>
+
       <View style={styles.contaier}>
-        <Text style={styles.Text}>
-          {' '}
-          <Icon name="edit" size={20} color="#ffffff" /> quieres confirmar la
-          orden con esta ubicasion ?{' '}
+        <Text style={styles.text2}>
+          <Icon name="edit" size={15} color="#ffffff" />
+          {'  '}
+          confirmar orden
         </Text>
-        <Text style={styles.km}>{sin} km</Text>
-
-        <View style={styles.op}>
-          <Pressable style={styles.presable} onPress={confirmar}>
-            <Text style={styles.text2}>
-              <Icon name="check-circle-o" size={20} color="#080808" /> confirmar
-            </Text>
-          </Pressable>
-
-          <Pressable style={styles.presable}>
-            <Text style={styles.text2} onPress={move}>
-              <Icon name="times-circle-o" size={20} color="#080808" /> cancelar
-            </Text>
-          </Pressable>
-          <LottieView
-            source={require('../../animations/6607-loading-drop (1).json')}
-            autoPlay={true}
-            loop={false}
-            style={{height: 1, width: 1}}
-            speed={10}
-            onAnimationFinish={order}
-          />
-        </View>
       </View>
+      <View style={styles.contaier2}>
+        <Text style={styles.text2}>
+          <Icon name="safari" size={15} color="#ffffff" />
+          {'  '}
+          {durationClientside} Km{' '}
+        </Text>
+      </View>
+      <View style={styles.contaier3}>
+        <Text style={styles.text2}>
+          <Icon name="database" size={15} color="#ffffff" />
+          {'  '}
+          00 C${' '}
+        </Text>
+      </View>
+
+      <Pressable style={styles.presable} onPressIn={confirmar} onPress={order}>
+        <Text style={styles.text3}>
+          <Icon name="check-circle-o" size={15} color="#000000" />
+          {'  '}
+          confirmar
+        </Text>
+      </Pressable>
+
+      <Pressable style={styles.presable2} onPress={move}>
+        <Text style={styles.text3}>
+          <Icon name="times-circle-o" size={15} color="#000000" />
+          {'  '}
+          cancelar
+        </Text>
+      </Pressable>
     </SafeAreaView>
   );
 };

@@ -47,9 +47,7 @@ const P5 = () => {
         />
       </View>
       <View style={styles.view}>
-        <Text style={styles.Text}>
-          esperando que un conductor tome tu orden!!!{' '}
-        </Text>
+        <Text style={styles.Text}>buscando conductorr !!! </Text>
       </View>
     </View>
   );

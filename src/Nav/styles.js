@@ -29,16 +29,33 @@ const styles = StyleSheet.create({
     width: 250,
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center',
     alignSelf: 'center',
-    marginTop: 500,
     flexDirection: 'row',
+
+    marginTop: 400,
   },
 
   pres: {
     marginRight: 80,
     height: 20,
     width: 30,
+  },
+
+  history: {
+    width: 260,
+    height: 40,
+    alignSelf: 'flex-start',
+    marginTop: 100,
+
+    backgroundColor: '#E8E8E8',
+    justifyContent: 'center',
+    borderRadius: 9,
+    marginLeft: 7,
+  },
+
+  view: {
+    width: '100%',
+    height: '100%',
   },
 });
 

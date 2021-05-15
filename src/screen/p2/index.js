@@ -31,17 +31,11 @@ const P2 = () => {
   return (
     <SafeAreaView>
       <View style={styles.colors}>
-        <Pressable style={styles.presable} onPress={move}>
-          <Text style={styles.Text}>
-            <Icon name="angle-left" size={39} color="#ffffff" />
-          </Text>
-        </Pressable>
-
-        <Pressable style={styles.info} onLongPress={sms}>
+        <Pressable style={[styles.info, {top: 20, left: 20}]} onLongPress={sms}>
           <View style={styles.icon2}>
             <Icon name="edit" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt2}>seleccione un veiculo</Text>
+          <Text style={styles.txt2}>seleccione servicio</Text>
         </Pressable>
 
         <Pressable style={styles.presable2} onPress={movet}>
@@ -53,28 +47,38 @@ const P2 = () => {
           />
           <View style={styles.info2}>
             <Icon name="database" size={20} color="#ffffff" />
-            <Text style={styles.txt2}>80C$</Text>
           </View>
         </Pressable>
-
+        <Pressable style={[styles.info, {top: 20, left: 20}]} onLongPress={sms}>
+          <View style={styles.icon2}>
+            <Icon name="edit" size={20} color="#ffffff" />
+          </View>
+          <Text style={styles.txt2}>descripcion</Text>
+        </Pressable>
         <View style={styles.list}>
           <View style={styles.icon}>
-            <Icon name="thermometer-half" size={20} color="#ffffff" />
+            <Icon name="eye" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt}>aire acondicionado </Text>
+          <Text style={styles.txt}>Monitoreo de viajes</Text>
         </View>
 
         <View style={styles.list}>
           <View style={styles.icon}>
-            <Icon name="clock-o" size={20} color="#ffffff" />
+            <Icon name="check-circle-o" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt}>transporte rapido </Text>
+          <Text style={styles.txt}> viaje climatizado</Text>
         </View>
         <View style={styles.list}>
           <View style={styles.icon}>
-            <Icon name="heart" size={20} color="#ffffff" />
+            <Icon name="users" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt}>un viaje seguro </Text>
+          <Text style={styles.txt}> mismo precio de 1 a 4 personas </Text>
+        </View>
+        <View style={styles.list}>
+          <View style={styles.icon}>
+            <Icon name="medkit" size={20} color="#ffffff" />
+          </View>
+          <Text style={styles.txt}> medidas anti covid-19</Text>
         </View>
       </View>
     </SafeAreaView>

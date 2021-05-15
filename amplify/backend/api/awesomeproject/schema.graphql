@@ -31,6 +31,8 @@ type Order
   status: String
   originLatitude: Float!
   originLongitude: Float!
+  duration: Float!
+  distance: Float!
 
   destLatitude: Float!
   destLongitude: Float!

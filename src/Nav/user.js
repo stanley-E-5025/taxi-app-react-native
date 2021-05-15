@@ -25,46 +25,54 @@ const CustomDrawer = (props) => {
   };
 
   return (
-    <DrawerContentScrollView {...props}>
-      <View style={styles.user}>
-        <Text style={styles.text}>
-          <Icon name="user" size={25} color="#ffffff" />
-        </Text>
-      </View>
+    <DrawerContentScrollView {...props} style={styles.view}>
+      <View style={styles.view}>
+        <View style={styles.user}>
+          <Text style={styles.text}>
+            <Icon name="user" size={25} color="#ffffff" />
+          </Text>
+        </View>
 
-      <View>
-        <Text style={styles.text}>{userInfo}</Text>
-        <Text style={styles.textn}>{email}</Text>
-      </View>
-      <View style={styles.viewsocial}>
-        <Pressable
-          style={styles.pres}
-          onPress={() =>
-            Linking.openURL('https://www.facebook.com/taxislosprimos/')
-          }>
-          <Text>
-            <Icon name="social-facebook" size={30} color="#000000" />
+        <View>
+          <Text style={styles.text}>{userInfo}</Text>
+          <Text style={styles.textn}>{email}</Text>
+        </View>
+
+        <Pressable style={styles.history}>
+          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#383838'}}>
+            histoiral
           </Text>
         </Pressable>
-        <Pressable
-          onPress={() =>
-            Linking.openURL(
-              'https://www.instagram.com/taxis_losprimos_mga/?hl=es-la',
-            )
-          }>
-          <Text>
-            <Icon name="social-instagram" size={30} color="#000000" />
-          </Text>
-        </Pressable>
+        <View style={[styles.viewsocial, {bottom: 10}]}>
+          <Pressable
+            style={styles.pres}
+            onPress={() =>
+              Linking.openURL('https://www.facebook.com/taxislosprimos/')
+            }>
+            <Text>
+              <Icon name="social-facebook" size={30} color="#000000" />
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() =>
+              Linking.openURL(
+                'https://www.instagram.com/taxis_losprimos_mga/?hl=es-la',
+              )
+            }>
+            <Text>
+              <Icon name="social-instagram" size={30} color="#000000" />
+            </Text>
+          </Pressable>
+        </View>
+        <LottieView
+          source={require('../animations/4822-icon-test.json')}
+          autoPlay={true}
+          loop={false}
+          style={{height: 1, width: 1}}
+          speed={10}
+          onAnimationFinish={order}
+        />
       </View>
-      <LottieView
-        source={require('../animations/4822-icon-test.json')}
-        autoPlay={true}
-        loop={false}
-        style={{height: 1, width: 1}}
-        speed={10}
-        onAnimationFinish={order}
-      />
     </DrawerContentScrollView>
   );
 };

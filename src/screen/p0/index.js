@@ -42,18 +42,18 @@ const P0 = () => {
 
   return (
     <View style={styles.vvv}>
-      <Image style={styles.img} source={require('../../animations/dd.png')} />
+      <Image style={styles.img} source={require('../../animations/logo.png')} />
       <LottieView
         source={require('../../animations/ggg.json')}
         autoPlay={true}
         loop={false}
         onAnimationFinish={movet}
-        speed={0.4}
+        speed={0.11}
         style={{
           height: 1,
           width: 1,
           alignSelf: 'center',
-          justifyContent: 'center',
+          bottom: 10,
         }}
       />
 
@@ -74,10 +74,10 @@ const P0 = () => {
         autoPlay={true}
         loop={true}
         style={{
-          height: 50,
+          height: 70,
           width: 10,
           alignSelf: 'center',
-          marginTop: 50,
+          top: 100,
         }}
       />
     </View>

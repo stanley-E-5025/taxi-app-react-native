@@ -15,6 +15,8 @@ export const getTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -99,6 +101,8 @@ export const getCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -176,6 +180,8 @@ export const getOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota
@@ -241,6 +247,8 @@ export const listOrders = /* GraphQL */ `
         status
         originLatitude
         originLongitude
+        duration
+        distance
         destLatitude
         destLongitude
         nota

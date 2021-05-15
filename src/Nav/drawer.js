@@ -3,7 +3,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import P from '../screen/P/index';
 import P0 from '../screen/p0/index';
 import P1 from '../screen/p1/index';
 import P2 from '../screen/p2/index';
@@ -28,13 +27,7 @@ export default function Nav(props) {
             swipeEnabled: false,
           }}
         />
-        <Drawer.Screen
-          name={'P'}
-          component={P}
-          options={{
-            swipeEnabled: false,
-          }}
-        />
+
         <Drawer.Screen name={'P1'} component={P1} />
         <Drawer.Screen
           name={'P2'}

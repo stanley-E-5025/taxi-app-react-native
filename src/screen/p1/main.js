@@ -16,7 +16,15 @@ const Bt = () => {
     <Pressable
       style={[styles.main, {top: 20, left: 10}]}
       onPress={navigation.openDrawer}>
-      <Icon name="bars" size={30} color="#ffffff" />
+      <LottieView
+        source={require('../../animations/menus.json')}
+        autoPlay={true}
+        loop={true}
+        style={{
+          alignSelf: 'flex-start',
+          height: 100,
+        }}
+      />
     </Pressable>
   );
 };

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: 250,
     alignSelf: 'flex-start',
-    marginTop: 50,
+    marginTop: 40,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -66,13 +66,11 @@ const styles = StyleSheet.create({
     height: 35,
     width: 200,
     backgroundColor: '#313131',
-    alignSelf: 'flex-start',
-    marginTop: 10,
     borderRadius: 10,
-    marginLeft: 10,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    marginTop: 50,
   },
 
   info2: {

@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     width: 200,
     height: 40,
-     
+
     justifyContent: 'center',
     alignSelf: 'center',
-     borderRadius: 10,
+    borderRadius: 10,
     alignContent: 'center',
     alignItems: 'center',
-    marginTop:10
+    marginTop: 10,
   },
 
   Text: {
@@ -29,15 +29,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#252525',
     width: '100%',
     height: '100%',
-    alignItems:"center",
-    justifyContent:"center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   img: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     alignSelf: 'center',
-    marginTop: 200,
+
+    top: 50,
   },
 });
 export default styles;

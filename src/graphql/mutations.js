@@ -18,6 +18,8 @@ export const createTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -70,6 +72,8 @@ export const updateTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -122,6 +126,8 @@ export const deleteTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -177,6 +183,8 @@ export const createCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -233,6 +241,8 @@ export const updateCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -289,6 +299,8 @@ export const deleteCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -337,6 +349,8 @@ export const createOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota
@@ -400,6 +414,8 @@ export const updateOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota
@@ -463,6 +479,8 @@ export const deleteOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota

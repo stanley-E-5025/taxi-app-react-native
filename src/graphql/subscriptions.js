@@ -15,6 +15,8 @@ export const onCreateTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -64,6 +66,8 @@ export const onUpdateTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -113,6 +117,8 @@ export const onDeleteTodo = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -165,6 +171,8 @@ export const onCreateCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -218,6 +226,8 @@ export const onUpdateCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -271,6 +281,8 @@ export const onDeleteCar = /* GraphQL */ `
           status
           originLatitude
           originLongitude
+          duration
+          distance
           destLatitude
           destLongitude
           nota
@@ -316,6 +328,8 @@ export const onCreateOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota
@@ -376,6 +390,8 @@ export const onUpdateOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota
@@ -436,6 +452,8 @@ export const onDeleteOrder = /* GraphQL */ `
       status
       originLatitude
       originLongitude
+      duration
+      distance
       destLatitude
       destLongitude
       nota

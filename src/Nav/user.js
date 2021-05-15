@@ -3,11 +3,15 @@ import {View, Text, Pressable, Linking, Button, Alert} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 import LottieView from 'lottie-react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import styles from './styles';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
-const CustomDrawer = (props) => {
+const CustomDrawer = ({navigation, props}) => {
+  const movet = () => {
+    navigation.navigate('List');
+  };
   const [userInfo, setUserinfo] = useState('all');
   const [email, setEmail] = useState('all');
 
@@ -38,7 +42,7 @@ const CustomDrawer = (props) => {
           <Text style={styles.textn}>{email}</Text>
         </View>
 
-        <Pressable style={styles.history}>
+        <Pressable style={styles.history} onPress={movet}>
           <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#383838'}}>
             histoiral
           </Text>

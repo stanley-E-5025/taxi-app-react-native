@@ -66,6 +66,7 @@ const P4 = () => {
         distance: distance,
         duration: duration,
         cost: tarifa,
+        status: 'NEW',
         destLatitude:
           route.params.destinationPlace.details.geometry.location.lat,
         destLongitude:

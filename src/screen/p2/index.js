@@ -46,7 +46,8 @@ const P2 = () => {
             style={{height: 80, width: 90}}
           />
           <View style={styles.info2}>
-            <Icon name="database" size={20} color="#ffffff" />
+            <Icon name="database" size={15} color="#ffffff" />
+            <Text style={styles.txt2}>seleccionar</Text>
           </View>
         </Pressable>
         <Pressable style={[styles.info, {top: 20, left: 20}]} onLongPress={sms}>

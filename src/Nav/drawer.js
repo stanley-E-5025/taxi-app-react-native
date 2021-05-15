@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import List from '../screen/list/index';
 
 import P0 from '../screen/p0/index';
 import P1 from '../screen/p1/index';
@@ -12,6 +13,7 @@ import P5 from '../screen/p5/index';
 import P6 from '../screen/P6/index';
 import CustomDrawer from './user';
 import P7 from '../screen/P7';
+
 const Drawer = createDrawerNavigator();
 
 export default function Nav(props) {
@@ -71,6 +73,14 @@ export default function Nav(props) {
             swipeEnabled: false,
           }}
         />
+        <Drawer.Screen
+          name={'List'}
+          component={List}
+          options={{
+            swipeEnabled: false,
+          }}
+        />
+        <Drawer.Screen name={'gt'} component={CustomDrawer} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

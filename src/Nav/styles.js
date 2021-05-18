@@ -2,25 +2,26 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   user: {
-    backgroundColor: '#000000',
+    backgroundColor: '#133b5c',
     width: 80,
     height: 80,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     marginTop: 20,
+    marginLeft: 7,
     borderRadius: 100,
   },
 
   text: {
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 20,
   },
 
   textn: {
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
     fontSize: 15,
   },
@@ -40,14 +41,32 @@ const styles = StyleSheet.create({
     height: 20,
     width: 30,
   },
-
+  line: {
+    width: '100%',
+    height: 2,
+    alignSelf: 'flex-start',
+    marginTop: 50,
+    backgroundColor: '#133b5c',
+    justifyContent: 'center',
+    borderRadius: 9,
+    marginLeft: 7,
+  },
   history: {
     width: 260,
     height: 40,
     alignSelf: 'flex-start',
-    marginTop: 100,
+    marginTop: 40,
 
-    backgroundColor: '#E8E8E8',
+    justifyContent: 'center',
+    borderRadius: 9,
+    marginLeft: 7,
+  },
+  constacto: {
+    width: 260,
+    height: 40,
+    alignSelf: 'flex-start',
+    marginTop: 20,
+
     justifyContent: 'center',
     borderRadius: 9,
     marginLeft: 7,
@@ -56,6 +75,7 @@ const styles = StyleSheet.create({
   view: {
     width: '100%',
     height: '100%',
+    backgroundColor: '#1d2d50',
   },
 });
 

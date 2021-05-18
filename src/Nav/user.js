@@ -31,43 +31,33 @@ const CustomDrawer = ({navigation, props}) => {
   return (
     <DrawerContentScrollView {...props} style={styles.view}>
       <View style={styles.view}>
-        <View style={styles.user}>
-          <Text style={styles.text}>
-            <Icon name="user" size={25} color="#ffffff" />
-          </Text>
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.user}>
+            <Text style={styles.text}>
+              <Icon name="user" size={25} color="#ffffff" />
+            </Text>
+          </View>
+
+          <View style={{alignSelf: 'flex-start', top: 40, left: 30}}>
+            <Text style={styles.text}>{userInfo}</Text>
+          </View>
         </View>
 
-        <View>
-          <Text style={styles.text}>{userInfo}</Text>
+        <View style={{top: 20}}>
           <Text style={styles.textn}>{email}</Text>
         </View>
-
+        <Pressable style={styles.line}></Pressable>
         <Pressable style={styles.history} onPress={movet}>
-          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#383838'}}>
+          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
             histoiral
           </Text>
         </Pressable>
-        <View style={[styles.viewsocial, {bottom: 10}]}>
-          <Pressable
-            style={styles.pres}
-            onPress={() =>
-              Linking.openURL('https://www.facebook.com/taxislosprimos/')
-            }>
-            <Text>
-              <Icon name="social-facebook" size={30} color="#000000" />
-            </Text>
-          </Pressable>
-          <Pressable
-            onPress={() =>
-              Linking.openURL(
-                'https://www.instagram.com/taxis_losprimos_mga/?hl=es-la',
-              )
-            }>
-            <Text>
-              <Icon name="social-instagram" size={30} color="#000000" />
-            </Text>
-          </Pressable>
-        </View>
+        <Pressable style={styles.constacto} onPress={movet}>
+          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
+            contactanos
+          </Text>
+        </Pressable>
+
         <LottieView
           source={require('../animations/4822-icon-test.json')}
           autoPlay={true}

@@ -42,6 +42,7 @@ const P0 = () => {
 
   return (
     <View style={styles.vvv}>
+      <StatusBar hidden={true} />
       <Image style={styles.img} source={require('../../animations/logo.png')} />
       <LottieView
         source={require('../../animations/ggg.json')}

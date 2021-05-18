@@ -14,7 +14,7 @@ const P2 = () => {
   const lat = route.params.lat;
   const lon = route.params.lon;
   const sms = () => {
-    alert('fuk u ');
+    alert('xd');
   };
 
   const navigation = useNavigation();
@@ -54,7 +54,7 @@ const P2 = () => {
           <View style={styles.icon2}>
             <Icon name="edit" size={20} color="#ffffff" />
           </View>
-          <Text style={styles.txt2}>descripcion</Text>
+          <Text style={styles.txt2}>descripcion del servicio</Text>
         </Pressable>
         <View style={styles.list}>
           <View style={styles.icon}>

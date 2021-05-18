@@ -43,7 +43,6 @@ const P5 = () => {
           loop={false}
           style={{height: 1, width: 100}}
           speed={0.4}
-          onAnimationFinish={move}
         />
       </View>
       <View style={styles.view}>

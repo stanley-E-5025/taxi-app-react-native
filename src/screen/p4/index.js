@@ -19,6 +19,8 @@ const P4 = () => {
     distance: 10,
     duration: 1000,
   });
+
+  const [tarifa, setTarifa] = useState(60);
   const route = useRoute();
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,
@@ -65,7 +67,7 @@ const P4 = () => {
         originLongitude: route.params.originPlace.details.geometry.location.lng,
         distance: distance,
         duration: duration,
-        cost: tarifa,
+        cost: orderPrice,
         status: 'NEW',
         destLatitude:
           route.params.destinationPlace.details.geometry.location.lat,
@@ -101,9 +103,39 @@ const P4 = () => {
   const distance = allinfo.distance.toFixed(1);
   const duration = allinfo.duration.toFixed(1);
   const durationClientside = allinfo.distance.toFixed(0);
-  const cal = distance * 10;
+  const cal = distance * 13;
 
-  const tarifa = 80 + cal;
+  const price = tarifa + cal;
+
+  let date = new Date();
+
+  let hours = date.getHours();
+
+  // how to handle the cases where time is one digit
+  function makeTwoDigits(time) {
+    const timeString = `${time}`;
+    if (timeString.length === 2) return time;
+    return `0${time}`;
+  }
+
+  const orderPrice = price.toFixed(1);
+  const times = makeTwoDigits(hours);
+
+  if (times > 20) {
+    const tarifa1 = 80 + cal;
+    setTarifa(80);
+    console.log(tarifa1);
+  }
+
+  if (times == 7) {
+    const tarifa2 = 80 + cal;
+    setTarifa(60);
+    console.log(tarifa2);
+  }
+
+  // 10 pm a 6 am  son  80
+  // if the price  > 100 + 900 aranqj
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <SafeAreaView>
@@ -142,7 +174,7 @@ const P4 = () => {
       </MapView>
 
       <View style={styles.contaier}>
-        <Text style={styles.text2}>
+        <Text style={styles.text22}>
           <Icon name="edit" size={15} color="#ffffff" />
           {'  '}
           confirmar orden
@@ -150,16 +182,23 @@ const P4 = () => {
       </View>
       <View style={styles.contaier2}>
         <Text style={styles.text2}>
-          <Icon name="safari" size={15} color="#ffffff" />
+          <Icon name="safari" size={15} color="#171717" />
           {'  '}
           {durationClientside} Km{' '}
         </Text>
       </View>
       <View style={styles.contaier3}>
         <Text style={styles.text2}>
-          <Icon name="database" size={15} color="#ffffff" />
+          <Icon name="database" size={15} color="#171717" />
           {'  '}
-          {tarifa}C${' '}
+          {orderPrice}C${' '}
+        </Text>
+      </View>
+      <View style={styles.precio}>
+        <Text style={styles.text22}>
+          <Icon name="edit" size={15} color="#ffffff" />
+          {'  '}
+          valor de su orden
         </Text>
       </View>
 

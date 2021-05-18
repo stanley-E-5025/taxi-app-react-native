@@ -13,13 +13,25 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
   },
-  contaier2: {
+  precio: {
     backgroundColor: '#171717',
+    width: 150,
+    height: 35,
+    position: 'absolute',
+    alignSelf: 'flex-start',
+    top: 635,
+    right: 7,
+    borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  contaier2: {
+    backgroundColor: '#ffffff',
     width: 100,
     height: 35,
     position: 'absolute',
     alignSelf: 'flex-start',
-    top: 550,
+    top: 600,
     left: 10,
     borderRadius: 10,
     alignContent: 'center',
@@ -27,12 +39,12 @@ const styles = StyleSheet.create({
   },
 
   contaier3: {
-    backgroundColor: '#171717',
+    backgroundColor: '#ffffff',
     width: 100,
     height: 35,
     position: 'absolute',
     alignSelf: 'flex-start',
-    top: 550,
+    top: 600,
     right: 10,
     borderRadius: 10,
     alignContent: 'center',
@@ -77,6 +89,12 @@ const styles = StyleSheet.create({
   },
 
   text2: {
+    color: '#171717',
+    textAlign: 'center',
+
+    fontWeight: 'bold',
+  },
+  text22: {
     color: '#ffffff',
     textAlign: 'center',
 

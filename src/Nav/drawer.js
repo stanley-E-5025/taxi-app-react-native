@@ -13,6 +13,7 @@ import P5 from '../screen/p5/index';
 import P6 from '../screen/P6/index';
 import CustomDrawer from './user';
 import P7 from '../screen/P7';
+import Contact from '../screen/contact/index';
 
 const Drawer = createDrawerNavigator();
 
@@ -76,6 +77,13 @@ export default function Nav(props) {
         <Drawer.Screen
           name={'List'}
           component={List}
+          options={{
+            swipeEnabled: false,
+          }}
+        />
+        <Drawer.Screen
+          name={'contact'}
+          component={Contact}
           options={{
             swipeEnabled: false,
           }}

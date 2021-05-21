@@ -12,6 +12,9 @@ const CustomDrawer = ({navigation, props}) => {
   const movet = () => {
     navigation.navigate('List');
   };
+  const move = () => {
+    navigation.navigate('contact');
+  };
   const [userInfo, setUserinfo] = useState('all');
   const [email, setEmail] = useState('all');
 
@@ -52,7 +55,7 @@ const CustomDrawer = ({navigation, props}) => {
             histoiral
           </Text>
         </Pressable>
-        <Pressable style={styles.constacto} onPress={movet}>
+        <Pressable style={styles.constacto} onPress={move}>
           <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
             contactanos
           </Text>

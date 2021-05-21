@@ -27,6 +27,11 @@ const P4 = () => {
     longitude: route.params.originPlace.details.geometry.location.lng,
   };
 
+  const text1 = route.params.destinationPlace.details.name;
+  const text2 = route.params.destinationPlace.details.formatted_address;
+
+  const place = text1 + ',' + text2;
+
   const destination = {
     latitude: route.params.destinationPlace.details.geometry.location.lat,
     longitude: route.params.destinationPlace.details.geometry.location.lng,
@@ -68,6 +73,7 @@ const P4 = () => {
         distance: distance,
         duration: duration,
         cost: orderPrice,
+        place: place,
         status: 'NEW',
         destLatitude:
           route.params.destinationPlace.details.geometry.location.lat,

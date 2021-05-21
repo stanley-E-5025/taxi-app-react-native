@@ -34,7 +34,7 @@ type Order
   duration: Float!
   distance: Float!
   cost: Float!
-
+  place: String!
   destLatitude: Float!
   destLongitude: Float!
   nota: String!

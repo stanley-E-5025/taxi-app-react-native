@@ -21,6 +21,7 @@ export const createTodo = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -76,6 +77,7 @@ export const updateTodo = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -131,6 +133,7 @@ export const deleteTodo = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -189,6 +192,7 @@ export const createCar = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -248,6 +252,7 @@ export const updateCar = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -307,6 +312,7 @@ export const deleteCar = /* GraphQL */ `
           duration
           distance
           cost
+          place
           destLatitude
           destLongitude
           nota
@@ -358,6 +364,7 @@ export const createOrder = /* GraphQL */ `
       duration
       distance
       cost
+      place
       destLatitude
       destLongitude
       nota
@@ -424,6 +431,7 @@ export const updateOrder = /* GraphQL */ `
       duration
       distance
       cost
+      place
       destLatitude
       destLongitude
       nota
@@ -490,6 +498,7 @@ export const deleteOrder = /* GraphQL */ `
       duration
       distance
       cost
+      place
       destLatitude
       destLongitude
       nota

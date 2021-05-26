@@ -8,8 +8,6 @@ const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import map from '../map-style';
 import {createOrder} from '../../graphql/mutations';
-import LottieView from 'lottie-react-native';
-import {listCars} from '../../graphql/queries';
 
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 
@@ -56,8 +54,6 @@ const P4 = () => {
     type: 'taxi1',
   };
 
-  const type = types.type;
-
   const order = async () => {
     try {
       const userInfo = await Auth.currentAuthenticatedUser();
@@ -95,7 +91,6 @@ const P4 = () => {
     }
   };
 
-  console.log(route.params.type.taxi);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const info = (event) => {
     setAllinfo({
@@ -127,18 +122,6 @@ const P4 = () => {
   const orderPrice = price.toFixed(1);
   const times = makeTwoDigits(hours);
 
-  if (times > 20) {
-    const tarifa1 = 80 + cal;
-    setTarifa(80);
-    console.log(tarifa1);
-  }
-
-  if (times == 7) {
-    const tarifa2 = 80 + cal;
-    setTarifa(60);
-    console.log(tarifa2);
-  }
-
   // 10 pm a 6 am  son  80
   // if the price  > 100 + 900 aranqj
 
@@ -147,7 +130,6 @@ const P4 = () => {
     <SafeAreaView>
       <MapView
         style={{height: '100%', width: '100%'}}
-        customMapStyle={map}
         initialRegion={{
           latitude: route.params.gps.lat,
           longitude: route.params.gps.lon,

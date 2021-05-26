@@ -11,15 +11,10 @@ const P7 = () => {
     navigation.navigate('P1');
   };
 
-  const sms = () => {
-    alert(
-      've  y manten precionado  la caja de selecione su transporte la que tiene el icono  al lado uno de lista ',
-    );
-  };
   return (
     <SafeAreaView
       style={{backgroundColor: '#1A1A1A', width: '100%', height: '100%'}}>
-      <Pressable style={styles.info} onLongPress={sms}>
+      <Pressable style={styles.info}>
         <Text style={styles.txt2}>
           <Icon name="edit" size={20} color="#ffffff" /> {'    '}que ocurrio
         </Text>

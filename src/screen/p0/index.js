@@ -49,7 +49,7 @@ const P0 = () => {
         autoPlay={true}
         loop={false}
         onAnimationFinish={movet}
-        speed={0.11}
+        speed={0.9}
         style={{
           height: 1,
           width: 1,

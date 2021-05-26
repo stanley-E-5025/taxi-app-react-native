@@ -74,6 +74,12 @@ const P1 = () => {
     }
     return require('./car.png');
   };
+
+  if (route.params.lat === 0) {
+    alert(
+      'deberias salir y volver a entrar de la app o asegurarte de que el gps esta activado',
+    );
+  }
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -82,7 +88,6 @@ const P1 = () => {
           provider={PROVIDER_GOOGLE}
           onUserLocationChange={gps}
           showsMyLocationButton={true}
-          customMapStyle={map}
           showsUserLocation={true}
           showsCompass={false}
           initialRegion={{

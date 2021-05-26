@@ -5,23 +5,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 
-import Geolocation from '@react-native-community/geolocation';
-
 const P2 = () => {
   const route = useRoute();
-  console.log(route.params);
 
   const lat = route.params.lat;
   const lon = route.params.lon;
-  const sms = () => {
-    alert('xd');
-  };
 
   const navigation = useNavigation();
+
   const move = () => {
-    navigation.navigate('P1');
-  };
-  const movet = () => {
     navigation.navigate('P3', {
       lat,
       lon,
@@ -31,14 +23,14 @@ const P2 = () => {
   return (
     <SafeAreaView>
       <View style={styles.colors}>
-        <Pressable style={[styles.info, {top: 20, left: 20}]} onLongPress={sms}>
+        <Pressable style={[styles.info, {top: 20, left: 20}]}>
           <View style={styles.icon2}>
             <Icon name="edit" size={20} color="#ffffff" />
           </View>
           <Text style={styles.txt2}>seleccione servicio</Text>
         </Pressable>
 
-        <Pressable style={styles.presable2} onPress={movet}>
+        <Pressable style={styles.presable2} onPress={move}>
           <LottieView
             source={require('../../animations/FFFF.json')}
             autoPlay
@@ -50,7 +42,7 @@ const P2 = () => {
             <Text style={styles.txt2}>seleccionar</Text>
           </View>
         </Pressable>
-        <Pressable style={[styles.info, {top: 20, left: 20}]} onLongPress={sms}>
+        <Pressable style={[styles.info, {top: 20, left: 20}]}>
           <View style={styles.icon2}>
             <Icon name="edit" size={20} color="#ffffff" />
           </View>

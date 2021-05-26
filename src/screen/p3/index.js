@@ -41,7 +41,6 @@ const P3 = (props) => {
   const type = {
     taxi: 'taxi',
   };
-  console.log(type.taxi);
   const workPlace = {
     description: 'Posición actual',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},

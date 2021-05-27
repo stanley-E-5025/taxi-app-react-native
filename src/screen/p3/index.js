@@ -103,7 +103,7 @@ const P3 = (props) => {
           </Text>
         </View>
         <TextInput
-          style={[styles.drivertxt, {top: 350}]}
+          style={[styles.drivertxt, {top: 450}]}
           onChangeText={onChangeText}
           value={text}
           placeholder="nota para elconductor"

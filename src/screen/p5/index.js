@@ -27,11 +27,11 @@ const P5 = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#252525',
+        backgroundColor: '#ffffff',
       }}>
       <View style={{position: 'absolute'}}>
         <LottieView
-          source={require('../../animations/dd.json')}
+          source={require('../../animations/loadinf.json')}
           autoPlay
           loop
           style={{height: 300, width: 500}}

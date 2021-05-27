@@ -1,21 +1,60 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  presable: {
+  presable1: {
+    backgroundColor: '#171717',
+    width: 180,
+    height: 35,
+    position: 'absolute',
     alignSelf: 'flex-start',
-    margin: 20,
+    borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+    marginBottom: 25,
+  },
+  text22: {
+    color: '#ffffff',
+    textAlign: 'left',
+    margin: 5,
+  },
+  text21: {
+    color: '#ffffff',
+    textAlign: 'center',
+  },
+
+  scrollView: {
+    height: 200,
+    width: 370,
+    backgroundColor: '#171717',
+    position: 'absolute',
+    bottom: 10,
+    alignSelf: 'center',
+    borderRadius: 10,
+  },
+  text2: {
+    color: '#ffffff',
+    textAlign: 'left',
+    margin: 5,
+    fontWeight: 'bold',
+  },
+  textd: {
+    color: '#ffffff',
+    textAlign: 'left',
+    margin: 10,
+    fontWeight: 'bold',
+    fontSize: 19,
   },
 
   presable2: {
-    height: 80,
-    width: 350,
-    backgroundColor: '#232222',
-    alignSelf: 'center',
-    marginTop: 50,
-    borderRadius: 10,
+    backgroundColor: '#171717',
+
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+
     justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    position: 'absolute',
+    alignSelf: 'center',
   },
 
   colors: {
@@ -42,7 +81,7 @@ const styles = StyleSheet.create({
   },
 
   txt2: {
-    color: '#ffffff',
+    color: '#000000',
     fontWeight: 'bold',
     marginLeft: 10,
   },
@@ -56,6 +95,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+
+  custom: {
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+    justifyContent: 'center',
   },
 
   icon2: {
@@ -76,13 +122,31 @@ const styles = StyleSheet.create({
   info2: {
     height: 35,
     width: 100,
-    backgroundColor: '#313131',
-    marginTop: 10,
+    backgroundColor: '#ffffff',
     borderRadius: 10,
-    marginLeft: 100,
     alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'row',
+    alignSelf: 'flex-end',
+    bottom: 50,
+    right: 30,
+  },
+
+  Ani: {
+    height: 35,
+    width: 100,
+    borderRadius: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    margin: 30,
+  },
+
+  presable: {
+    width: 320,
+    height: 70,
+    borderRadius: 10,
+    margin: 10,
+    alignSelf: 'center',
   },
 });
 

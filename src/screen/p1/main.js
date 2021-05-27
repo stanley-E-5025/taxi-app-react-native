@@ -17,7 +17,7 @@ const Bt = () => {
       style={[styles.main, {top: 20, left: 10}]}
       onPress={navigation.openDrawer}>
       <LottieView
-        source={require('../../animations/menus.json')}
+        source={require('../../animations/menu.json')}
         autoPlay={true}
         loop={true}
         style={{

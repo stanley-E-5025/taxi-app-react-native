@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import {PermissionsAndroid, Platform} from 'react-native';
- 
+
 import Nav from './src/Nav/drawer';
 import 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
-import Amplify from 'aws-amplify'
-import config from './src/aws-exports'
-Amplify.configure(config)
+import Amplify from 'aws-amplify';
+import config from './src/aws-exports';
+Amplify.configure(config);
 
 const all = () => {
   const Permission = async () => {

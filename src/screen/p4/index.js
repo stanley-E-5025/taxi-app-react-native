@@ -124,7 +124,20 @@ const P4 = () => {
 
   // 10 pm a 6 am  son  80
   // if the price  > 100 + 900 aranqj
-
+  const MyCustomMarkerView = (marker) => {
+    return (
+      <View style={styles.custom}>
+        <Text style={styles.text21}>A</Text>
+      </View>
+    );
+  };
+  const MyCustomMarkerViewB = (marker) => {
+    return (
+      <View style={styles.custom}>
+        <Text style={styles.text21}>B</Text>
+      </View>
+    );
+  };
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <SafeAreaView>
@@ -138,43 +151,29 @@ const P4 = () => {
         }}>
         <Marker
           coordinate={{
-            latitude: origins.latitude,
-            longitude: origins.longitude,
-          }}
-          image={require('./rr.png')}
-        />
-
+            latitude: route.params.gps.lat,
+            longitude: route.params.gps.lon,
+          }}>
+          <MyCustomMarkerView {...MyCustomMarkerView} />
+        </Marker>
         <Marker
           coordinate={{
             latitude: destination.latitude,
             longitude: destination.longitude,
-          }}
-          image={require('./rr.png')}
-        />
+          }}>
+          <MyCustomMarkerViewB {...MyCustomMarkerViewB} />
+        </Marker>
+
         <MapViewDirections
           origin={origins}
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           onReady={info}
           strokeWidth={4}
-          strokeColor="#ffffff"
+          strokeColor="#171717"
         />
       </MapView>
 
-      <View style={styles.contaier}>
-        <Text style={styles.text22}>
-          <Icon name="edit" size={15} color="#ffffff" />
-          {'  '}
-          confirmar orden
-        </Text>
-      </View>
-      <View style={styles.contaier2}>
-        <Text style={styles.text2}>
-          <Icon name="safari" size={15} color="#171717" />
-          {'  '}
-          {durationClientside} Km{' '}
-        </Text>
-      </View>
       <View style={styles.contaier3}>
         <Text style={styles.text2}>
           <Icon name="database" size={15} color="#171717" />
@@ -182,27 +181,18 @@ const P4 = () => {
           {orderPrice}C${' '}
         </Text>
       </View>
-      <View style={styles.precio}>
-        <Text style={styles.text22}>
-          <Icon name="edit" size={15} color="#ffffff" />
-          {'  '}
-          valor de su orden
-        </Text>
-      </View>
 
       <Pressable style={styles.presable} onPressIn={confirmar} onPress={order}>
         <Text style={styles.text3}>
-          <Icon name="check-circle-o" size={15} color="#000000" />
+          <Icon name="check-circle-o" size={15} color="#ffffff" />
           {'  '}
-          confirmar
+          confirmar orden
         </Text>
       </Pressable>
 
       <Pressable style={styles.presable2} onPress={move}>
         <Text style={styles.text3}>
-          <Icon name="times-circle-o" size={15} color="#000000" />
-          {'  '}
-          cancelar
+          <Icon name="close" size={25} color="#000000" />
         </Text>
       </Pressable>
     </SafeAreaView>

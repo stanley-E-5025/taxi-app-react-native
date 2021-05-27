@@ -62,7 +62,7 @@ const CustomDrawer = ({navigation, props}) => {
         </Pressable>
 
         <LottieView
-          source={require('../animations/4822-icon-test.json')}
+          source={require('../animations/FFFF.json')}
           autoPlay={true}
           loop={false}
           style={{height: 1, width: 1}}

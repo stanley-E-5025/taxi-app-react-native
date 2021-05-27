@@ -76,10 +76,18 @@ const P1 = () => {
   };
 
   if (route.params.lat === 0) {
-    alert(
-      'deberias salir y volver a entrar de la app o asegurarte de que el gps esta activado',
-    );
+    alert('asegurarte de que el gps esta activado');
   }
+
+  const MyCustomMarkerView = (marker) => {
+    return (
+      <View style={styles.custom}>
+        <Text style={styles.text21}>
+          <Icon name="map-marker" size={30} color="#171717" />
+        </Text>
+      </View>
+    );
+  };
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -87,7 +95,6 @@ const P1 = () => {
           style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
           onUserLocationChange={gps}
-          showsMyLocationButton={true}
           showsUserLocation={true}
           showsCompass={false}
           initialRegion={{
@@ -96,6 +103,14 @@ const P1 = () => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>
+          <Marker
+            coordinate={{
+              latitude: route.params.lat,
+              longitude: route.params.lon,
+            }}>
+            <MyCustomMarkerView {...MyCustomMarkerView} />
+          </Marker>
+
           {cars.map((car) => (
             <Marker
               key={car.id}

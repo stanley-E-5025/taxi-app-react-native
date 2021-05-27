@@ -66,26 +66,25 @@ const styles = StyleSheet.create({
   },
 
   presable: {
-    backgroundColor: '#ffffff',
-    width: 150,
+    backgroundColor: '#171717',
+    width: 300,
     height: 40,
     alignSelf: 'center',
     borderRadius: 10,
     justifyContent: 'center',
     position: 'absolute',
     bottom: 25,
-    left: 30,
   },
   presable2: {
     backgroundColor: '#ffffff',
-    width: 150,
-    height: 40,
+    width: 50,
+    height: 50,
     alignSelf: 'center',
-    borderRadius: 10,
+    borderRadius: 100,
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 25,
-    right: 30,
+    top: 10,
+    left: 10,
   },
 
   text2: {
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   text3: {
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
 
     fontWeight: 'bold',
@@ -112,6 +111,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 30,
     marginRight: 30,
+  },
+
+  custom: {
+    width: 30,
+    height: 30,
+    borderRadius: 100,
+    justifyContent: 'center',
+    backgroundColor: '#171717',
+  },
+  text21: {
+    color: '#ffffff',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
 export default styles;

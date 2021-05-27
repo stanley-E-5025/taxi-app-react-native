@@ -45,7 +45,7 @@ const P0 = () => {
       <StatusBar hidden={true} />
       <Image style={styles.img} source={require('../../animations/logo.png')} />
       <LottieView
-        source={require('../../animations/ggg.json')}
+        source={require('../../animations/6607-loading-drop (1).json')}
         autoPlay={true}
         loop={false}
         onAnimationFinish={movet}

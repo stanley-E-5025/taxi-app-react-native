@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginTop: 400,
   },
   Text: {
-    color: '#ffffff',
+    color: '#171717',
     alignSelf: 'center',
   },
 

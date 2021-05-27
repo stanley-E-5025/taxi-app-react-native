@@ -24,12 +24,15 @@ const styles = StyleSheet.create({
 
   scrollView: {
     height: 200,
-    width: 370,
+    width: '100%',
     backgroundColor: '#171717',
     position: 'absolute',
-    bottom: 10,
+    bottom: 0,
+
     alignSelf: 'center',
-    borderRadius: 10,
+
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   text2: {
     color: '#ffffff',

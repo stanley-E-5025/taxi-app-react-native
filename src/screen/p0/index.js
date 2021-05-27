@@ -33,12 +33,16 @@ const P0 = () => {
   };
   const navigation = useNavigation();
 
-  const movet = () => {
+  console.log(lat, lon);
+
+  if (lat === 0) {
+    console.log('esperar');
+  } else {
     navigation.navigate('P1', {
       lat,
       lon,
     });
-  };
+  }
 
   return (
     <View style={styles.vvv}>
@@ -48,7 +52,6 @@ const P0 = () => {
         source={require('../../animations/6607-loading-drop (1).json')}
         autoPlay={true}
         loop={false}
-        onAnimationFinish={movet}
         speed={0.9}
         style={{
           height: 1,

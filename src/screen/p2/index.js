@@ -91,6 +91,7 @@ const P2 = () => {
 
         <Text style={styles.textd}>descripcion</Text>
         <Text style={styles.text22}>
+          {' '}
           <Icon name="eye" size={15} color="#ffffff" />
           {'  '}
           Monitoreo de viajes

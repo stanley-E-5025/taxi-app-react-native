@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
   },
 
   custom: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     borderRadius: 100,
     justifyContent: 'center',
     backgroundColor: '#171717',

@@ -15,8 +15,8 @@ const CustomDrawer = ({navigation, props}) => {
   const move = () => {
     navigation.navigate('contact');
   };
-  const [userInfo, setUserinfo] = useState('all');
-  const [email, setEmail] = useState('all');
+  const [userInfo, setUserinfo] = useState('...');
+  const [email, setEmail] = useState('...');
 
   const order = async () => {
     try {
@@ -52,7 +52,7 @@ const CustomDrawer = ({navigation, props}) => {
         <Pressable style={styles.line}></Pressable>
         <Pressable style={styles.history} onPress={movet}>
           <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
-            histoiral
+            historial
           </Text>
         </Pressable>
         <Pressable style={styles.constacto} onPress={move}>

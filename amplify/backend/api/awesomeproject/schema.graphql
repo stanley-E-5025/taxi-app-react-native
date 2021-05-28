@@ -44,3 +44,27 @@ type Order
   carId: ID!
   car: Car @connection(fields: ["carId"])
 }
+
+type carInfo
+  @model
+  @key(name: "byTodo", fields: ["userId"])
+  @key(name: "byCar", fields: ["carId", "createdAt"]) {
+  id: ID!
+  createdAt: ID!
+  type: String!
+  status: String
+  originLatitude: Float!
+  originLongitude: Float!
+  duration: Float!
+  distance: Float!
+  cost: Float!
+  place: String!
+  destLatitude: Float!
+  destLongitude: Float!
+  nota: String!
+  userId: ID!
+  user: Todo @connection(fields: ["userId"])
+
+  carId: ID!
+  car: Car @connection(fields: ["carId"])
+}

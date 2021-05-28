@@ -26,6 +26,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     justifyContent: 'center',
   },
+
+  pres2: {
+    position: 'absolute',
+    width: 150,
+    height: 30,
+    borderRadius: 10,
+    bottom: 200,
+    left: 10,
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
+  },
 });
 
 export default styles;

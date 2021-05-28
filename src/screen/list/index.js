@@ -83,7 +83,7 @@ const List = () => {
         source={require('../../animations/6607-loading-drop (1).json')}
         autoPlay={true}
         loop={false}
-        speed={1}
+        speed={5}
         onAnimationFinish={fetchOrders}
         style={{
           height: 1,

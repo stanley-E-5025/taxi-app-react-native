@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    height: 200,
+    height: 255,
     width: '100%',
     backgroundColor: '#171717',
     position: 'absolute',

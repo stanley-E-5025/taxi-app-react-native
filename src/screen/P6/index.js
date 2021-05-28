@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, Pressable, SafeAreaView, Share} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import map from '../map-style';
@@ -6,6 +6,8 @@ import MapViewDirections from 'react-native-maps-directions';
 
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
+import {updateCarInfo} from '../../graphql/mutations';
+import {API, graphqlOperation, Auth} from 'aws-amplify';
 
 const P6 = () => {
   const navigation = useNavigation();
@@ -16,15 +18,42 @@ const P6 = () => {
 
   const route = useRoute();
 
+  const end = route.params.drivers;
+  const data = end[0];
+
+  console.log(data.id);
+
+  const lat = data.originLatitude;
+
+  const lon = data.originLongitude;
   const origins = {
     latitude: route.params.orden.latA,
     longitude: route.params.orden.lonA,
   };
 
   const destination = {
-    latitude: route.params.orden.latB,
-    longitude: route.params.orden.lonB,
+    latitude: lat,
+    longitude: lon,
   };
+
+  const order = async () => {
+    try {
+      const input = {
+        id: data.id,
+        status: 'updated',
+      };
+
+      const response = await API.graphql(
+        graphqlOperation(updateCarInfo, {
+          input,
+        }),
+      );
+      console.log(response);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -50,8 +79,11 @@ const P6 = () => {
           />
         </MapView>
 
-        <Pressable style={styles.pres} onPress={move}>
+        <Pressable style={styles.pres} onPress={move} onPressIn={order}>
           <Text style={styles.Text}>cancelar</Text>
+        </Pressable>
+        <Pressable style={styles.pres2}>
+          <Text style={styles.Text}>conductor : {data.type}</Text>
         </Pressable>
       </View>
     </SafeAreaView>

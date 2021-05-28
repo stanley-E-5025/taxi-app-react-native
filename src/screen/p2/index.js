@@ -64,9 +64,7 @@ const P2 = () => {
           <Icon name="angle-left" size={30} color="#ffffff" />
         </Text>
       </Pressable>
-      <Pressable
-        onPress={move}
-        style={[styles.presable1, {bottom: 200, left: 10}]}>
+      <Pressable style={[styles.presable1, {bottom: 250, left: 10}]}>
         <Text style={styles.text21}>
           <Icon name="edit" size={15} color="#ffffff" />
           {'  '}

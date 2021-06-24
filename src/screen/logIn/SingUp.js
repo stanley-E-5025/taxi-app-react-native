@@ -2,7 +2,12 @@ import React, {useState} from 'react';
 import {View, Pressable, Text, TextInput, Image} from 'react-native';
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {
+  validateCode,
+  validatePassword,
+  validateUsername,
+  validateEmail,
+} from './filter';
 import styles from './stylesSingup';
 
 export default function SignUp(props) {
@@ -10,7 +15,23 @@ export default function SignUp(props) {
   const [email, setEmail] = React.useState('');
   const [number, setNumber] = React.useState('');
   const [pastword, setPasword] = React.useState('');
-  console.log(name, email, number, pastword);
+  const [error, setError] = React.useState('');
+  async function signUp() {
+    try {
+      const gg = Auth.signUp({
+        username: name,
+        password: pastword,
+        attributes: {
+          email, // optional
+          // optional - E.164 number convention
+          // other custom attributes
+        },
+      });
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  }
+
   if (props.authState === 'signUp')
     return (
       <View style={styles.view}>
@@ -61,9 +82,11 @@ export default function SignUp(props) {
             placeholder={'numero'}
           />
         </View>
-        <Pressable style={styles.bt}>
+
+        <Pressable onPress={signUp} style={styles.bt}>
           <Text style={{color: '#000000'}}>crear cuenta</Text>
         </Pressable>
+
         <View style={styles.bottom}>
           <Pressable
             style={styles.presable}
@@ -75,6 +98,10 @@ export default function SignUp(props) {
             onPress={() => props.onStateChange('confirmSignUp')}>
             <Text style={styles.bottomtext}>confirmar codigo</Text>
           </Pressable>
+        </View>
+
+        <View style={styles.error}>
+          <Text>{error}</Text>
         </View>
       </View>
     );

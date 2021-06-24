@@ -12,6 +12,7 @@ import P6 from '../screen/P6/index';
 import P7 from '../screen/P7';
 import List from '../screen/list/index';
 import contact from '../screen/contact/index';
+import Login from '../screen/logIn/index';
 const Stack = createStackNavigator();
 
 export default function screens(props) {
@@ -30,6 +31,7 @@ export default function screens(props) {
       <Stack.Screen name={'P7'} component={P7} />
       <Stack.Screen name={'List'} component={List} />
       <Stack.Screen name={'contact'} component={contact} />
+      <Stack.Screen name={'Login'} component={Login} />
     </Stack.Navigator>
   );
 }

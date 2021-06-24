@@ -1,44 +1,34 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  map: {
+  view: {
     height: '100%',
     width: '100%',
+    backgroundColor: '#171717',
   },
 
-  presabale: {
-    backgroundColor: '#ffffff',
+  view2: {
+    height: 200,
     width: 200,
-    height: 40,
-
-    justifyContent: 'center',
+    top: 150,
     alignSelf: 'center',
-    borderRadius: 10,
-    alignContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
+    position: 'absolute',
   },
-
-  Text: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-    fontSize: 17,
-  },
-
-  vvv: {
-    backgroundColor: '#252525',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
   img: {
     width: 200,
     height: 200,
     alignSelf: 'center',
+  },
 
-    top: 50,
+  view3: {
+    height: 20,
+    width: '100%',
+    position: 'absolute',
+    bottom: 14,
+    justifyContent: 'center',
+    alignItems: 'center',
+    left: 0,
+    flexDirection: 'row',
   },
 });
 export default styles;

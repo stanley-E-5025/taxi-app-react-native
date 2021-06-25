@@ -2,16 +2,16 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    width: '100%',
     height: '100%',
     backgroundColor: '#ffffff',
   },
   textInput: {
     padding: 10,
-    backgroundColor: '#eee',
+
     marginVertical: 5,
     marginLeft: 20,
-    backgroundColor: '#E8E8E8',
+    backgroundColor: '#ffffff',
     height: 40,
     borderRadius: 10,
     color: '#000000',
@@ -47,39 +47,46 @@ const styles = StyleSheet.create({
   },
 
   circle: {
-    width: 5,
-    height: 5,
+    width: 20,
+    height: 20,
     backgroundColor: 'black',
     position: 'absolute',
-    top: 20,
-    left: 15,
-    borderRadius: 5,
+    top: 15,
+    left: 6,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   line: {
     width: 1,
-    height: 50,
+    height: 25,
     backgroundColor: '#D3D3D3',
     position: 'absolute',
-    top: 28,
+    top: 43,
     left: 17,
   },
   square: {
-    width: 5,
-    height: 5,
+    width: 20,
+    height: 20,
     backgroundColor: 'black',
     position: 'absolute',
-    top: 80,
-    left: 15,
+    top: 75,
+    left: 6,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   drivertxt: {
-    padding: 10,
     backgroundColor: '#E8E8E8',
+    padding: 10,
+
     marginVertical: 5,
     marginLeft: 20,
     height: 40,
     borderRadius: 10,
     color: '#ffffff',
+    position: 'absolute',
   },
 
   info: {

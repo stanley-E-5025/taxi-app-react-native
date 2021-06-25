@@ -2,12 +2,12 @@ import React from 'react';
 import {View, TextInput, Pressable, Text} from 'react-native';
 import {
   Authenticator,
-  SignIn,
   ForgotPassword,
   ConfirmSignUp,
-  ConfirmSignIn,
 } from 'aws-amplify-react-native';
+import SignIn from './SignIn';
 import SignUp from './SingUp';
+import ConfirmSignIn from './ConfirmSignIn';
 import Pass from './door';
 
 const Login = () => {

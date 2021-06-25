@@ -2,12 +2,7 @@ import React, {useState} from 'react';
 import {View, Pressable, Text, TextInput, Image} from 'react-native';
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {
-  validateCode,
-  validatePassword,
-  validateUsername,
-  validateEmail,
-} from './filter';
+
 import styles from './stylesSingup';
 
 export default function SignUp(props) {
@@ -16,13 +11,19 @@ export default function SignUp(props) {
   const [number, setNumber] = React.useState('');
   const [pastword, setPasword] = React.useState('');
   const [error, setError] = React.useState('');
+
+  var rep = name.replace(/\s/g, '');
+  var repc = pastword.replace(/\s/g, '');
+
+  var repI = email.replace(/\s/g, '');
+  console.log(rep);
   async function signUp() {
     try {
       const gg = Auth.signUp({
-        username: name,
-        password: pastword,
+        username: rep,
+        password: repc,
         attributes: {
-          email, // optional
+          email: repI, // optional
           // optional - E.164 number convention
           // other custom attributes
         },

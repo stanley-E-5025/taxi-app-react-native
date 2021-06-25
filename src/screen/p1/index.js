@@ -82,9 +82,7 @@ const P1 = () => {
   const MyCustomMarkerView = (marker) => {
     return (
       <View style={styles.custom}>
-        <Text style={styles.text21}>
-          <Icon name="map-marker" size={30} color="#171717" />
-        </Text>
+        <Text style={styles.text21}>tu</Text>
       </View>
     );
   };
@@ -94,8 +92,6 @@ const P1 = () => {
         <MapView
           style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
-          onUserLocationChange={gps}
-          showsUserLocation={true}
           showsCompass={false}
           initialRegion={{
             latitude: route.params.lat,
@@ -125,6 +121,21 @@ const P1 = () => {
             </Marker>
           ))}
         </MapView>
+
+        <View>
+          <MapView
+            style={{height: 0, width: 0}}
+            provider={PROVIDER_GOOGLE}
+            onUserLocationChange={gps}
+            showsUserLocation={true}
+            showsCompass={false}
+            initialRegion={{
+              latitude: route.params.lat,
+              longitude: route.params.lon,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}></MapView>
+        </View>
         <Bt />
         <Pressable onPress={move} style={[styles.presable, {bottom: 30}]}>
           <Text style={styles.text}>

@@ -10,13 +10,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   custom: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
     borderRadius: 100,
     justifyContent: 'center',
+    backgroundColor: '#ffffff',
   },
   text21: {
-    color: '#ffffff',
+    color: '#000000',
     textAlign: 'center',
     fontWeight: 'bold',
   },
@@ -33,13 +34,15 @@ const styles = StyleSheet.create({
   presable: {
     backgroundColor: '#171717',
 
-    width: 230,
+    width: 300,
     height: 50,
     borderRadius: 10,
 
     justifyContent: 'center',
     position: 'absolute',
     alignSelf: 'center',
+    borderColor: '#000000',
+    borderWidth: 0.2,
   },
 
   text: {

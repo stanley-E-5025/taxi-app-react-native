@@ -34,9 +34,7 @@ const P2 = () => {
   const MyCustomMarkerView = (marker) => {
     return (
       <View style={styles.custom}>
-        <Text style={styles.text21}>
-          <Icon name="map-marker" size={30} color="#171717" />
-        </Text>
+        <Text style={styles.text21}>tu</Text>
       </View>
     );
   };
@@ -61,12 +59,12 @@ const P2 = () => {
         onPress={movet}
         style={[styles.presable2, {top: 20, left: 10}]}>
         <Text style={styles.text21}>
-          <Icon name="angle-left" size={30} color="#ffffff" />
+          <Icon name="angle-left" size={30} color="#000000" />
         </Text>
       </Pressable>
       <Pressable style={[styles.presable1, {bottom: 250, left: 10}]}>
         <Text style={styles.text21}>
-          <Icon name="edit" size={15} color="#ffffff" />
+          <Icon name="edit" size={15} color="#000000" />
           {'  '}
           seleccione servicio
         </Text>

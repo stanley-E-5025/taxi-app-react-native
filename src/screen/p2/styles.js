@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   presable1: {
-    backgroundColor: '#171717',
+    backgroundColor: '#ffffff',
     width: 180,
     height: 35,
     position: 'absolute',
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   text21: {
-    color: '#ffffff',
+    color: '#000000',
     textAlign: 'center',
   },
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 
   presable2: {
-    backgroundColor: '#171717',
+    backgroundColor: '#ffffff',
 
     width: 40,
     height: 40,
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     alignSelf: 'center',
+    alignItems: 'center',
   },
 
   colors: {
@@ -101,10 +102,11 @@ const styles = StyleSheet.create({
   },
 
   custom: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
     borderRadius: 100,
     justifyContent: 'center',
+    backgroundColor: '#ffffff',
   },
 
   icon2: {

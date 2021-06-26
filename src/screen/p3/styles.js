@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   iconContainer: {
-    backgroundColor: '#DEDEDE',
-    padding: 5,
+    backgroundColor: '#171717',
+    padding: 4,
     borderRadius: 50,
     marginRight: 15,
   },
@@ -78,25 +78,28 @@ const styles = StyleSheet.create({
   },
 
   drivertxt: {
-    backgroundColor: '#E8E8E8',
-    padding: 10,
+    backgroundColor: '#ffffff',
 
-    marginVertical: 5,
     marginLeft: 20,
     height: 40,
     borderRadius: 10,
     color: '#ffffff',
     position: 'absolute',
+    paddingLeft: 10,
+    width: 300,
+    color: '#000000',
   },
 
   info: {
     width: 100,
     height: 30,
-    borderRadius: 10,
-    backgroundColor: '#313131',
+    borderRadius: 7,
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 445,
+    top: 400,
+    position: 'absolute',
+    marginLeft: 20,
   },
   save: {
     width: 150,
@@ -114,6 +117,18 @@ const styles = StyleSheet.create({
   txt2: {
     fontWeight: 'bold',
     color: '#171717',
+  },
+
+  input: {
+    width: 45,
+    height: 45,
+    backgroundColor: '#ffffff',
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 100,
+    right: 10,
   },
 });
 

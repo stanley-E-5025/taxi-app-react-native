@@ -65,6 +65,13 @@ const styles = StyleSheet.create({
   },
   infotext: {
     marginLeft: 10,
+    fontSize: 12,
+  },
+
+  infotext2: {
+    marginLeft: 45,
+    fontSize: 10,
+    color: '#898989',
   },
 
   numberinputview: {

@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Pressable, Text, TextInput, Image} from 'react-native';
+import {
+  View,
+  Pressable,
+  Text,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -62,6 +69,10 @@ export default function SignUp(props) {
           value={pastword}
           placeholder={'contraseña'}
         />
+        <Text style={styles.infotext2}>
+          La contraseña debe tener al menos 1 número y tener al menos 8
+          caracteres
+        </Text>
         <Text style={styles.infotext}>
           {' '}
           <Icon name="account-edit-outline" size={25} color="#000000" />
@@ -72,6 +83,9 @@ export default function SignUp(props) {
           value={email}
           placeholder={'email'}
         />
+        <Text style={styles.infotext2}>
+          el codigo de verification sera enviado a este correo
+        </Text>
         <View style={styles.numberinputview}>
           <View style={styles.numberview}>
             <Text style={styles.number}>+505</Text>
@@ -84,9 +98,9 @@ export default function SignUp(props) {
           />
         </View>
 
-        <Pressable onPress={signUp} style={styles.bt}>
+        <TouchableOpacity onPress={signUp} style={styles.bt}>
           <Text style={{color: '#000000'}}>crear cuenta</Text>
-        </Pressable>
+        </TouchableOpacity>
 
         <View style={styles.bottom}>
           <Pressable

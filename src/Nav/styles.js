@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   user: {
-    backgroundColor: '#133b5c',
+    backgroundColor: '#E5E5E5',
     width: 80,
     height: 80,
     justifyContent: 'center',
@@ -14,16 +14,15 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#ffffff',
+    color: '#000000',
     textAlign: 'center',
-    fontWeight: 'bold',
     fontSize: 20,
   },
 
   textn: {
-    color: '#ffffff',
+    color: '#000000',
     textAlign: 'center',
-    fontSize: 15,
+    fontSize: 12,
   },
 
   viewsocial: {
@@ -46,10 +45,8 @@ const styles = StyleSheet.create({
     height: 2,
     alignSelf: 'flex-start',
     marginTop: 50,
-    backgroundColor: '#133b5c',
+    backgroundColor: '#E5E5E5',
     justifyContent: 'center',
-    borderRadius: 9,
-    marginLeft: 7,
   },
   history: {
     width: 260,
@@ -75,7 +72,7 @@ const styles = StyleSheet.create({
   view: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#1d2d50',
+    backgroundColor: '#ffffff',
   },
 });
 

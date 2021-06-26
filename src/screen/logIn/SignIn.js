@@ -1,8 +1,16 @@
 import React from 'react';
-import {View, Pressable, Text, TextInput, Image} from 'react-native';
+import {
+  View,
+  Pressable,
+  Text,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './stylesSingup';
+import Pass from './door';
 
 export default function SignIn(props) {
   const [name, setName] = React.useState('');
@@ -46,9 +54,9 @@ export default function SignIn(props) {
           placeholder={'contraseña'}
         />
 
-        <Pressable onPress={signUp} style={styles.bt}>
+        <TouchableOpacity onPress={signUp} style={styles.bt}>
           <Text style={{color: '#000000'}}>iniciar sesion</Text>
-        </Pressable>
+        </TouchableOpacity>
 
         <Pressable
           style={styles.presable}
@@ -57,5 +65,5 @@ export default function SignIn(props) {
         </Pressable>
       </View>
     );
-  else return <></>;
+  else if (props.authState === 'signedIn') return <Pass></Pass>;
 }

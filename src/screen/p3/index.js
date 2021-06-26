@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, TextInput, SafeAreaView, Text, Pressable} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 
 navigator.geolocation = require('@react-native-community/geolocation');
@@ -17,6 +17,7 @@ const P3 = (props) => {
   const [text, onChangeText] = React.useState('');
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+  const [gg, setGg] = useState(true);
   const gps = {
     lat: route.params.lat,
     lon: route.params.lon,
@@ -77,10 +78,10 @@ const P3 = (props) => {
           showsMyLocationButton={false}
           showsCompass={false}
           initialRegion={{
-            latitude: 0,
-            longitude: 0,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitude: gps.lat,
+            longitude: gps.lon,
+            latitudeDelta: 0.0,
+            longitudeDelta: 0.012,
           }}></MapView>
         <GooglePlacesAutocomplete
           placeholder="aqui?"
@@ -131,19 +132,35 @@ const P3 = (props) => {
           renderRow={(data) => <PlaceRow data={data} />}
           predefinedPlaces={[mapSelect]}
         />
-        <View style={styles.info}>
-          <Text style={styles.txt}>
-            {' '}
-            <Icon name="edit" size={20} color="#ffffff" /> {'   '}nota
-          </Text>
-        </View>
-        <TextInput
-          style={[styles.drivertxt, {top: 450}]}
-          onChangeText={onChangeText}
-          value={text}
-          placeholder="nota para elconductor"
-        />
 
+        {gg === false && (
+          <View style={styles.info}>
+            <Text style={styles.txt}>
+              {' '}
+              <Icon
+                name="chatbox-ellipses-outline"
+                size={20}
+                color="#ffffff"
+              />{' '}
+              nota
+            </Text>
+          </View>
+        )}
+
+        {gg === false && (
+          <TextInput
+            style={[styles.drivertxt, {top: 450}]}
+            onChangeText={onChangeText}
+            value={text}
+            placeholder="nota para elconductor"
+          />
+        )}
+
+        <Pressable style={styles.input} onPress={() => setGg(!gg)}>
+          <Text>
+            <Icon name="chatbox-ellipses-outline" size={20} color="#000000" />{' '}
+          </Text>
+        </Pressable>
         {/* Circle near Origin input */}
         <View style={styles.circle}>
           <Text style={{color: '#FFFFFF'}}>A</Text>

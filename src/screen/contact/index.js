@@ -9,8 +9,6 @@ const Contact = () => {
     <View style={styles.view}>
       <Text style={styles.title}>contactanos</Text>
 
-      <View style={styles.line}></View>
-
       <Pressable
         style={styles.item}
         onPress={() =>

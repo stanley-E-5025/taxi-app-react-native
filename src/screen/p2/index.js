@@ -47,8 +47,8 @@ const P2 = () => {
         initialRegion={{
           latitude: lat,
           longitude: lon,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta: 0.0,
+          longitudeDelta: 0.012,
         }}>
         <Marker coordinate={{latitude: lat, longitude: lon}}>
           <MyCustomMarkerView {...MyCustomMarkerView} />

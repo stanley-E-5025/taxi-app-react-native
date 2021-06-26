@@ -51,14 +51,10 @@ const CustomDrawer = ({navigation, props}) => {
         </View>
         <Pressable style={styles.line}></Pressable>
         <Pressable style={styles.history} onPress={movet}>
-          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
-            historial
-          </Text>
+          <Text style={{marginLeft: 10, color: '#000000'}}>historial</Text>
         </Pressable>
         <Pressable style={styles.constacto} onPress={move}>
-          <Text style={{fontWeight: 'bold', marginLeft: 10, color: '#ffffff'}}>
-            contactanos
-          </Text>
+          <Text style={{marginLeft: 10, color: '#000000'}}>contactanos</Text>
         </Pressable>
 
         <LottieView

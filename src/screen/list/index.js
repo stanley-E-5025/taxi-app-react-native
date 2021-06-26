@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -59,74 +59,74 @@ const List = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
+      <View style={styles.item2}>
+        <LottieView
+          source={require('../../animations/6607-loading-drop (1).json')}
+          autoPlay={true}
+          loop={false}
+          speed={10}
+          onAnimationFinish={order}
+          style={{
+            height: 1,
+            width: 1,
+            alignSelf: 'center',
+            marginTop: 50,
+          }}
+        />
+
+        <LottieView
+          source={require('../../animations/6607-loading-drop (1).json')}
+          autoPlay={true}
+          loop={false}
+          speed={5}
+          onAnimationFinish={fetchOrders}
+          style={{
+            height: 1,
+            width: 1,
+            alignSelf: 'center',
+            marginTop: 50,
+          }}
+        />
+
+        <Text
+          style={{
+            color: '#171717',
+            textAlign: 'center',
+            fontSize: 25,
+            position: 'absolute',
+            top: 10,
+            left: 10,
+          }}>
+          historial
+        </Text>
+      </View>
       <FlatList
         data={all}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-      <LottieView
-        source={require('../../animations/6607-loading-drop (1).json')}
-        autoPlay={true}
-        loop={false}
-        speed={10}
-        onAnimationFinish={order}
-        style={{
-          height: 1,
-          width: 1,
-          alignSelf: 'center',
-          marginTop: 50,
-        }}
-      />
-
-      <LottieView
-        source={require('../../animations/6607-loading-drop (1).json')}
-        autoPlay={true}
-        loop={false}
-        speed={5}
-        onAnimationFinish={fetchOrders}
-        style={{
-          height: 1,
-          width: 1,
-          alignSelf: 'center',
-          marginTop: 50,
-        }}
-      />
-
-      <Pressable styles={styles.item2} onPress={fetchOrders} onPressIn={order}>
-        <Text style={styles.title}>aaa</Text>
-      </Pressable>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
   item: {
-    backgroundColor: '#171717',
+    backgroundColor: '#ffffff',
     borderRadius: 15,
     padding: 20,
     marginVertical: 10,
     marginHorizontal: 5,
   },
   item2: {
-    backgroundColor: '#171717',
-    borderRadius: 15,
-    width: 100,
-    height: 100,
+    width: '100%',
+    height: 50,
   },
   title: {
-    fontWeight: 'bold',
-
-    color: '#ffffff',
+    color: '#000000',
   },
   title2: {
     fontWeight: 'bold',
-
-    color: 'red',
   },
 });
 

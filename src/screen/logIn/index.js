@@ -11,16 +11,11 @@ import ConfirmSignIn from './ConfirmSignIn';
 import Pass from './door';
 
 const Login = () => {
-  function Test(props) {
-    if (props.authState === 'signedIn') return <Pass></Pass>;
-    else return <></>;
-  }
   return (
     <Authenticator
       hideDefault={true}
       authState="signIn"
       onStateChange={(AuthState) => console.log(AuthState)}>
-      <Test />
       <SignUp />
       <SignIn />
       <ConfirmSignUp />

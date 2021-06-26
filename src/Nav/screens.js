@@ -10,6 +10,7 @@ import P4 from '../screen/p4/index';
 import P5 from '../screen/p5/index';
 import P6 from '../screen/P6/index';
 import P7 from '../screen/P7';
+import P8 from '../screen/P8/index';
 import List from '../screen/list/index';
 import contact from '../screen/contact/index';
 import Login from '../screen/logIn/index';
@@ -29,6 +30,8 @@ export default function screens(props) {
       <Stack.Screen name={'P5'} component={P5} />
       <Stack.Screen name={'P6'} component={P6} />
       <Stack.Screen name={'P7'} component={P7} />
+      <Stack.Screen name={'P8'} component={P8} />
+
       <Stack.Screen name={'List'} component={List} />
       <Stack.Screen name={'contact'} component={contact} />
       <Stack.Screen name={'Login'} component={Login} />

@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   view: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#171717',
+    backgroundColor: '#000000',
   },
 
   view2: {

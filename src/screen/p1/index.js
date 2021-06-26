@@ -96,8 +96,8 @@ const P1 = () => {
           initialRegion={{
             latitude: route.params.lat,
             longitude: route.params.lon,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.0,
+            longitudeDelta: 0.11,
           }}>
           <Marker
             coordinate={{

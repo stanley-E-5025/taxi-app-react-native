@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Pressable, Text, TextInput, Image} from 'react-native';
+import {
+  View,
+  Pressable,
+  Text,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './stylesSingup';
@@ -46,9 +53,9 @@ export default function ConfirmSignIn(props) {
           placeholder={'codigo'}
         />
 
-        <Pressable onPress={signUp} style={styles.bt}>
+        <TouchableOpacity onPress={signUp} style={styles.bt}>
           <Text style={{color: '#000000'}}>confirmar</Text>
-        </Pressable>
+        </TouchableOpacity>
 
         <Pressable
           style={styles.presable}

@@ -14,6 +14,7 @@ import P8 from '../screen/P8/index';
 import List from '../screen/list/index';
 import contact from '../screen/contact/index';
 import Login from '../screen/logIn/index';
+import P44 from '../screen/p44/P44';
 const Stack = createStackNavigator();
 
 export default function screens(props) {
@@ -31,6 +32,7 @@ export default function screens(props) {
       <Stack.Screen name={'P6'} component={P6} />
       <Stack.Screen name={'P7'} component={P7} />
       <Stack.Screen name={'P8'} component={P8} />
+      <Stack.Screen name={'P44'} component={P44} />
 
       <Stack.Screen name={'List'} component={List} />
       <Stack.Screen name={'contact'} component={contact} />

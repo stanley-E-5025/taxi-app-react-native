@@ -114,22 +114,11 @@ const styles = StyleSheet.create({
   },
 
   custom: {
-    width: 1,
-    height: '100%',
+    width: 25,
+    height: 25,
     borderRadius: 100,
     justifyContent: 'center',
-    alignSelf: 'center',
-    position: 'absolute',
-  },
-
-  custom2: {
-    width: 40,
-    height: 40,
-    borderRadius: 100,
-    justifyContent: 'center',
-    alignSelf: 'center',
-    position: 'absolute',
-    alignItems: 'center',
+    backgroundColor: '#171717',
   },
   text21: {
     color: '#ffffff',

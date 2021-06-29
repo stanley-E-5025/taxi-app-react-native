@@ -60,9 +60,9 @@ const P5 = () => {
   const lonA = route.params.origins.longitude;
   const latB = route.params.destination.latitude;
   const lonB = route.params.destination.longitude;
-
+  const cost = route.params.orderPrice;
   const orden = {latA, lonA, latB, lonB, D};
-  console.log(drivers);
+  console.log(cost);
   const D = route.params.sin;
   if (drivers.length === 0) {
     console.log('esperar');
@@ -70,6 +70,7 @@ const P5 = () => {
     navigate.navigate('P6', {
       orden,
       drivers,
+      cost,
     });
   }
   return (

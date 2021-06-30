@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   presable: {
     backgroundColor: '#171717',
 
-    width: 300,
-    height: 50,
+    width: 350,
+    height: 45,
     borderRadius: 10,
 
     justifyContent: 'center',
@@ -51,6 +51,19 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  historial: {
+    backgroundColor: '#ffffff',
+
+    width: 45,
+    height: 45,
+    borderRadius: 100,
+
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 200,
+    right: 10,
+    alignItems: 'center',
   },
 });
 

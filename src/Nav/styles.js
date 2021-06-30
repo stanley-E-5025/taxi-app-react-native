@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   user: {
-    backgroundColor: '#E5E5E5',
-    width: 80,
-    height: 80,
+    backgroundColor: '#E4E4E4',
+    width: 60,
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
     fontSize: 20,
   },
 
   textn: {
-    color: '#000000',
+    color: '#ffffff',
     textAlign: 'center',
     fontSize: 12,
   },
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     height: 2,
     alignSelf: 'flex-start',
     marginTop: 50,
-    backgroundColor: '#E5E5E5',
+    backgroundColor: '#000000',
     justifyContent: 'center',
   },
   history: {
@@ -72,7 +72,11 @@ const styles = StyleSheet.create({
   view: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#171717',
+  },
+  Image: {
+    width: 65,
+    height: 65,
   },
 });
 

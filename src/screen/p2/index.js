@@ -82,7 +82,7 @@ const P2 = () => {
           </View>
         </Pressable>
         <Pressable style={styles.info2} onPress={move}>
-          <Text style={styles.txt2}>seleccionar</Text>
+          <Text style={styles.txt2}>fijar destino ahora </Text>
         </Pressable>
 
         <Text style={styles.textd}>descripcion</Text>

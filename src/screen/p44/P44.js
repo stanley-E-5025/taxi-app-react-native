@@ -39,13 +39,6 @@ const P44 = () => {
     navigation.navigate('P1');
   };
 
-  const confirmar = () => {
-    navigation.navigate('P5', {
-      destination,
-      origins,
-    });
-  };
-
   const types = {
     type: 'taxi1',
   };
@@ -115,7 +108,14 @@ const P44 = () => {
 
   const orderPrice = price.toFixed(1);
   const times = makeTwoDigits(hours);
-
+  const confirmar = () => {
+    navigation.navigate('P5', {
+      destination,
+      origins,
+      orderPrice,
+    });
+  };
+  console.log(orderPrice);
   // 10 pm a 6 am  son  80
   // if the price  > 100 + 900 aranqj
   const MyCustomMarkerView = (marker) => {

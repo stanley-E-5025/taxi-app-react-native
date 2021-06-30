@@ -15,6 +15,8 @@ import List from '../screen/list/index';
 import contact from '../screen/contact/index';
 import Login from '../screen/logIn/index';
 import P44 from '../screen/p44/P44';
+import Pass from '../screen/logIn/door';
+import Door from '../screen/p0/firstDoor';
 const Stack = createStackNavigator();
 
 export default function screens(props) {
@@ -37,6 +39,8 @@ export default function screens(props) {
       <Stack.Screen name={'List'} component={List} />
       <Stack.Screen name={'contact'} component={contact} />
       <Stack.Screen name={'Login'} component={Login} />
+      <Stack.Screen name={'Pass'} component={Pass} />
+      <Stack.Screen name={'Door'} component={Door} />
     </Stack.Navigator>
   );
 }

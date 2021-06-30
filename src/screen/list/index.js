@@ -5,8 +5,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  StatusBar,
-  Pressable,
+  TouchableOpacity,
 } from 'react-native';
 import {listOrders} from '../../graphql/queries';
 import {API, Auth, graphqlOperation} from 'aws-amplify';
@@ -39,14 +38,14 @@ const List = () => {
   };
 
   const Item = ({title, price, place, distance, duration, final}) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>nota :{title}</Text>
-      <Text style={styles.title}>{price}C$</Text>
-      <Text style={styles.title}>{distance}km</Text>
-      <Text style={styles.title}>{duration}min</Text>
-      <Text style={styles.title}>{place}</Text>
-      <Text style={styles.title2}>finalizado</Text>
-    </View>
+    <TouchableOpacity style={styles.item}>
+      <View style={styles.price}>
+        <Text style={{fontWeight: 'bold'}}>{price} NIO</Text>
+      </View>
+      <View style={styles.title}>
+        <Text>{place}</Text>
+      </View>
+    </TouchableOpacity>
   );
   const renderItem = ({item}) => (
     <Item
@@ -97,6 +96,7 @@ const List = () => {
             position: 'absolute',
             top: 10,
             left: 10,
+            fontWeight: 'bold',
           }}>
           historial
         </Text>
@@ -113,20 +113,41 @@ const List = () => {
 const styles = StyleSheet.create({
   item: {
     backgroundColor: '#ffffff',
-    borderRadius: 15,
-    padding: 20,
-    marginVertical: 10,
-    marginHorizontal: 5,
+    borderRadius: 5,
+    width: '100%',
+    height: 100,
+    margin: 1,
   },
   item2: {
     width: '100%',
-    height: 50,
+    height: 60,
   },
   title: {
     color: '#000000',
   },
   title2: {
     fontWeight: 'bold',
+  },
+
+  price: {
+    width: 100,
+    height: 30,
+
+    bottom: 0,
+    right: 0,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    width: 250,
+    height: 60,
+
+    bottom: 20,
+    left: 10,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

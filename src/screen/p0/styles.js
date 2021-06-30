@@ -30,5 +30,10 @@ const styles = StyleSheet.create({
     left: 0,
     flexDirection: 'row',
   },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
 });
 export default styles;

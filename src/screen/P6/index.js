@@ -24,7 +24,7 @@ const P6 = () => {
   const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 
   const route = useRoute();
-
+  console.log(route.params.cost);
   const end = route.params.drivers;
   const data = end[0];
 
@@ -91,7 +91,7 @@ const P6 = () => {
             destination={destination}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={4}
-            strokeColor="#ffffff"
+            strokeColor="#000000"
           />
         </MapView>
         <LottieView

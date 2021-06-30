@@ -137,9 +137,17 @@ const P1 = () => {
             }}></MapView>
         </View>
         <Bt />
-        <Pressable onPress={move} style={[styles.presable, {bottom: 30}]}>
+        <Pressable onPress={move} style={[styles.presable, {bottom: 15}]}>
           <Text style={styles.text}>
-            <Icon name="map" size={25} color="#ffffff" /> pedir
+            <Icon name="map" size={20} color="#ffffff" /> pedir
+          </Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.historial}
+          onPress={() => navigation.navigate('List')}>
+          <Text>
+            <Icon name="clock-o" size={25} color="#000000" />
           </Text>
         </Pressable>
       </View>

@@ -126,14 +126,14 @@ const styles = StyleSheet.create({
 
   info2: {
     height: 35,
-    width: 100,
+    width: 200,
     backgroundColor: '#ffffff',
     borderRadius: 10,
     alignItems: 'center',
-    flexDirection: 'row',
-    alignSelf: 'flex-end',
-    bottom: 50,
-    right: 30,
+    bottom: 150,
+    right: 10,
+    justifyContent: 'center',
+    position: 'absolute',
   },
 
   Ani: {

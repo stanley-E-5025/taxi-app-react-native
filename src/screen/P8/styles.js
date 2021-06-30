@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 
   presable: {
     backgroundColor: '#171717',
-    width: 300,
+    width: 325,
     height: 40,
     alignSelf: 'center',
     borderRadius: 10,

@@ -77,7 +77,7 @@ const P8 = () => {
 
       <Pressable style={styles.presable2} onPress={move}>
         <Text style={styles.text3}>
-          <Icon name="close" size={25} color="#000000" />
+          <Icon name="angle-left" size={25} color="#000000" />
         </Text>
       </Pressable>
     </SafeAreaView>

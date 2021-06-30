@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, SafeAreaView} from 'react-native';
+import {View, Image, SafeAreaView, ImageBackground} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -7,42 +7,48 @@ import LottieView from 'lottie-react-native';
 const P0 = () => {
   const navigation = useNavigation();
   const move = () => {
-    navigation.navigate('Login');
+    navigation.navigate('Door');
   };
 
   return (
-    <SafeAreaView>
-      <View style={styles.view}>
-        <View style={styles.view2}></View>
+    <ImageBackground
+      source={require('../../animations/bg.jpg')}
+      style={styles.image}>
+      <View style={styles.view2}>
+        <Image
+          style={styles.img}
+          source={require('../../animations/logo.png')}
+        />
+      </View>
 
+      <LottieView
+        source={require('../../animations/1.json')}
+        autoPlay={true}
+        loop={false}
+        onAnimationFinish={move}
+        style={{
+          height: 0,
+
+          width: 0,
+          alignSelf: 'center',
+          bottom: 0,
+        }}
+      />
+
+      <View style={styles.view3}>
         <LottieView
           source={require('../../animations/1.json')}
           autoPlay={true}
-          loop={false}
-          onAnimationFinish={move}
+          loop={true}
           style={{
-            height: 0,
-            width: 0,
+            height: 50,
+            width: 1,
             alignSelf: 'center',
             bottom: 0,
           }}
         />
-
-        <View style={styles.view3}>
-          <LottieView
-            source={require('../../animations/1.json')}
-            autoPlay={true}
-            loop={true}
-            style={{
-              height: 50,
-              width: 1,
-              alignSelf: 'center',
-              bottom: 0,
-            }}
-          />
-        </View>
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 

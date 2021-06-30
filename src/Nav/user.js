@@ -1,5 +1,5 @@
 import React, {useCallback, useState, useEffect} from 'react';
-import {View, Text, Pressable, Linking, Button, Alert} from 'react-native';
+import {View, Text, Pressable, Image} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 import LottieView from 'lottie-react-native';
@@ -36,9 +36,10 @@ const CustomDrawer = ({navigation, props}) => {
       <View style={styles.view}>
         <View style={{flexDirection: 'row'}}>
           <View style={styles.user}>
-            <Text style={styles.text}>
-              <Icon name="user" size={25} color="#ffffff" />
-            </Text>
+            <Image
+              style={styles.Image}
+              source={require('../screen/P6/ICON.png')}
+            />
           </View>
 
           <View style={{alignSelf: 'flex-start', top: 40, left: 30}}>
@@ -51,10 +52,10 @@ const CustomDrawer = ({navigation, props}) => {
         </View>
         <Pressable style={styles.line}></Pressable>
         <Pressable style={styles.history} onPress={movet}>
-          <Text style={{marginLeft: 10, color: '#000000'}}>historial</Text>
+          <Text style={{marginLeft: 10, color: '#ffffff'}}>historial</Text>
         </Pressable>
         <Pressable style={styles.constacto} onPress={move}>
-          <Text style={{marginLeft: 10, color: '#000000'}}>contactanos</Text>
+          <Text style={{marginLeft: 10, color: '#ffffff'}}>contactanos</Text>
         </Pressable>
 
         <LottieView

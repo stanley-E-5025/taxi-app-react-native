@@ -5,17 +5,20 @@ import {Authenticator} from 'aws-amplify-react-native';
 const Door = () => {
   const [state, setState] = useState('');
   const navigation = useNavigation();
-
+  console.log(state);
   if (state === 'signedIn') {
     navigation.navigate('Pass');
-  } else if (state === 'signIn') {
-    navigation.navigate('Login');
   }
+  if (state === '') {
+    navigation.navigate('Login', {
+      state,
+    });
+  }
+
   return (
     <View style={{width: 1, height: 1}}>
       <Authenticator
         hideDefault={true}
-        authState="signIn"
         onStateChange={(AuthState) => setState(AuthState)}></Authenticator>
     </View>
   );

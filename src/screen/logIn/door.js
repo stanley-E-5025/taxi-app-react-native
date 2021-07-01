@@ -10,12 +10,15 @@ const Pass = () => {
   const [lon, setLon] = useState(0);
 
   const navigation = useNavigation();
-  const move = () => {
+
+  if (lat === 0) {
+    console.log('espera');
+  } else {
     navigation.navigate('P1', {
       lat,
       lon,
     });
-  };
+  }
 
   const loc = (event) => {
     const lat = event.nativeEvent.coordinate.latitude;
@@ -38,19 +41,6 @@ const Pass = () => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}></MapView>
-
-      <LottieView
-        source={require('../../animations/1.json')}
-        autoPlay={true}
-        loop={false}
-        onAnimationFinish={move}
-        style={{
-          height: 0,
-          width: 0,
-          alignSelf: 'center',
-          bottom: 0,
-        }}
-      />
     </View>
   );
 };

@@ -10,10 +10,12 @@ import {
 import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './stylesSingup';
+import {useNavigation} from '@react-navigation/native';
 
 export default function ConfirmSignIn(props) {
   const [name, setName] = React.useState('');
   const [code, setCode] = React.useState();
+  const navigation = useNavigation();
 
   var rep = name.replace(/\s/g, '');
   async function signUp() {
@@ -24,45 +26,40 @@ export default function ConfirmSignIn(props) {
     }
   }
 
-  if (props.authState === 'confirmSignUp')
-    return (
-      <View style={styles.view}>
-        <View style={styles.title}>
-          <Image
-            style={styles.img}
-            source={require('../../animations/11.png')}
-          />
-        </View>
-
-        <Text style={styles.infotext}>
-          <Icon name="account-edit-outline" size={25} color="#000000" />
-        </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={setName}
-          value={name}
-          placeholder={'nombre de usuario'}
-        />
-        <Text style={styles.infotext}>
-          <Icon name="account-key-outline" size={25} color="#000000" />
-        </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={setCode}
-          value={code}
-          placeholder={'codigo'}
-        />
-
-        <TouchableOpacity onPress={signUp} style={styles.bt}>
-          <Text style={{color: '#000000'}}>confirmar</Text>
-        </TouchableOpacity>
-
-        <Pressable
-          style={styles.presable}
-          onPress={() => props.onStateChange('signIn')}>
-          <Text>iniciar sesion</Text>
-        </Pressable>
+  return (
+    <View style={styles.view}>
+      <View style={styles.title}>
+        <Image style={styles.img} source={require('../../animations/11.png')} />
       </View>
-    );
-  else return <></>;
+
+      <Text style={styles.infotext}>
+        <Icon name="account-edit-outline" size={25} color="#000000" />
+      </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setName}
+        value={name}
+        placeholder={'nombre de usuario'}
+      />
+      <Text style={styles.infotext}>
+        <Icon name="account-key-outline" size={25} color="#000000" />
+      </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setCode}
+        value={code}
+        placeholder={'codigo'}
+      />
+
+      <TouchableOpacity onPress={signUp} style={styles.bt}>
+        <Text style={{color: '#000000'}}>confirmar</Text>
+      </TouchableOpacity>
+
+      <Pressable
+        style={styles.presable}
+        onPress={() => navigation.navigate('SingIn')}>
+        <Text>iniciar sesion</Text>
+      </Pressable>
+    </View>
+  );
 }

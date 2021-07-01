@@ -11,10 +11,12 @@ import {Auth} from 'aws-amplify';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './stylesSingup';
 import Pass from './door';
+import {useNavigation} from '@react-navigation/native';
 
 export default function SignIn(props) {
   const [name, setName] = React.useState('');
   const [code, setCode] = React.useState();
+  const navigation = useNavigation();
 
   var rep = name.replace(/\s/g, '');
   async function signUp() {
@@ -25,45 +27,40 @@ export default function SignIn(props) {
     }
   }
 
-  if (props.authState === 'signIn')
-    return (
-      <View style={styles.view}>
-        <View style={styles.title}>
-          <Image
-            style={styles.img}
-            source={require('../../animations/11.png')}
-          />
-        </View>
-
-        <Text style={styles.infotext}>
-          <Icon name="account-edit-outline" size={25} color="#000000" />
-        </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={setName}
-          value={name}
-          placeholder={'nombre de usuario'}
-        />
-        <Text style={styles.infotext}>
-          <Icon name="account-key-outline" size={25} color="#000000" />
-        </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={setCode}
-          value={code}
-          placeholder={'contraseña'}
-        />
-
-        <TouchableOpacity onPress={signUp} style={styles.bt}>
-          <Text style={{color: '#000000'}}>iniciar sesion</Text>
-        </TouchableOpacity>
-
-        <Pressable
-          style={styles.presable}
-          onPress={() => props.onStateChange('signUp')}>
-          <Text> crear cuenta</Text>
-        </Pressable>
+  return (
+    <View style={styles.view}>
+      <View style={styles.title}>
+        <Image style={styles.img} source={require('../../animations/11.png')} />
       </View>
-    );
-  else if (props.authState === 'signedIn') return <Pass></Pass>;
+
+      <Text style={styles.infotext}>
+        <Icon name="account-edit-outline" size={25} color="#000000" />
+      </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setName}
+        value={name}
+        placeholder={'nombre de usuario'}
+      />
+      <Text style={styles.infotext}>
+        <Icon name="account-key-outline" size={25} color="#000000" />
+      </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setCode}
+        value={code}
+        placeholder={'contraseña'}
+      />
+
+      <TouchableOpacity onPress={signUp} style={styles.bt}>
+        <Text style={{color: '#000000'}}>iniciar sesion</Text>
+      </TouchableOpacity>
+
+      <Pressable
+        style={styles.presable}
+        onPress={() => navigation.navigate('SingUp')}>
+        <Text> crear cuenta</Text>
+      </Pressable>
+    </View>
+  );
 }

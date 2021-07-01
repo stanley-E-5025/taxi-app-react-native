@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import {listOrders} from '../../graphql/queries';
 import {API, Auth, graphqlOperation} from 'aws-amplify';
-import LottieView from 'lottie-react-native';
 
 const List = () => {
   const [all, setAll] = useState([]);
@@ -18,7 +17,6 @@ const List = () => {
   const order = async () => {
     try {
       const userInfo = await Auth.currentAuthenticatedUser();
-      const name = userInfo.attributes.sub;
       const email = userInfo.username;
       setEmail(email);
     } catch (e) {
@@ -37,7 +35,7 @@ const List = () => {
     }
   };
 
-  const Item = ({title, price, place, distance, duration, final}) => (
+  const Item = ({price, place}) => (
     <TouchableOpacity style={styles.item}>
       <View style={styles.price}>
         <Text style={{fontWeight: 'bold'}}>{price} NIO</Text>
@@ -57,49 +55,17 @@ const List = () => {
     />
   );
 
+  useEffect(() => {
+    order();
+  });
+  useEffect(() => {
+    fetchOrders();
+  });
+
   return (
     <SafeAreaView>
       <View style={styles.item2}>
-        <LottieView
-          source={require('../../animations/6607-loading-drop (1).json')}
-          autoPlay={true}
-          loop={false}
-          speed={10}
-          onAnimationFinish={order}
-          style={{
-            height: 1,
-            width: 1,
-            alignSelf: 'center',
-            marginTop: 50,
-          }}
-        />
-
-        <LottieView
-          source={require('../../animations/6607-loading-drop (1).json')}
-          autoPlay={true}
-          loop={false}
-          speed={5}
-          onAnimationFinish={fetchOrders}
-          style={{
-            height: 1,
-            width: 1,
-            alignSelf: 'center',
-            marginTop: 50,
-          }}
-        />
-
-        <Text
-          style={{
-            color: '#171717',
-            textAlign: 'center',
-            fontSize: 25,
-            position: 'absolute',
-            top: 10,
-            left: 10,
-            fontWeight: 'bold',
-          }}>
-          historial
-        </Text>
+        <Text style={styles.history}>historial</Text>
       </View>
       <FlatList
         data={all}
@@ -148,6 +114,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  history: {
+    color: '#171717',
+    textAlign: 'center',
+    fontSize: 25,
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    fontWeight: 'bold',
   },
 });
 

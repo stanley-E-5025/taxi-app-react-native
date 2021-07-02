@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Pressable, SafeAreaView, Share, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import map from '../map-style';
@@ -9,6 +9,9 @@ import LottieView from 'lottie-react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
 import {updateCarInfo} from '../../graphql/mutations';
+import {listCars, listTodos} from '../../graphql/queries';
+import {onUpdateCar} from '../../graphql/subscriptions';
+
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 
 const P6 = () => {
@@ -16,6 +19,7 @@ const P6 = () => {
     distance: 10,
     duration: 1000,
   });
+  const [cars, setCars] = useState([]);
 
   const navigation = useNavigation();
   const move = () => {
@@ -69,6 +73,34 @@ const P6 = () => {
   const timeout = allinfo.duration;
   const time = timeout.toFixed(0);
   console.log(time);
+  const getImage = (type) => {
+    if (type === 'taxi1') {
+      return require('./car.png');
+    }
+    if (type === 'taxi') {
+      return require('./car.png');
+    }
+    return require('./car.png');
+  };
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await API.graphql(graphqlOperation(listCars));
+        setCars(response.data.listCars.items);
+        console.log(cars);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    const onUpdate = API.graphql(graphqlOperation(onUpdateCar)).subscribe({
+      next: (data) => {
+        fetchCars();
+      },
+    });
+    fetchCars();
+  }, []);
 
   return (
     <SafeAreaView>
@@ -93,6 +125,20 @@ const P6 = () => {
             strokeWidth={4}
             strokeColor="#000000"
           />
+
+          {cars.map((car) => (
+            <Marker
+              key={car.id}
+              coordinate={{
+                latitude: car.latitude,
+                longitude: car.longitude,
+              }}>
+              <Image
+                style={{width: 50, height: 50, resizeMode: 'contain'}}
+                source={getImage(car.type)}
+              />
+            </Marker>
+          ))}
         </MapView>
         <LottieView
           source={require('../../animations/1.json')}

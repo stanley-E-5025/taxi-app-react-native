@@ -10,7 +10,7 @@ const Door = () => {
     navigation.navigate('Pass');
   }
   if (state === '') {
-    navigation.navigate('Login', {
+    navigation.navigate('SingIn', {
       state,
     });
   }

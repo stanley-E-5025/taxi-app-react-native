@@ -14,6 +14,7 @@ import {useRoute, useNavigation} from '@react-navigation/core';
 import {withAuthenticator} from 'aws-amplify-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import map from '../map-style';
+import {onUpdateCar} from '../../graphql/subscriptions';
 
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 import {listCars, listTodos} from '../../graphql/queries';
@@ -35,8 +36,15 @@ const P1 = () => {
         console.error(e);
       }
     };
+
+    const onUpdate = API.graphql(graphqlOperation(onUpdateCar)).subscribe({
+      next: (data) => {
+        fetchCars();
+      },
+    });
     fetchCars();
   }, []);
+
   /////////////////////////////////////////////////////////////////////////////
   const navigation = useNavigation();
   /////////////////////////////////////////////////////////////////////////////

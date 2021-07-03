@@ -13,7 +13,6 @@ import Bt from './main';
 import {useRoute, useNavigation} from '@react-navigation/core';
 import {withAuthenticator} from 'aws-amplify-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import map from '../map-style';
 import {onUpdateCar} from '../../graphql/subscriptions';
 
 import {API, graphqlOperation, Auth} from 'aws-amplify';
@@ -64,14 +63,11 @@ const P1 = () => {
 
   const infouser = Auth.currentAuthenticatedUser({bypassCache: true});
 
-  console.log(infouser);
-
   const data = API.graphql(
     graphqlOperation(listTodos, {
       username: Auth.currentAuthenticatedUser,
     }),
   );
-  console.log(data);
 
   const getImage = (type) => {
     if (type === 'taxi1') {
@@ -163,4 +159,4 @@ const P1 = () => {
   );
 };
 
-export default P1;
+export default withAuthenticator(P1);

@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Image, SafeAreaView, ImageBackground} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 
 const P0 = () => {
+  const [lat, setLat] = useState(0);
+  const [lon, setLon] = useState(0);
+
   const navigation = useNavigation();
   const move = () => {
-    navigation.navigate('Door');
+    navigation.navigate('P1', {
+      lat,
+      lon,
+    });
   };
 
+  const loc = (event) => {
+    const lat = event.nativeEvent.coordinate.latitude;
+    const lon = event.nativeEvent.coordinate.longitude;
+    setLat(lat);
+    setLon(lon);
+  };
   return (
     <ImageBackground
       source={require('../../animations/bg.jpg')}
@@ -47,6 +60,20 @@ const P0 = () => {
             bottom: 0,
           }}
         />
+      </View>
+      <View>
+        <MapView
+          style={{height: 0, width: 0}}
+          provider={PROVIDER_GOOGLE}
+          onUserLocationChange={loc}
+          showsUserLocation={true}
+          showsCompass={false}
+          initialRegion={{
+            latitude: 0,
+            longitude: 0,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}></MapView>
       </View>
     </ImageBackground>
   );

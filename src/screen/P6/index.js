@@ -8,9 +8,9 @@ import LottieView from 'lottie-react-native';
 
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
-import {updateCarInfo} from '../../graphql/mutations';
-import {listCars, listTodos} from '../../graphql/queries';
-import {onUpdateCar} from '../../graphql/subscriptions';
+import {updateCarInfo, updateOrder} from '../../graphql/mutations';
+import {listCars, listTodos, getOrder} from '../../graphql/queries';
+import {onUpdateCar, onUpdateOrder} from '../../graphql/subscriptions';
 
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 
@@ -28,11 +28,10 @@ const P6 = () => {
   const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 
   const route = useRoute();
-  console.log(route.params.cost);
   const end = route.params.drivers;
   const data = end[0];
 
-  console.log(data.id);
+  console.log(data.place);
 
   const lat = data.originLatitude;
 
@@ -64,6 +63,24 @@ const P6 = () => {
       console.error(e);
     }
   };
+
+  const cancel = async () => {
+    try {
+      const input = {
+        id: data.place,
+        status: 'cancelado',
+      };
+
+      const response = await API.graphql(
+        graphqlOperation(updateOrder, {
+          input,
+        }),
+      );
+      console.log(response);
+    } catch (e) {
+      console.error(e);
+    }
+  };
   const info = (event) => {
     setAllinfo({
       distance: event.distance,
@@ -72,7 +89,6 @@ const P6 = () => {
   };
   const timeout = allinfo.duration;
   const time = timeout.toFixed(0);
-  console.log(time);
   const getImage = (type) => {
     if (type === 'taxi1') {
       return require('./car.png');
@@ -99,6 +115,7 @@ const P6 = () => {
         fetchCars();
       },
     });
+
     fetchCars();
   }, []);
 
@@ -153,7 +170,7 @@ const P6 = () => {
           }}
         />
 
-        <Pressable style={styles.pres} onPress={move}>
+        <Pressable style={styles.pres} onPress={move} onPressIn={cancel}>
           <Text style={styles.Text}>cancelar</Text>
         </Pressable>
         <View style={styles.pres2}>

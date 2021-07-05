@@ -1,30 +1,22 @@
 import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Pressable,
-  Text,
-  Image,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, View, Pressable, Text, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import styles from './styles';
 import Bt from './main';
 import {useRoute, useNavigation} from '@react-navigation/core';
 import {withAuthenticator} from 'aws-amplify-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {onUpdateCar} from '../../graphql/subscriptions';
-
-import {API, graphqlOperation, Auth} from 'aws-amplify';
-import {listCars, listTodos} from '../../graphql/queries';
+import {API, graphqlOperation} from 'aws-amplify';
+import {listCars} from '../../graphql/queries';
 
 const P1 = () => {
   const route = useRoute();
+  const navigation = useNavigation();
 
   const [lat, setLat] = useState(route.params.lat);
   const [lon, setLon] = useState(route.params.lon);
   const [cars, setCars] = useState([]);
-  /////////////////////////////////////////////////////////////////////////////
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -36,23 +28,8 @@ const P1 = () => {
       }
     };
 
-    const onUpdate = API.graphql(graphqlOperation(onUpdateCar)).subscribe({
-      next: (data) => {
-        fetchCars();
-      },
-    });
     fetchCars();
   }, []);
-
-  /////////////////////////////////////////////////////////////////////////////
-  const navigation = useNavigation();
-  /////////////////////////////////////////////////////////////////////////////
-  const move = () => {
-    navigation.navigate('P2', {
-      lat,
-      lon,
-    });
-  };
 
   const gps = (event) => {
     const lat = event.nativeEvent.coordinate.latitude;
@@ -61,18 +38,7 @@ const P1 = () => {
     setLon(lon);
   };
 
-  const infouser = Auth.currentAuthenticatedUser({bypassCache: true});
-
-  const data = API.graphql(
-    graphqlOperation(listTodos, {
-      username: Auth.currentAuthenticatedUser,
-    }),
-  );
-
   const getImage = (type) => {
-    if (type === 'taxi1') {
-      return require('./car.png');
-    }
     if (type === 'taxi') {
       return require('./car.png');
     }
@@ -83,19 +49,15 @@ const P1 = () => {
     alert('asegurarte de que el gps esta activado');
   }
 
-  const MyCustomMarkerView = (marker) => {
-    return (
-      <View style={styles.custom}>
-        <Text style={styles.text21}>tu</Text>
-      </View>
-    );
-  };
   return (
     <SafeAreaView>
       <View style={styles.view}>
         <MapView
           style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
+          scrollEnabled={false}
+          zoomEnabled={false}
+          zoomTapEnabled={false}
           showsCompass={false}
           initialRegion={{
             latitude: route.params.lat,
@@ -107,9 +69,7 @@ const P1 = () => {
             coordinate={{
               latitude: route.params.lat,
               longitude: route.params.lon,
-            }}>
-            <MyCustomMarkerView {...MyCustomMarkerView} />
-          </Marker>
+            }}></Marker>
 
           {cars.map((car) => (
             <Marker
@@ -141,7 +101,14 @@ const P1 = () => {
             }}></MapView>
         </View>
         <Bt />
-        <Pressable onPress={move} style={[styles.presable, {bottom: 15}]}>
+        <Pressable
+          onPress={() =>
+            navigation.navigate('P2', {
+              lat,
+              lon,
+            })
+          }
+          style={styles.presable}>
           <Text style={styles.text}>
             <Icon name="map" size={20} color="#ffffff" /> pedir
           </Text>

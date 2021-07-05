@@ -34,10 +34,13 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 1,
+    backgroundColor: '#fff',
+    height: 40,
+    borderRadius: 5,
   },
   iconContainer: {
-    backgroundColor: '#171717',
+    backgroundColor: '#fff',
     padding: 4,
     borderRadius: 50,
     marginRight: 15,

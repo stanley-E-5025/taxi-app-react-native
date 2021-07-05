@@ -19,9 +19,7 @@ const List = () => {
       const userInfo = await Auth.currentAuthenticatedUser();
       const email = userInfo.username;
       setEmail(email);
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   };
   const fetchOrders = async () => {
     try {
@@ -30,9 +28,7 @@ const List = () => {
       );
       const info = orderData.data.listOrders.items;
       setAll(info);
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   };
 
   const Item = ({price, place}) => (

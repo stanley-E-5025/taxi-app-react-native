@@ -10,7 +10,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const P8 = () => {
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
-  console.log(lat);
   const route = useRoute();
   const navigation = useNavigation();
 

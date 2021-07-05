@@ -121,6 +121,27 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexDirection: 'row',
   },
+
+  press3: {
+    width: '100%',
+    height: '100%',
+
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    position: 'absolute',
+    backgroundColor: '#ffffff',
+  },
+
+  press2: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    position: 'absolute',
+    backgroundColor: 'red',
+  },
 });
 
 export default styles;

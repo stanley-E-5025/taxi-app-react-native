@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {View, Image, SafeAreaView, ImageBackground} from 'react-native';
+import React, {useState} from 'react';
+import {View, Image, ImageBackground} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 const P0 = () => {
   const [lat, setLat] = useState(0);

@@ -1,25 +1,24 @@
 import React, {useState} from 'react';
 import {Text, View, Pressable, SafeAreaView} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import map from '../map-style';
 import {createOrder} from '../../graphql/mutations';
-
 import {API, graphqlOperation, Auth} from 'aws-amplify';
 
-// constantes para las coordenadas  de punto A y B
 const P4 = () => {
+  const route = useRoute();
+  const navigation = useNavigation();
+
   const [allinfo, setAllinfo] = useState({
     distance: 10,
     duration: 1000,
   });
-
   const [tarifa, setTarifa] = useState(60);
-  const route = useRoute();
+
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,
     longitude: route.params.originPlace.details.geometry.location.lng,
@@ -34,23 +33,10 @@ const P4 = () => {
     latitude: route.params.destinationPlace.details.geometry.location.lat,
     longitude: route.params.destinationPlace.details.geometry.location.lng,
   };
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  console.log(route.params.text);
-  // constante para la funcion de los botones
-  const navigation = useNavigation();
-
-  const move = () => {
-    navigation.navigate('P1');
-  };
-
-  const types = {
-    type: 'taxi1',
-  };
 
   const order = async () => {
     try {
       const userInfo = await Auth.currentAuthenticatedUser();
-      console.log(userInfo.username);
 
       const date = new Date();
 
@@ -78,13 +64,9 @@ const P4 = () => {
           input,
         }),
       );
-      console.log(response);
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   };
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const info = (event) => {
     setAllinfo({
       distance: event.distance,
@@ -92,42 +74,16 @@ const P4 = () => {
     });
   };
 
-  // calculo para medir la distancia entre los A y B
-
   const distance = allinfo.distance.toFixed(1);
   const duration = allinfo.duration.toFixed(1);
-  const durationClientside = allinfo.distance.toFixed(0);
   const cal = distance * 13;
 
   const price = tarifa + cal;
 
-  let date = new Date();
-
-  let hours = date.getHours();
-
-  // how to handle the cases where time is one digit
-
-  // 14 km 80 arranque   > 9pm 
-
-
-  function makeTwoDigits(time) {
-    const timeString = `${time}`;
-    if (timeString.length === 2) return time;
-    return `0${time}`;
-  }
+  // 14 km 80 arranque   > 9pm
 
   const orderPrice = price.toFixed(1);
-  const times = makeTwoDigits(hours);
-  console.log(orderPrice);
-  const confirmar = () => {
-    navigation.navigate('P5', {
-      destination,
-      origins,
-      orderPrice,
-    });
-  };
-  // 10 pm a 6 am  son  80
-  // if the price  > 100 + 900 aranqj
+
   const MyCustomMarkerView = (marker) => {
     return (
       <View style={styles.custom}>
@@ -142,7 +98,7 @@ const P4 = () => {
       </View>
     );
   };
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   return (
     <SafeAreaView>
       <MapView
@@ -186,7 +142,16 @@ const P4 = () => {
         </Text>
       </View>
 
-      <Pressable style={styles.presable} onPressIn={confirmar} onPress={order}>
+      <Pressable
+        style={styles.presable}
+        onPressIn={() =>
+          navigation.navigate('P5', {
+            destination,
+            origins,
+            orderPrice,
+          })
+        }
+        onPress={order}>
         <Text style={styles.text3}>
           <Icon name="check-circle-o" size={15} color="#ffffff" />
           {'  '}
@@ -194,7 +159,9 @@ const P4 = () => {
         </Text>
       </Pressable>
 
-      <Pressable style={styles.presable2} onPress={move}>
+      <Pressable
+        style={styles.presable2}
+        onPress={() => navigation.navigate('P1')}>
         <Text style={styles.text3}>
           <Icon name="close" size={25} color="#000000" />
         </Text>

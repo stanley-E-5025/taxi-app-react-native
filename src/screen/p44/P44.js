@@ -90,14 +90,11 @@ const P44 = () => {
 
   const distance = allinfo.distance.toFixed(1);
   const duration = allinfo.duration.toFixed(1);
-  const durationClientside = allinfo.distance.toFixed(0);
   const cal = distance * 13;
 
   const price = tarifa + cal;
 
   let date = new Date();
-
-  let hours = date.getHours();
 
   // how to handle the cases where time is one digit
   function makeTwoDigits(time) {
@@ -107,7 +104,6 @@ const P44 = () => {
   }
 
   const orderPrice = price.toFixed(1);
-  const times = makeTwoDigits(hours);
   const confirmar = () => {
     navigation.navigate('P5', {
       destination,
@@ -115,7 +111,6 @@ const P44 = () => {
       orderPrice,
     });
   };
-  console.log(orderPrice);
   // 10 pm a 6 am  son  80
   // if the price  > 100 + 900 aranqj
   const MyCustomMarkerView = (marker) => {

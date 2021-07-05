@@ -1,62 +1,33 @@
-import React, {useState, useEffect} from 'react';
-import {
-  Text,
-  View,
-  Pressable,
-  SafeAreaView,
-  Alert,
-  ScrollView,
-} from 'react-native';
+import React from 'react';
+import {Text, View, Pressable, SafeAreaView, ScrollView} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 const P2 = () => {
   const route = useRoute();
-
+  const navigation = useNavigation();
   const lat = route.params.lat;
   const lon = route.params.lon;
 
-  const navigation = useNavigation();
-
-  const move = () => {
-    navigation.navigate('P3', {
-      lat,
-      lon,
-    });
-  };
-  const movet = () => {
-    navigation.navigate('P1');
-  };
-
-  const MyCustomMarkerView = (marker) => {
-    return (
-      <View style={styles.custom}>
-        <Text style={styles.text21}>tu</Text>
-      </View>
-    );
-  };
   return (
     <SafeAreaView>
       <MapView
         style={{height: '100%', width: '100%'}}
         provider={PROVIDER_GOOGLE}
         showsCompass={false}
+        cacheEnabled={true}
         initialRegion={{
           latitude: lat,
           longitude: lon,
           latitudeDelta: 0.0,
           longitudeDelta: 0.012,
-        }}>
-        <Marker coordinate={{latitude: lat, longitude: lon}}>
-          <MyCustomMarkerView {...MyCustomMarkerView} />
-        </Marker>
-      </MapView>
+        }}></MapView>
 
       <Pressable
-        onPress={movet}
+        onPress={() => navigation.navigate('P1')}
         style={[styles.presable2, {top: 20, left: 10}]}>
         <Text style={styles.text21}>
           <Icon name="angle-left" size={30} color="#000000" />
@@ -81,7 +52,14 @@ const P2 = () => {
             />
           </View>
         </Pressable>
-        <Pressable style={styles.info2} onPress={move}>
+        <Pressable
+          style={styles.info2}
+          onPress={() =>
+            navigation.navigate('P3', {
+              lat,
+              lon,
+            })
+          }>
           <Text style={styles.txt2}>fijar destino ahora </Text>
         </Pressable>
 

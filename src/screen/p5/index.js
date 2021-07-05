@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Pressable} from 'react-native';
+import {Text, View} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import styles from './styles';
@@ -13,16 +13,12 @@ const P5 = () => {
   const [uer, setUser] = useState();
 
   const [drivers, setDrivers] = useState([]);
-  const [tonext, setTonext] = useState([]);
 
   const order = async () => {
     try {
       const userInfo = await Auth.currentAuthenticatedUser();
-      const name = userInfo.attributes.sub;
       const email = userInfo.username;
       setUser(email);
-
-      console.log(email);
     } catch (e) {
       console.error(e);
     }
@@ -46,11 +42,7 @@ const P5 = () => {
       );
       const info = carData.data.listCarInfos.items;
       setDrivers(info);
-
-      console.log(info);
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   };
 
   const route = useRoute();
@@ -62,7 +54,6 @@ const P5 = () => {
   const lonB = route.params.destination.longitude;
   const cost = route.params.orderPrice;
   const orden = {latA, lonA, latB, lonB, D};
-  console.log(cost);
   const D = route.params.sin;
   if (drivers.length === 0) {
     console.log('esperar');

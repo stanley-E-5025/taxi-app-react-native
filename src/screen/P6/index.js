@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 import {Text, View, Pressable, SafeAreaView, Share, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import map from '../map-style';
@@ -20,8 +20,10 @@ const P6 = () => {
     duration: 1000,
   });
   const [cars, setCars] = useState([]);
-
+  const [state, setStatus] = useState();
   const navigation = useNavigation();
+
+  console.log(state);
   const move = () => {
     navigation.navigate('P7');
   };
@@ -68,7 +70,7 @@ const P6 = () => {
     try {
       const input = {
         id: data.place,
-        status: 'cancelado',
+        status: 'cancelled',
       };
 
       const response = await API.graphql(
@@ -118,6 +120,30 @@ const P6 = () => {
 
     fetchCars();
   }, []);
+
+  const updateUsercar = async () => {
+    // GET USER
+
+    // CHECK IF HAS A CAR
+    const getCardata = await API.graphql(
+      graphqlOperation(getOrder, {
+        id: data.place,
+      }),
+    );
+
+    setStatus(getCardata.data.getOrder.status);
+
+    // IF NOT ,  CREATE A CAR
+  };
+
+  useEffect(() => {
+    updateUsercar();
+  }, []);
+  const realTime = API.graphql(graphqlOperation(onUpdateOrder)).subscribe({
+    next: (data) => {
+      updateUsercar();
+    },
+  });
 
   return (
     <SafeAreaView>
@@ -173,6 +199,23 @@ const P6 = () => {
         <Pressable style={styles.pres} onPress={move} onPressIn={cancel}>
           <Text style={styles.Text}>cancelar</Text>
         </Pressable>
+
+        {state === 'updated' && (
+          <Pressable
+            style={styles.press3}
+            onPress={() => navigation.navigate('P1')}>
+            <Text style={styles.Text}>el pedido esta finalizado</Text>
+          </Pressable>
+        )}
+
+        {state === 'rejected' && (
+          <Pressable style={styles.press2} onPress={move} onPressIn={order}>
+            <Text style={{color: '#ffffff', fontWeight: 'bold'}}>
+              tu orden fue rechazada{' '}
+            </Text>
+          </Pressable>
+        )}
+
         <View style={styles.pres2}>
           <View style={styles.carN}>
             <Image style={styles.Image} source={require('./ICON.png')} />
@@ -206,4 +249,4 @@ const P6 = () => {
   );
 };
 
-export default P6;
+export default memo(P6);

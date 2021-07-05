@@ -1,16 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 import {View, Text, Pressable, Image} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {Auth} from 'aws-amplify';
 import styles from './styles';
 
 const CustomDrawer = ({navigation, props}) => {
-  const historial = () => {
-    navigation.navigate('List');
-  };
-  const contactanos = () => {
-    navigation.navigate('contact');
-  };
   const [userInfo, setUserinfo] = useState('...');
   const [email, setEmail] = useState('...');
 
@@ -22,9 +16,7 @@ const CustomDrawer = ({navigation, props}) => {
       const email = userInfo.attributes.email;
       setEmail(email);
       setUserinfo(name);
-    } catch (e) {
-      console.error(e);
-    }
+    } catch (e) {}
   };
 
   useEffect(() => {
@@ -51,10 +43,14 @@ const CustomDrawer = ({navigation, props}) => {
           <Text style={styles.textn}>{email}</Text>
         </View>
         <Pressable style={styles.line}></Pressable>
-        <Pressable style={styles.history} onPress={historial}>
+        <Pressable
+          style={styles.history}
+          onPress={() => navigation.navigate('List')}>
           <Text style={{marginLeft: 10, color: '#ffffff'}}>historial</Text>
         </Pressable>
-        <Pressable style={styles.constacto} onPress={contactanos}>
+        <Pressable
+          style={styles.constacto}
+          onPress={() => navigation.navigate('contact')}>
           <Text style={{marginLeft: 10, color: '#ffffff'}}>contactanos</Text>
         </Pressable>
       </View>
@@ -62,4 +58,4 @@ const CustomDrawer = ({navigation, props}) => {
   );
 };
 
-export default CustomDrawer;
+export default memo(CustomDrawer);

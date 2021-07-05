@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 import {View, TextInput, SafeAreaView, Text, Pressable} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 navigator.geolocation = require('@react-native-community/geolocation');
 navigator.geolocation = require('react-native-geolocation-service');
@@ -13,7 +13,8 @@ import PlaceRow from './PlaceRow';
 
 const P3 = (props) => {
   const route = useRoute();
-  console.log(route.params);
+  const navigation = useNavigation();
+
   const [text, onChangeText] = React.useState('');
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
@@ -23,13 +24,9 @@ const P3 = (props) => {
     lon: route.params.lon,
   };
 
-  let date = new Date();
-
-  let hours = date.getHours();
-
-  // how to handle the cases where time is one digit
-
-  const navigation = useNavigation();
+  const type = {
+    taxi: 'taxi',
+  };
 
   const checkNavigation = () => {
     if (destinationPlace) {
@@ -57,9 +54,6 @@ const P3 = (props) => {
     checkNavigation();
   }, [originPlace, destinationPlace]);
 
-  const type = {
-    taxi: 'taxi',
-  };
   const workPlace = {
     description: 'Posición actual',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
@@ -74,7 +68,6 @@ const P3 = (props) => {
         <MapView
           style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
-          showsUserLocation={true}
           showsMyLocationButton={false}
           showsCompass={false}
           initialRegion={{

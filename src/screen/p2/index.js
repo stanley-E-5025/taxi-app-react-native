@@ -18,7 +18,6 @@ const P2 = () => {
         style={{height: '100%', width: '100%'}}
         provider={PROVIDER_GOOGLE}
         showsCompass={false}
-        cacheEnabled={true}
         initialRegion={{
           latitude: lat,
           longitude: lon,
@@ -63,12 +62,12 @@ const P2 = () => {
           <Text style={styles.txt2}>fijar destino ahora </Text>
         </Pressable>
 
-        <Text style={styles.textd}>descripcion</Text>
+        <Text style={styles.textd}>descripción</Text>
         <Text style={styles.text22}>
           {' '}
           <Icon name="eye" size={15} color="#ffffff" />
           {'  '}
-          Monitoreo de viajes
+          Monitoreo del viaje
         </Text>
         <Text style={styles.text22}>
           {' '}

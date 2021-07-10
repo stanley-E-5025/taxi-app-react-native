@@ -17,7 +17,7 @@ const P4 = () => {
     distance: 10,
     duration: 1000,
   });
-  const [tarifa, setTarifa] = useState(60);
+  const [tarifa, setTarifa] = useState(75);
 
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,

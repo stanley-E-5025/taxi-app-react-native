@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     backgroundColor: '#ffffff',
     height: 40,
-    borderRadius: 10,
+    borderRadius: 5,
     color: '#000000',
   },
 
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 1,
+    marginVertical: 0,
     backgroundColor: '#fff',
     height: 40,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   iconContainer: {
     backgroundColor: '#fff',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   line: {
     width: 1,
     height: 25,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#171717',
     position: 'absolute',
     top: 43,
     left: 17,
@@ -125,12 +125,12 @@ const styles = StyleSheet.create({
   input: {
     width: 45,
     height: 45,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#171717',
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 100,
+    bottom: 130,
     right: 10,
   },
 });

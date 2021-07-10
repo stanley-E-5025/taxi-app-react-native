@@ -1,7 +1,6 @@
 import React, {useState, useEffect, memo} from 'react';
-import {Text, View, Pressable, SafeAreaView, Share, Image} from 'react-native';
+import {Text, View, Pressable, SafeAreaView, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-import map from '../map-style';
 import MapViewDirections from 'react-native-maps-directions';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
@@ -9,10 +8,10 @@ import LottieView from 'lottie-react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
 import {updateCarInfo, updateOrder} from '../../graphql/mutations';
-import {listCars, listTodos, getOrder} from '../../graphql/queries';
+import {listCars, getOrder} from '../../graphql/queries';
 import {onUpdateCar, onUpdateOrder} from '../../graphql/subscriptions';
 
-import {API, graphqlOperation, Auth} from 'aws-amplify';
+import {API, graphqlOperation} from 'aws-amplify';
 
 const P6 = () => {
   const [allinfo, setAllinfo] = useState({
@@ -23,7 +22,6 @@ const P6 = () => {
   const [state, setStatus] = useState();
   const navigation = useNavigation();
 
-  console.log(state);
   const move = () => {
     navigation.navigate('P7');
   };
@@ -32,8 +30,6 @@ const P6 = () => {
   const route = useRoute();
   const end = route.params.drivers;
   const data = end[0];
-
-  console.log(data.place);
 
   const lat = data.originLatitude;
 
@@ -60,8 +56,7 @@ const P6 = () => {
           input,
         }),
       );
-      console.log(response);
-    } catch (e) {
+     } catch (e) {
       console.error(e);
     }
   };
@@ -78,7 +73,6 @@ const P6 = () => {
           input,
         }),
       );
-      console.log(response);
     } catch (e) {
       console.error(e);
     }
@@ -122,9 +116,6 @@ const P6 = () => {
   }, []);
 
   const updateUsercar = async () => {
-    // GET USER
-
-    // CHECK IF HAS A CAR
     const getCardata = await API.graphql(
       graphqlOperation(getOrder, {
         id: data.place,
@@ -132,8 +123,6 @@ const P6 = () => {
     );
 
     setStatus(getCardata.data.getOrder.status);
-
-    // IF NOT ,  CREATE A CAR
   };
 
   useEffect(() => {
@@ -177,7 +166,7 @@ const P6 = () => {
                 longitude: car.longitude,
               }}>
               <Image
-                style={{width: 50, height: 50, resizeMode: 'contain'}}
+                style={{width: 35, height: 35, resizeMode: 'contain'}}
                 source={getImage(car.type)}
               />
             </Marker>
@@ -204,7 +193,9 @@ const P6 = () => {
           <Pressable
             style={styles.press3}
             onPress={() => navigation.navigate('P1')}>
-            <Text style={styles.Text}>el pedido esta finalizado</Text>
+            <Text style={{color: '#ffffff', fontWeight: 'bold'}}>
+              el pedido esta finalizado
+            </Text>
           </Pressable>
         )}
 

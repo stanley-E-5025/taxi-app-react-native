@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     position: 'absolute',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'green',
   },
 
   press2: {

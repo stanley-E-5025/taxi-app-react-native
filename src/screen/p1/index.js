@@ -13,8 +13,8 @@ const P1 = () => {
   const route = useRoute();
   const navigation = useNavigation();
 
-  const [lat, setLat] = useState(route.params.lat);
-  const [lon, setLon] = useState(route.params.lon);
+  const lat = route.params.lat;
+  const lon = route.params.lon;
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
@@ -31,13 +31,6 @@ const P1 = () => {
     fetchCars();
   }, []);
 
-  const gps = (event) => {
-    const lat = event.nativeEvent.coordinate.latitude;
-    const lon = event.nativeEvent.coordinate.longitude;
-    setLat(lat);
-    setLon(lon);
-  };
-
   const getImage = (type) => {
     if (type === 'taxi') {
       return require('./car.png');
@@ -45,19 +38,12 @@ const P1 = () => {
     return require('./car.png');
   };
 
-  if (route.params.lat === 0) {
-    alert('asegurarte de que el gps esta activado');
-  }
-
   return (
     <SafeAreaView>
       <View style={styles.view}>
         <MapView
           style={{height: '100%', width: '100%'}}
           provider={PROVIDER_GOOGLE}
-          scrollEnabled={false}
-          zoomEnabled={false}
-          zoomTapEnabled={false}
           showsCompass={false}
           initialRegion={{
             latitude: route.params.lat,
@@ -65,12 +51,6 @@ const P1 = () => {
             latitudeDelta: 0.0,
             longitudeDelta: 0.11,
           }}>
-          <Marker
-            coordinate={{
-              latitude: route.params.lat,
-              longitude: route.params.lon,
-            }}></Marker>
-
           {cars.map((car) => (
             <Marker
               key={car.id}
@@ -79,27 +59,13 @@ const P1 = () => {
                 longitude: car.longitude,
               }}>
               <Image
-                style={{width: 50, height: 50, resizeMode: 'contain'}}
+                style={{width: 35, height: 35, resizeMode: 'contain'}}
                 source={getImage(car.type)}
               />
             </Marker>
           ))}
         </MapView>
 
-        <View>
-          <MapView
-            style={{height: 0, width: 0}}
-            provider={PROVIDER_GOOGLE}
-            onUserLocationChange={gps}
-            showsUserLocation={true}
-            showsCompass={false}
-            initialRegion={{
-              latitude: route.params.lat,
-              longitude: route.params.lon,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}></MapView>
-        </View>
         <Bt />
         <Pressable
           onPress={() =>

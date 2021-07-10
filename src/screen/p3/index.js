@@ -1,4 +1,4 @@
-import React, {useState, useEffect, memo} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, TextInput, SafeAreaView, Text, Pressable} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -59,7 +59,7 @@ const P3 = (props) => {
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
   };
   const mapSelect = {
-    description: 'fijar la ubicasion en el mapa',
+    description: 'fijar la ubicación  en el mapa',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
   };
   return (
@@ -145,13 +145,13 @@ const P3 = (props) => {
             style={[styles.drivertxt, {top: 450}]}
             onChangeText={onChangeText}
             value={text}
-            placeholder="nota para elconductor"
+            placeholder="nota para el conductor"
           />
         )}
 
         <Pressable style={styles.input} onPress={() => setGg(!gg)}>
           <Text>
-            <Icon name="chatbox-ellipses-outline" size={20} color="#000000" />{' '}
+            <Icon name="chatbox-ellipses-outline" size={20} color="#fff" />{' '}
           </Text>
         </Pressable>
         {/* Circle near Origin input */}

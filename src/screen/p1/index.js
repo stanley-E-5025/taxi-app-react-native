@@ -8,6 +8,7 @@ import {withAuthenticator} from 'aws-amplify-react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {API, graphqlOperation} from 'aws-amplify';
 import {listCars} from '../../graphql/queries';
+import {onUpdateCar} from '../../graphql/subscriptions';
 
 const P1 = () => {
   const route = useRoute();
@@ -20,13 +21,20 @@ const P1 = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await API.graphql(graphqlOperation(listCars));
+        const response = await API.graphql(
+          graphqlOperation(listCars, {filter: {type: {eq: 'taxi'}}}),
+        );
         setCars(response.data.listCars.items);
-        console.log(cars);
       } catch (e) {
         console.error(e);
       }
     };
+
+    const onUpdate = API.graphql(graphqlOperation(onUpdateCar)).subscribe({
+      next: (data) => {
+        fetchCars();
+      },
+    });
 
     fetchCars();
   }, []);

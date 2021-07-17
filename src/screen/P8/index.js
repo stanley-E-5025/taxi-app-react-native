@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {Text, View, Pressable, SafeAreaView} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import MapView from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
-const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // constantes para las coordenadas  de punto A y B

@@ -1,16 +1,13 @@
-import React, {useState, useEffect, memo} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Pressable, SafeAreaView, Image} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import LottieView from 'lottie-react-native';
-
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
 import {updateCarInfo, updateOrder} from '../../graphql/mutations';
 import {listCars, getOrder} from '../../graphql/queries';
 import {onUpdateCar, onUpdateOrder} from '../../graphql/subscriptions';
-
 import {API, graphqlOperation} from 'aws-amplify';
 
 const P6 = () => {
@@ -21,7 +18,6 @@ const P6 = () => {
   const [cars, setCars] = useState([]);
   const [state, setStatus] = useState();
   const navigation = useNavigation();
-
   const move = () => {
     navigation.navigate('P7');
   };
@@ -30,9 +26,7 @@ const P6 = () => {
   const route = useRoute();
   const end = route.params.drivers;
   const data = end[0];
-
   const lat = data.originLatitude;
-
   const lon = data.originLongitude;
   const origins = {
     latitude: route.params.orden.latA,
@@ -44,23 +38,12 @@ const P6 = () => {
     longitude: lon,
   };
 
-  const order = async () => {
-    try {
-      const input = {
-        id: data.id,
-        status: 'updated',
-      };
-
-      const response = await API.graphql(
-        graphqlOperation(updateCarInfo, {
-          input,
-        }),
-      );
-     } catch (e) {
-      console.error(e);
-    }
-  };
-
+  if (state === 'updated') {
+    navigation.navigate('Stars', {
+      state,
+      carId: data.id,
+    });
+  }
   const cancel = async () => {
     try {
       const input = {
@@ -85,32 +68,69 @@ const P6 = () => {
   };
   const timeout = allinfo.duration;
   const time = timeout.toFixed(0);
-  const getImage = (type) => {
-    if (type === 'taxi1') {
-      return require('./car.png');
-    }
-    if (type === 'taxi') {
-      return require('./car.png');
-    }
-    return require('./car.png');
-  };
+  const order = async () => {
+    try {
+      const input = {
+        id: data.id,
+        status: 'updated',
+      };
 
+      const response = await API.graphql(
+        graphqlOperation(updateCarInfo, {
+          input,
+        }),
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await API.graphql(graphqlOperation(listCars));
+        const response = await API.graphql(
+          graphqlOperation(listCars, {filter: {type: {eq: 'taxi'}}}),
+        );
         setCars(response.data.listCars.items);
-        console.log(cars);
       } catch (e) {
         console.error(e);
       }
     };
+
+    try {
+      const input = {
+        id: data.id,
+        status: 'updated',
+      };
+
+      const response = API.graphql(
+        graphqlOperation(updateCarInfo, {
+          input,
+        }),
+      );
+    } catch (e) {
+      console.error(e);
+    }
 
     const onUpdate = API.graphql(graphqlOperation(onUpdateCar)).subscribe({
       next: (data) => {
         fetchCars();
       },
     });
+
+    try {
+      const input = {
+        id: data.place,
+        carId: data.id,
+      };
+
+      const response = API.graphql(
+        graphqlOperation(updateOrder, {
+          input,
+        }),
+      );
+    } catch (e) {
+      console.error(e);
+    }
 
     fetchCars();
   }, []);
@@ -134,6 +154,7 @@ const P6 = () => {
     },
   });
 
+  console.log(state);
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -167,38 +188,18 @@ const P6 = () => {
               }}>
               <Image
                 style={{width: 35, height: 35, resizeMode: 'contain'}}
-                source={getImage(car.type)}
+                source={require('./car.png')}
               />
             </Marker>
           ))}
         </MapView>
-        <LottieView
-          source={require('../../animations/1.json')}
-          autoPlay={true}
-          loop={false}
-          onAnimationFinish={order}
-          style={{
-            height: 0,
-            width: 0,
-            alignSelf: 'center',
-            bottom: 0,
-          }}
-        />
 
-        <Pressable style={styles.pres} onPress={move} onPressIn={cancel}>
+        <Pressable
+          style={styles.pres}
+          onPress={() => navigation.navigate('P7')}
+          onPressIn={cancel}>
           <Text style={styles.Text}>cancelar</Text>
         </Pressable>
-
-        {state === 'updated' && (
-          <Pressable
-            style={styles.press3}
-            onPress={() => navigation.navigate('P1')}>
-            <Text style={{color: '#ffffff', fontWeight: 'bold'}}>
-              el pedido esta finalizado
-            </Text>
-          </Pressable>
-        )}
-
         {state === 'rejected' && (
           <Pressable style={styles.press2} onPress={move} onPressIn={order}>
             <Text style={{color: '#ffffff', fontWeight: 'bold'}}>
@@ -206,7 +207,6 @@ const P6 = () => {
             </Text>
           </Pressable>
         )}
-
         <View style={styles.pres2}>
           <View style={styles.carN}>
             <Image style={styles.Image} source={require('./ICON.png')} />
@@ -240,4 +240,4 @@ const P6 = () => {
   );
 };
 
-export default memo(P6);
+export default P6;

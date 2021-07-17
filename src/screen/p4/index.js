@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Pressable, SafeAreaView} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -17,7 +17,21 @@ const P4 = () => {
     distance: 10,
     duration: 1000,
   });
-  const [tarifa, setTarifa] = useState(75);
+  const [tarifa, setTarifa] = useState(70);
+  const date = new Date();
+
+  useEffect(() => {
+    const time = date.getHours();
+    if (time === 20) {
+      setTarifa(80);
+      console.log(tarifa);
+    }
+
+    if (time === 6) {
+      setTarifa(70);
+      console.log(tarifa);
+    }
+  });
 
   const origins = {
     latitude: route.params.originPlace.details.geometry.location.lat,

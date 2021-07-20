@@ -6,7 +6,7 @@ import 'react-native-gesture-handler';
 import Amplify from 'aws-amplify';
 import config from './src/aws-exports';
 Amplify.configure(config);
-
+// using hermes to first test on android
 const all = () => {
   const Permission = async () => {
     try {

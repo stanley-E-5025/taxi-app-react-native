@@ -77,7 +77,7 @@ const P1 = () => {
         <Bt />
         <Pressable
           onPress={() =>
-            navigation.navigate('P2', {
+            navigation.navigate('P3', {
               lat,
               lon,
             })

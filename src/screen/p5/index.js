@@ -10,40 +10,50 @@ import {listCarInfos} from '../../graphql/queries';
 import {onCreateCarInfo} from '../../graphql/subscriptions';
 
 const P5 = () => {
-  const [uer, setUser] = useState();
+  const [uer, setUser] = useState('');
 
   const [drivers, setDrivers] = useState([]);
+  console.log(uer);
+  console.log(drivers);
 
-  const order = async () => {
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userInfo = await Auth.currentAuthenticatedUser();
+        const email = userInfo.username;
+        setUser(email);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    API.graphql(graphqlOperation(onCreateCarInfo)).subscribe({
+      next: () => {
+        getcars();
+      },
+    });
+    getUser();
+  }, []);
+
+  const getcars = async () => {
     try {
-      const userInfo = await Auth.currentAuthenticatedUser();
-      const email = userInfo.username;
-      setUser(email);
+      const carData = await API.graphql(
+        graphqlOperation(listCarInfos, {
+          filter: {userId: {eq: uer}, status: {eq: 'NEW'}},
+        }),
+      );
+
+      setDrivers(carData.data.listCarInfos.items);
     } catch (e) {
       console.error(e);
     }
   };
 
-  useEffect(() => {
-    const realTime = API.graphql(graphqlOperation(onCreateCarInfo)).subscribe({
-      next: (data) => {
-        const UIupdate = data.value.data.onCreateCarInfo;
-        setDrivers([UIupdate, ...drivers]);
-      },
-    });
-  }, []);
-
-  const cars = async () => {
-    try {
-      const carData = await API.graphql(
-        graphqlOperation(listCarInfos, {
-          filter: {type: {eq: uer}, status: {eq: 'NEW'}},
-        }),
-      );
-      const info = carData.data.listCarInfos.items;
-      setDrivers(info);
-    } catch (e) {}
-  };
+  API.graphql(graphqlOperation(onCreateCarInfo)).subscribe({
+    next: () => {
+      getcars();
+    },
+  });
 
   const route = useRoute();
   const navigate = useNavigation();
@@ -78,24 +88,6 @@ const P5 = () => {
           autoPlay
           loop
           style={{height: 300, width: 500}}
-        />
-
-        <LottieView
-          source={require('../../animations/6607-loading-drop (1).json')}
-          autoPlay={true}
-          loop={false}
-          onAnimationFinish={order}
-          style={{height: 1, width: 100}}
-          speed={0.4}
-        />
-        <LottieView
-          source={require('../../animations/6607-loading-drop (1).json')}
-          autoPlay={true}
-          loop={false}
-          speed={10}
-          onAnimationFinish={cars}
-          style={{height: 1, width: 100}}
-          speed={0.4}
         />
       </View>
       <View style={styles.view}>

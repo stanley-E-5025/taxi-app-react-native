@@ -11,7 +11,7 @@ const P0 = () => {
 
   const navigation = useNavigation();
   const move = () => {
-    navigation.navigate('P1', {
+    navigation.navigate('AuthFlow', {
       lat,
       lon,
     });

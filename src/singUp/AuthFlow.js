@@ -1,12 +1,25 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {Authenticator} from 'aws-amplify-react-native';
+import {
+  Authenticator,
+  ForgotPassword,
+  ConfirmSignIn,
+} from 'aws-amplify-react-native';
+
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import ConfirmSignUp from './components/ConfirmSignUp';
 
 const AuthFlow = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Authenticator></Authenticator>
-    </View>
+    <>
+      <Authenticator hideDefault={true}>
+        <SignIn />
+        <SignUp />
+        <ConfirmSignUp />
+        <ConfirmSignIn />
+        <ForgotPassword />
+      </Authenticator>
+    </>
   );
 };
 

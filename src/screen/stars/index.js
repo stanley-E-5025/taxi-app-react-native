@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   SafeAreaView,
@@ -6,9 +6,9 @@ import {
   Image,
   View,
   Pressable,
+  BackHandler,
 } from 'react-native';
 import {useRoute, useNavigation} from '@react-navigation/core';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {API, graphqlOperation} from 'aws-amplify';
 import {updateCarInfo, updateOrder} from '../../graphql/mutations';
 
@@ -19,6 +19,24 @@ const Stars = () => {
   const [stars, setStars] = useState([1, 2, 3, 4, 5]);
   const route = useRoute();
   const navigation = useNavigation();
+
+  useEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if (route.name === 'Stars') {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [route]),
+  );
+  console.log(route.name);
 
   const fullImage =
     'https://raw.githubusercontent.com/tranhonghan/images/main/star_filled.png';

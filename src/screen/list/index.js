@@ -6,13 +6,18 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import {listOrders} from '../../graphql/queries';
 import {API, Auth, graphqlOperation} from 'aws-amplify';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {useRoute, useNavigation} from '@react-navigation/core';
 
 const List = () => {
   const [all, setAll] = useState([]);
   const [email, setEmail] = useState('all');
+
+  const navigation = useNavigation();
 
   const order = async () => {
     try {
@@ -60,9 +65,11 @@ const List = () => {
 
   return (
     <SafeAreaView>
-      <View style={styles.item2}>
-        <Text style={styles.history}>historial</Text>
-      </View>
+      <Pressable style={styles.item2} onPress={() => navigation.navigate('P1')}>
+        <Text style={styles.history}>
+          <Icon name="chevron-left" size={20} color="#000" /> {'  '} regresar
+        </Text>
+      </Pressable>
       <FlatList
         data={all}
         renderItem={renderItem}

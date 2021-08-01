@@ -175,9 +175,9 @@ const P4 = () => {
 
       <Pressable
         style={styles.presable2}
-        onPress={() => navigation.navigate('P1')}>
+        onPress={() => navigation.navigate('P3')}>
         <Text style={styles.text3}>
-          <Icon name="close" size={25} color="#000000" />
+          <Icon name="chevron-left" size={25} color="#000000" />
         </Text>
       </Pressable>
     </SafeAreaView>

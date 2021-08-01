@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, View, Pressable, Text, Image} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Pressable,
+  Text,
+  Image,
+  BackHandler,
+} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import styles from './styles';
 import Bt from './main';
@@ -18,6 +25,22 @@ const P1 = () => {
   const lon = route.params.lon;
   const [cars, setCars] = useState([]);
 
+  useEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if (route.name === 'P1') {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [route]),
+  );
   useEffect(() => {
     const fetchCars = async () => {
       try {

@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Pressable, SafeAreaView, Image} from 'react-native';
+import {
+  Text,
+  View,
+  Pressable,
+  SafeAreaView,
+  Image,
+  BackHandler,
+} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -24,6 +31,24 @@ const P6 = () => {
   const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
 
   const route = useRoute();
+
+  useEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if (route.name === 'P6') {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [route]),
+  );
+
   const end = route.params.drivers;
   const data = end[0];
   const lat = data.originLatitude;

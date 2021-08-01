@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, BackHandler} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import styles from './styles';
@@ -57,6 +57,22 @@ const P5 = () => {
 
   const route = useRoute();
   const navigate = useNavigation();
+  useEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if (route.name === 'P5') {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [route]),
+  );
 
   const latA = route.params.origins.latitude;
   const lonA = route.params.origins.longitude;

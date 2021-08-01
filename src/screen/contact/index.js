@@ -1,13 +1,21 @@
 import React from 'react';
 import {Text, View, Pressable, Linking} from 'react-native';
 import styles from './styles';
+import {useRoute, useNavigation} from '@react-navigation/core';
 
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 const Contact = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.view}>
-      <Text style={styles.title}>contactanos</Text>
+      <Pressable onPress={() => navigation.navigate('P1')}>
+        <Text style={styles.title}>
+          {' '}
+          <Icon name="arrow-left" size={20} color="#000" /> {'  '} regresar
+        </Text>
+      </Pressable>
 
       <Pressable
         style={styles.item}

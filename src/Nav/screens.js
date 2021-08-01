@@ -14,6 +14,7 @@ import List from '../screen/list/index';
 import contact from '../screen/contact/index';
 import Stars from '../screen/stars/index';
 import P44 from '../screen/p44/P44';
+import AuthFlow from '../singUp/AuthFlow';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ export default function screens(props) {
       <Stack.Screen name={'List'} component={List} />
       <Stack.Screen name={'contact'} component={contact} />
       <Stack.Screen name={'Stars'} component={Stars} />
+      <Stack.Screen name={'AuthFlow'} component={AuthFlow} />
     </Stack.Navigator>
   );
 }

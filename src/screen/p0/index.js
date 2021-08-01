@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, Image, ImageBackground} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Image, ImageBackground, BackHandler, Alert} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -23,6 +23,7 @@ const P0 = () => {
     setLat(lat);
     setLon(lon);
   };
+
   return (
     <ImageBackground
       source={require('../../animations/bg.jpg')}

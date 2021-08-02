@@ -14,7 +14,20 @@ const SignUp = (props) => {
   let input2 = password.replace(/\s+/g, '');
   let input3 = Email.replace(/\s+/g, '');
 
-  console.log(input2, input1, input3);
+  async function signUp() {
+    try {
+      const {user} = await Auth.signUp({
+        username: input1,
+        password: input2,
+        attributes: {
+          email: input3,
+        },
+      });
+      console.log(user);
+    } catch (error) {
+      console.log('error signing up:', error);
+    }
+  }
 
   if (props.authState === 'signUp')
     return (
@@ -53,7 +66,7 @@ const SignUp = (props) => {
           el codigo de verificacion sera enviado a este correo asegurate de
           ingresar un correo valido
         </Text>
-        <TouchableOpacity style={styles.press2}>
+        <TouchableOpacity style={styles.press2} onPress={signUp}>
           <Text style={styles.info2}>crear cuenta</Text>
         </TouchableOpacity>
         <TouchableOpacity

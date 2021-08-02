@@ -12,9 +12,13 @@ const SignIn = (props) => {
   let input1 = username.replace(/\s+/g, ',');
   let input2 = password.replace(/\s+/g, '');
 
-  console.log(input2, input1);
-
-  console.log(input1, input2);
+  async function signIn() {
+    try {
+      const user = await Auth.signIn(input1, input2);
+    } catch (error) {
+      console.log('error signing in', error);
+    }
+  }
 
   if (props.authState === 'signIn')
     return (
@@ -39,7 +43,7 @@ const SignIn = (props) => {
           onChangeText={onChangePassword}
           placeholder="contraseña"
         />
-        <TouchableOpacity style={styles.press2}>
+        <TouchableOpacity style={styles.press2} onPress={signIn}>
           <Text style={styles.info2}>iniciar sesion</Text>
         </TouchableOpacity>
         <TouchableOpacity

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Authenticator,
   ForgotPassword,
@@ -8,6 +8,7 @@ import {
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import ConfirmSignUp from './components/ConfirmSignUp';
+import Greetings from './components/Greetings';
 
 const AuthFlow = () => {
   return (
@@ -18,6 +19,7 @@ const AuthFlow = () => {
         <ConfirmSignUp />
         <ConfirmSignIn />
         <ForgotPassword />
+        <Greetings />
       </Authenticator>
     </>
   );

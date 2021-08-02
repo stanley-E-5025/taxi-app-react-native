@@ -12,8 +12,13 @@ const ConfirmSignUp = (props) => {
   let input1 = username.replace(/\s+/g, ',');
   let input2 = password;
 
-  console.log(input2, input1);
-
+  async function confirmSignUp() {
+    try {
+      await Auth.confirmSignUp(input1, input2);
+    } catch (error) {
+      console.log('error confirming sign up', error);
+    }
+  }
   if (props.authState === 'confirmSignUp')
     return (
       <View style={styles.container}>
@@ -38,7 +43,7 @@ const ConfirmSignUp = (props) => {
           placeholder="codigo"
           keyboardType="numeric"
         />
-        <TouchableOpacity style={styles.press2}>
+        <TouchableOpacity style={styles.press2} onPress={confirmSignUp}>
           <Text style={styles.info2}>confirmar </Text>
         </TouchableOpacity>
         <TouchableOpacity

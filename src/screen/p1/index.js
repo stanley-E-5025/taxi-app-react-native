@@ -123,4 +123,4 @@ const P1 = () => {
   );
 };
 
-export default withAuthenticator(P1);
+export default P1;

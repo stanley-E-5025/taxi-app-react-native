@@ -1,5 +1,5 @@
 import React, {useState, useEffect, memo} from 'react';
-import {View, Text, Pressable, Image} from 'react-native';
+import {View, Text, Pressable, Image, Linking} from 'react-native';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import {Auth} from 'aws-amplify';
 import styles from './styles';
@@ -52,6 +52,15 @@ const CustomDrawer = ({navigation, props}) => {
           style={styles.constacto}
           onPress={() => navigation.navigate('contact')}>
           <Text style={{marginLeft: 10, color: '#ffffff'}}>contactanos</Text>
+        </Pressable>
+        <Pressable
+          style={styles.constacto}
+          onPress={() =>
+            Linking.openURL('whatsapp://send?text=hello&phone=+505 85088585')
+          }>
+          <Text style={{marginLeft: 10, color: '#ffffff'}}>
+            pedidos espesiales
+          </Text>
         </Pressable>
       </View>
     </DrawerContentScrollView>

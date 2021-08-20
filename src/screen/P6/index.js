@@ -23,7 +23,7 @@ const P6 = () => {
     duration: 1000,
   });
   const [cars, setCars] = useState([]);
-  const [state, setStatus] = useState();
+  const [state, setStatus] = useState('');
   const navigation = useNavigation();
   const move = () => {
     navigation.navigate('P7');
@@ -109,11 +109,12 @@ const P6 = () => {
       console.error(e);
     }
   };
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
         const response = await API.graphql(
-          graphqlOperation(listCars, {filter: {type: {eq: 'taxi'}}}),
+          graphqlOperation(listCars, {filter: {id: {eq: data.nota}}}),
         );
         setCars(response.data.listCars.items);
       } catch (e) {
@@ -190,8 +191,8 @@ const P6 = () => {
           showsUserLocation={true}
           showsCompass={false}
           initialRegion={{
-            latitude: route.params.orden.latA,
-            longitude: route.params.orden.lonA,
+            latitude: lat,
+            longitude: lon,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>

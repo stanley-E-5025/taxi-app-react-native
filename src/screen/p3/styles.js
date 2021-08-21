@@ -81,16 +81,17 @@ const styles = StyleSheet.create({
   },
 
   drivertxt: {
-    backgroundColor: '#ffffff',
-
-    marginLeft: 20,
     height: 40,
-    borderRadius: 10,
+    borderRadius: 5,
     color: '#ffffff',
     position: 'absolute',
     paddingLeft: 10,
-    width: 300,
+    width: '95%',
     color: '#000000',
+    top: 90,
+    alignSelf: 'center',
+    borderBottomColor: '#000',
+    borderBottomWidth: 0.5,
   },
 
   info: {
@@ -132,6 +133,82 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 130,
     right: 10,
+  },
+
+  infoView: {
+    width: '95%',
+    height: 160,
+    backgroundColor: '#171717',
+    borderRadius: 5,
+    position: 'absolute',
+    bottom: 10,
+    alignSelf: 'center',
+  },
+  bottomBar: {
+    position: 'absolute',
+    width: '100%',
+    height: 30,
+    bottom: 0,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 35,
+  },
+
+  step: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#fff',
+
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 2,
+  },
+
+  arrow: {
+    position: 'absolute',
+
+    top: 5,
+    right: 10,
+  },
+  note: {
+    bottom: 15,
+    left: 30,
+    width: 45,
+    height: 45,
+    backgroundColor: '#171717',
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+  },
+  destino: {
+    top: 0,
+    left: 10,
+    width: '80%',
+    height: 100,
+  },
+
+  title: {color: '#fff', fontWeight: 'bold', margin: 10, fontSize: 19},
+
+  driverNote: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ffffff',
+    position: 'absolute',
+  },
+
+  save: {
+    width: '80%',
+    height: 40,
+    backgroundColor: '#000',
+    bottom: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    borderRadius: 10,
   },
 });
 

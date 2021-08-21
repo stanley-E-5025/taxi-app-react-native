@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
 
   pres2: {
     position: 'absolute',
-    width: '100%',
+    width: '95%',
     height: 170,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#171717',
     justifyContent: 'center',
     alignSelf: 'center',
-    bottom: 0,
+    bottom: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },

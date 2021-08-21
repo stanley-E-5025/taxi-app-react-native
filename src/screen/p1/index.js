@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   BackHandler,
+  TouchableOpacity
 } from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import styles from './styles';
@@ -98,7 +99,8 @@ const P1 = () => {
         </MapView>
 
         <Bt />
-        <Pressable
+        <TouchableOpacity
+
           onPress={() =>
             navigation.navigate('P3', {
               lat,
@@ -109,8 +111,8 @@ const P1 = () => {
           <Text style={styles.text}>
             <Icon name="map" size={20} color="#ffffff" /> pedir
           </Text>
-        </Pressable>
-
+   </TouchableOpacity>
+        
         <Pressable
           style={styles.historial}
           onPress={() => navigation.navigate('List')}>

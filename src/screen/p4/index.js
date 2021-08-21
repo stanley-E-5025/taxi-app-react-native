@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Pressable, SafeAreaView} from 'react-native';
+import {
+  Text,
+  View,
+  Pressable,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import MapViewDirections from 'react-native-maps-directions';
 import styles from './styles';
 const GOOGLE_MAPS_APIKEY = 'AIzaSyDC5YeK0OuXzBkkpcdYF71wTjtIGVV4NgE';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {createOrder} from '../../graphql/mutations';
 import {API, graphqlOperation, Auth} from 'aws-amplify';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const P4 = () => {
   const route = useRoute();
@@ -96,7 +102,7 @@ const P4 = () => {
 
   // 14 km 80 arranque   > 9pm
 
-  const orderPrice = price.toFixed(1);
+  const orderPrice = price.toFixed(0);
 
   const MyCustomMarkerView = (marker) => {
     return (
@@ -147,37 +153,39 @@ const P4 = () => {
           strokeColor="#171717"
         />
       </MapView>
+      <View style={styles.infoView}>
+        {/* arrow */}
+        <TouchableOpacity style={styles.price}>
+          <Text style={{color: '#fff'}}>{orderPrice} NIO</Text>
+        </TouchableOpacity>
 
-      <View style={styles.contaier3}>
-        <Text style={styles.text2}>
-          <Icon name="database" size={15} color="#171717" />
-          {'  '}
-          {orderPrice}C${' '}
-        </Text>
+        <TouchableOpacity
+          style={styles.arrow}
+          onPressIn={() =>
+            navigation.navigate('P5', {
+              destination,
+              origins,
+              orderPrice,
+            })
+          }
+          onPress={order}>
+          <Icon name="md-arrow-forward-sharp" size={30} color="#ffffff" />
+        </TouchableOpacity>
+
+        {/* info  */}
+
+        <View style={styles.destino}>
+          <Text style={styles.title}>{text1}</Text>
+
+          <Text style={{color: '#fff'}}>{text2}</Text>
+        </View>
+        {/* bottom bar  */}
       </View>
-
-      <Pressable
-        style={styles.presable}
-        onPressIn={() =>
-          navigation.navigate('P5', {
-            destination,
-            origins,
-            orderPrice,
-          })
-        }
-        onPress={order}>
-        <Text style={styles.text3}>
-          <Icon name="check-circle-o" size={15} color="#ffffff" />
-          {'  '}
-          confirmar orden
-        </Text>
-      </Pressable>
-
       <Pressable
         style={styles.presable2}
         onPress={() => navigation.navigate('P3')}>
         <Text style={styles.text3}>
-          <Icon name="chevron-left" size={25} color="#000000" />
+          <Icon name="ios-chevron-back-outline" size={30} color="#000" />
         </Text>
       </Pressable>
     </SafeAreaView>

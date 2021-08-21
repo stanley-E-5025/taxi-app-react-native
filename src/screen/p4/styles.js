@@ -125,5 +125,34 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
+
+  infoView: {
+    width: '95%',
+    height: 160,
+    backgroundColor: '#171717',
+    borderRadius: 5,
+    position: 'absolute',
+    bottom: 10,
+    alignSelf: 'center',
+  },
+  price: {
+    position: 'absolute',
+
+    bottom: 5,
+    right: 10,
+  },
+  arrow: {
+    position: 'absolute',
+
+    top: 5,
+    right: 10,
+  },
+  title: {color: '#fff', fontWeight: 'bold', margin: 10, fontSize: 19},
+  destino: {
+    top: 0,
+    left: 10,
+    width: '80%',
+    height: 100,
+  },
 });
 export default styles;

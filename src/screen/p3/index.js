@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, SafeAreaView, Text, Pressable} from 'react-native';
+import {
+  View,
+  TextInput,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -14,11 +20,11 @@ import PlaceRow from './PlaceRow';
 const P3 = (props) => {
   const route = useRoute();
   const navigation = useNavigation();
-
+  const [show, setSow] = React.useState(false);
   const [text, onChangeText] = React.useState('');
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
-  const [gg, setGg] = useState(true);
+  const [nota, setNota] = React.useState(false);
   const gps = {
     lat: route.params.lat,
     lon: route.params.lon,
@@ -39,13 +45,7 @@ const P3 = (props) => {
           type,
         });
       } else {
-        navigation.navigate('P4', {
-          originPlace,
-          destinationPlace,
-          gps,
-          text,
-          type,
-        });
+        setSow(true);
       }
     }
   };
@@ -62,6 +62,16 @@ const P3 = (props) => {
     description: 'fijar la ubicación  en el mapa',
     geometry: {location: {lat: gps.lat, lng: gps.lon}},
   };
+
+  const floatWindow = () => {
+    navigation.navigate('P4', {
+      originPlace,
+      destinationPlace,
+      gps,
+      text,
+      type,
+    });
+  };
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -77,7 +87,7 @@ const P3 = (props) => {
             longitudeDelta: 0.012,
           }}></MapView>
         <GooglePlacesAutocomplete
-          placeholder="aqui?"
+          placeholder="origen"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
           }}
@@ -100,7 +110,7 @@ const P3 = (props) => {
           predefinedPlaces={[workPlace]}
         />
         <GooglePlacesAutocomplete
-          placeholder="donde?"
+          placeholder="destino"
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
             console.log(details.geometry.location);
@@ -126,46 +136,59 @@ const P3 = (props) => {
           predefinedPlaces={[mapSelect]}
         />
 
-        {gg === false && (
-          <View style={styles.info}>
-            <Text style={styles.txt}>
-              {' '}
-              <Icon
-                name="chatbox-ellipses-outline"
-                size={20}
-                color="#ffffff"
-              />{' '}
-              nota
-            </Text>
+        {show === true && (
+          <View style={styles.infoView}>
+            {/* arrow */}
+
+            <TouchableOpacity style={styles.arrow} onPress={floatWindow}>
+              <Icon name="md-arrow-forward-sharp" size={30} color="#ffffff" />
+            </TouchableOpacity>
+
+            {/* info  */}
+
+            <View style={styles.destino}>
+              <Text style={styles.title}>{destinationPlace.details.name}</Text>
+
+              <Text style={{color: '#fff'}}>
+                {destinationPlace.details.formatted_address}
+              </Text>
+            </View>
+            {/* bottom bar  */}
           </View>
         )}
 
-        {gg === false && (
-          <TextInput
-            style={[styles.drivertxt, {top: 450}]}
-            onChangeText={onChangeText}
-            value={text}
-            placeholder="nota para el conductor"
-          />
-        )}
-
-        <Pressable style={styles.input} onPress={() => setGg(!gg)}>
-          <Text>
-            <Icon name="chatbox-ellipses-outline" size={20} color="#fff" />{' '}
-          </Text>
-        </Pressable>
         {/* Circle near Origin input */}
         <View style={styles.circle}>
           <Text style={{color: '#FFFFFF'}}>A</Text>
         </View>
-
         {/* Line between dots */}
         <View style={styles.line} />
-
         {/* Square near Destination input */}
         <View style={styles.square}>
           <Text style={{color: '#FFFFFF'}}>B</Text>
         </View>
+
+        <TouchableOpacity style={styles.note} onPress={() => setNota(true)}>
+          <Icon name="ios-chatbubble-ellipses-outline" size={25} color="#fff" />
+        </TouchableOpacity>
+        {nota === true && (
+          <View style={styles.driverNote}>
+            <Text style={{margin: 15, fontWeight: 'bold', fontSize: 21}}>
+              escribe un nota
+            </Text>
+            <TextInput
+              style={[styles.drivertxt]}
+              onChangeText={onChangeText}
+              value={text}
+              placeholder="nota para el conductor"
+            />
+            <TouchableOpacity
+              style={styles.save}
+              onPress={() => setNota(false)}>
+              <Text style={{color: '#FFFFFF'}}>guardar</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );

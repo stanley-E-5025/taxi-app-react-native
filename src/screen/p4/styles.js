@@ -125,6 +125,12 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: 'center',
     backgroundColor: '#7b16e0',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
   text21: {
     color: '#fff',

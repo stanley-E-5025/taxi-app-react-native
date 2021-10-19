@@ -15,14 +15,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   presable: {
-    width: 350,
-    height: 45,
+    backgroundColor: '#286EFA',
+
+    width: 340,
+    height: 47,
+    borderRadius: 8,
+
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-    backgroundColor: '#000000',
     position: 'absolute',
-    bottom: 10,
+    alignSelf: 'center',
+    borderColor: '#000000',
+    borderWidth: 0.2,
+    bottom: 15,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
   drawer: {
     width: '100%',
@@ -33,6 +42,9 @@ const styles = StyleSheet.create({
 
   txt: {
     color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
 

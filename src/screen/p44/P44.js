@@ -159,29 +159,21 @@ const P44 = () => {
           apikey={GOOGLE_MAPS_APIKEY}
           onReady={info}
           strokeWidth={4}
-          strokeColor="#171717"
+          strokeColor="#286EFA"
         />
       </MapView>
 
       <View style={styles.contaier3}>
-        <Text style={styles.text2}>
-          <Icon name="database" size={15} color="#171717" />
-          {'  '}
-          {orderPrice}C${' '}
-        </Text>
+        <Text style={styles.text2}>{orderPrice}NIO</Text>
       </View>
 
       <Pressable style={styles.presable} onPressIn={confirmar} onPress={order}>
-        <Text style={styles.text3}>
-          <Icon name="check-circle-o" size={15} color="#ffffff" />
-          {'  '}
-          confirmar orden
-        </Text>
+        <Text style={styles.text3}>confirmar</Text>
       </Pressable>
 
       <Pressable style={styles.presable2} onPress={move}>
         <Text style={styles.text3}>
-          <Icon name="close" size={25} color="#000000" />
+          <Icon name="angle-left" size={25} color="#000000" />
         </Text>
       </Pressable>
     </SafeAreaView>

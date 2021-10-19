@@ -3,7 +3,7 @@ import {Text, View, Pressable, SafeAreaView} from 'react-native';
 import MapView from 'react-native-maps';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import styles from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Entypo';
 
 // constantes para las coordenadas  de punto A y B
 const P8 = () => {
@@ -60,22 +60,18 @@ const P8 = () => {
       <View style={styles.custom}>
         <View style={styles.custom2}>
           <Text>
-            <Icon name="map-pin" size={30} color="#000000" />
+            <Icon name="triangle-down" size={35} color="#2962D5" />
           </Text>
         </View>
       </View>
 
       <Pressable style={styles.presable} onPress={movet}>
-        <Text style={styles.text3}>
-          <Icon name="check-circle-o" size={15} color="#ffffff" />
-          {'  '}
-          Listo
-        </Text>
+        <Text style={styles.text3}>Listo</Text>
       </Pressable>
 
       <Pressable style={styles.presable2} onPress={move}>
         <Text style={styles.text3}>
-          <Icon name="angle-left" size={25} color="#000000" />
+          <Icon name="chevron-thin-left" size={20} color="#000000" />
         </Text>
       </Pressable>
     </SafeAreaView>

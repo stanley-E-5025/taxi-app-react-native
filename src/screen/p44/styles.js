@@ -49,6 +49,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignContent: 'center',
     justifyContent: 'center',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
   km: {
     color: '#ffffff',
@@ -66,25 +72,40 @@ const styles = StyleSheet.create({
   },
 
   presable: {
-    backgroundColor: '#171717',
-    width: 300,
-    height: 40,
-    alignSelf: 'center',
-    borderRadius: 10,
+    backgroundColor: '#286EFA',
+
+    width: 340,
+    height: 47,
+    borderRadius: 8,
+
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 25,
+    alignSelf: 'center',
+    borderColor: '#000000',
+    borderWidth: 0.2,
+    bottom: 15,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
   presable2: {
     backgroundColor: '#ffffff',
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     alignSelf: 'center',
     borderRadius: 100,
     justifyContent: 'center',
     position: 'absolute',
     top: 10,
     left: 10,
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 
   text2: {
@@ -105,6 +126,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
 
     fontWeight: 'bold',
+    fontSize: 16,
   },
   op: {
     flexDirection: 'row',
@@ -118,7 +140,7 @@ const styles = StyleSheet.create({
     height: 25,
     borderRadius: 100,
     justifyContent: 'center',
-    backgroundColor: '#171717',
+    backgroundColor: '#2962D5',
   },
   text21: {
     color: '#ffffff',

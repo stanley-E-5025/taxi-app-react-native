@@ -248,8 +248,7 @@ const P6 = () => {
           </View>
           <View style={styles.name}>
             <Text style={{fontSize: 18, color: '#000'}}>
-              {' '}
-              <Icon name="user" size={15} color="#171717" />
+              <Icon name="taxi" size={15} color="#171717" />
               {'  '}
               {data.type}
             </Text>

@@ -182,7 +182,7 @@ const P3 = (props) => {
                   <Text style={styles.notetxt}>
                     {' '}
                     <Icon name="add-outline" size={20} color="#286EFA" />
-                    agregar nota{' '}
+                    direccion escrita{' '}
                   </Text>
                 </TouchableOpacity>
               </>
@@ -202,7 +202,7 @@ const P3 = (props) => {
                   style={styles.drivertxt}
                   onChangeText={onChangeText}
                   value={text}
-                  placeholder="nota para el conductor"
+                  placeholder="agrega una direccion escrita"
                 />
               </>
             )}

@@ -3,6 +3,7 @@ import {Text, View, BackHandler, TouchableOpacity} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {API, Auth, graphqlOperation} from 'aws-amplify';
 import {listOrders, listCarInfos} from '../../graphql/queries';
@@ -127,12 +128,6 @@ const P5 = () => {
         alignItems: 'center',
         backgroundColor: '#ffffff',
       }}>
-      <TouchableOpacity
-        onPress={End}
-        onPressOut={() => navigate.navigate('P1')}
-        style={{position: 'absolute', top: 10, left: 10}}>
-        <Text style={{fontWeight: 'bold'}}>cancelar</Text>
-      </TouchableOpacity>
       <View style={{position: 'absolute'}}>
         <LottieView
           source={require('../../animations/loadinf.json')}
@@ -151,7 +146,16 @@ const P5 = () => {
       </View>
 
       <View style={styles.view}>
-        <Text style={styles.Text}>buscando conductorr !!! </Text>
+        <TouchableOpacity
+          onPress={End}
+          onPressOut={() => navigate.navigate('P1')}
+          style={{position: 'absolute', top: 0, alignSelf: 'center'}}>
+          <Text style={{fontWeight: 'bold'}}>
+            <Icon name="md-log-out-outline" size={25} color="red" />
+            {'  '}
+            Cancelar Orden
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

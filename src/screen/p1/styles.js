@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
   },
 
   presable: {
-    backgroundColor: '#171717',
+    backgroundColor: '#286EFA',
 
-    width: 353,
-    height: 50,
+    width: 340,
+    height: 47,
     borderRadius: 8,
 
     justifyContent: 'center',
@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 0.2,
     bottom: 15,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 
   text: {
@@ -54,6 +59,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   historial: {
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
     backgroundColor: '#ffffff',
 
     width: 50,
@@ -67,6 +77,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#000000',
     borderWidth: 0.1,
+  },
+
+  mainCont: {
+    backgroundColor: '#fff',
+    width: 45,
+    height: 45,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    borderRadius: 100,
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 });
 

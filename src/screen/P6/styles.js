@@ -25,18 +25,30 @@ const styles = StyleSheet.create({
 
     backgroundColor: '#ffffff',
     justifyContent: 'center',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 
   pres2: {
     position: 'absolute',
     width: '95%',
     height: 170,
-    backgroundColor: '#171717',
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignSelf: 'center',
     bottom: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 
   carN: {

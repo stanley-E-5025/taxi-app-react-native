@@ -85,6 +85,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     left: 10,
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
   },
 
   text2: {
@@ -118,21 +124,22 @@ const styles = StyleSheet.create({
     height: 25,
     borderRadius: 100,
     justifyContent: 'center',
-    backgroundColor: '#171717',
+    backgroundColor: '#7b16e0',
   },
   text21: {
-    color: '#ffffff',
+    color: '#fff',
     textAlign: 'center',
     fontWeight: 'bold',
   },
 
   infoView: {
-    width: '95%',
+    width: '100%',
     height: 160,
-    backgroundColor: '#171717',
-    borderRadius: 5,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
     position: 'absolute',
-    bottom: 10,
+    bottom: 0,
     alignSelf: 'center',
   },
   price: {
@@ -147,7 +154,7 @@ const styles = StyleSheet.create({
     top: 5,
     right: 10,
   },
-  title: {color: '#fff', fontWeight: 'bold', margin: 10, fontSize: 19},
+  title: {color: '#000', fontWeight: 'bold', margin: 10, fontSize: 19},
   destino: {
     top: 0,
     left: 10,

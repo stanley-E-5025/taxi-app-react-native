@@ -1,25 +1,19 @@
 import React from 'react';
-import {Pressable, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
-import LottieView from 'lottie-react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Bt = () => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity
-      style={[styles.main, {top: 20, left: 10}]}
-      onPress={navigation.openDrawer}>
-      <LottieView
-        source={require('../../animations/menu.json')}
-        autoPlay={true}
-        loop={true}
-        style={{
-          alignSelf: 'flex-start',
-          height: 100,
-        }}
-      />
+    <TouchableOpacity style={[styles.main, {top: 20, left: 10}]}>
+      <TouchableOpacity onPress={navigation.openDrawer} style={styles.mainCont}>
+        <Text>
+          <Icon name="ellipsis-vertical-outline" size={20} color="#000" />
+        </Text>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 };

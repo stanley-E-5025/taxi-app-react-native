@@ -238,16 +238,16 @@ const P6 = () => {
             <Image style={styles.Image} source={require('./ICON.png')} />
           </View>
           <View style={styles.total}>
-            <Text style={{fontWeight: 'bold', fontSize: 18, color: '#fff'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 18, color: '#000'}}>
               total
             </Text>
           </View>
           <View style={styles.price}>
-            <Text style={{color: '#fff'}}>{route.params.cost}</Text>
-            <Text style={{fontWeight: 'bold', color: '#fff'}}> NIO </Text>
+            <Text style={{color: '#000'}}>{route.params.cost}</Text>
+            <Text style={{fontWeight: 'bold', color: '#000'}}> NIO </Text>
           </View>
           <View style={styles.name}>
-            <Text style={{fontSize: 18, color: '#fff'}}>
+            <Text style={{fontSize: 18, color: '#000'}}>
               {' '}
               <Icon name="user" size={15} color="#171717" />
               {'  '}
@@ -255,12 +255,12 @@ const P6 = () => {
             </Text>
           </View>
           <View style={styles.time}>
-            <Text style={{fontWeight: 'bold', fontSize: 13, color: '#fff'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 13, color: '#000'}}>
               tiempo aproximado
             </Text>
           </View>
           <View style={styles.timeitem}>
-            <Text style={{color: '#fff'}}>{time} min</Text>
+            <Text style={{color: '#000'}}>{time} min</Text>
           </View>
         </View>
       </View>

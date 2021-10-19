@@ -22,8 +22,11 @@ const P3 = (props) => {
   const navigation = useNavigation();
   const [show, setSow] = React.useState(false);
   const [text, onChangeText] = React.useState('');
+
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+
+  const [notestate, setNotestate] = useState(false);
   const [nota, setNota] = React.useState(false);
   const gps = {
     lat: route.params.lat,
@@ -96,7 +99,7 @@ const P3 = (props) => {
           styles={{
             textInput: styles.textInput,
             container: styles.autocompleteContainer,
-            listView: styles.listView,
+            listView: styles.listView2,
             separator: styles.separator,
           }}
           fetchDetails
@@ -109,19 +112,18 @@ const P3 = (props) => {
           renderDescription={(data) => data.description || data.vicinity}
           predefinedPlaces={[workPlace]}
         />
+
         <GooglePlacesAutocomplete
           placeholder="destino"
           onPress={(data, details = null) => {
             setDestinationPlace({data, details});
-            console.log(details.geometry.location);
-            console.log(destinationPlace);
           }}
           enablePoweredByContainer={false}
           suppressDefaultStyles
           styles={{
-            textInput: styles.textInput,
+            textInput: styles.textInput2,
             container: {
-              ...styles.autocompleteContainer,
+              ...styles.autocompleteContainer3,
               top: 55,
             },
             separator: styles.separator,
@@ -136,24 +138,74 @@ const P3 = (props) => {
           predefinedPlaces={[mapSelect]}
         />
 
+        <TextInput
+          style={styles.textInput3}
+          onChangeText={onChangeText}
+          value={text}
+          placeholder="direccion escrita "
+        />
+
         {show === true && (
           <View style={styles.infoView}>
             {/* arrow */}
 
-            <TouchableOpacity style={styles.arrow} onPress={floatWindow}>
-              <Icon name="md-arrow-forward-sharp" size={30} color="#ffffff" />
-            </TouchableOpacity>
+            {notestate === false && (
+              <>
+                <TouchableOpacity style={styles.arrow} onPress={floatWindow}>
+                  <Icon
+                    name="md-arrow-forward-sharp"
+                    size={30}
+                    color="#286EFA"
+                  />
+                </TouchableOpacity>
 
-            {/* info  */}
+                {/* info  */}
 
-            <View style={styles.destino}>
-              <Text style={styles.title}>{destinationPlace.details.name}</Text>
+                <View style={styles.destino}>
+                  <Text style={styles.title}>
+                    {destinationPlace.details.name}
+                  </Text>
 
-              <Text style={{color: '#fff'}}>
-                {destinationPlace.details.formatted_address}
-              </Text>
-            </View>
-            {/* bottom bar  */}
+                  <Text style={{color: '#000'}}>
+                    {destinationPlace.details.formatted_address}
+                  </Text>
+                  <Text style={{color: '#000', fontSize: 13.2}}>
+                    <Icon name="md-radio-button-on" size={10} color="#000" />{' '}
+                    {text === '' && '...........'}
+                    {text != '' && text}
+                  </Text>
+                </View>
+                {/* bottom bar  */}
+                <TouchableOpacity
+                  style={styles.note}
+                  onPress={() => setNotestate(true)}>
+                  <Text style={styles.notetxt}>
+                    {' '}
+                    <Icon name="add-outline" size={20} color="#286EFA" />
+                    agregar nota{' '}
+                  </Text>
+                </TouchableOpacity>
+              </>
+            )}
+
+            {notestate === true && (
+              <>
+                <Text style={styles.noteTxtTitle}>escribe una nota</Text>
+                <Text style={styles.noteTxt}>
+                  <TouchableOpacity onPress={() => setNotestate(false)}>
+                    <Text>
+                      <Icon name="send" size={25} color="#286EFA" />
+                    </Text>
+                  </TouchableOpacity>
+                </Text>
+                <TextInput
+                  style={styles.drivertxt}
+                  onChangeText={onChangeText}
+                  value={text}
+                  placeholder="nota para el conductor"
+                />
+              </>
+            )}
           </View>
         )}
 
@@ -168,27 +220,10 @@ const P3 = (props) => {
           <Text style={{color: '#FFFFFF'}}>B</Text>
         </View>
 
-        <TouchableOpacity style={styles.note} onPress={() => setNota(true)}>
-          <Icon name="ios-chatbubble-ellipses-outline" size={25} color="#fff" />
-        </TouchableOpacity>
-        {nota === true && (
-          <View style={styles.driverNote}>
-            <Text style={{margin: 15, fontWeight: 'bold', fontSize: 21}}>
-              escribe un nota
-            </Text>
-            <TextInput
-              style={[styles.drivertxt]}
-              onChangeText={onChangeText}
-              value={text}
-              placeholder="nota para el conductor"
-            />
-            <TouchableOpacity
-              style={styles.save}
-              onPress={() => setNota(false)}>
-              <Text style={{color: '#FFFFFF'}}>guardar</Text>
-            </TouchableOpacity>
-          </View>
-        )}
+        <View style={styles.line2} />
+        <View style={styles.square3}>
+          <Text style={{color: '#FFFFFF'}}>C</Text>
+        </View>
       </View>
     </SafeAreaView>
   );

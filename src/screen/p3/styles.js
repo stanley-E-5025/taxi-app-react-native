@@ -15,14 +15,65 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     color: '#000000',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
+
+    marginBottom: 400,
   },
 
+  textInput3: {
+    position: 'absolute',
+    padding: 10,
+    top: 113,
+    marginVertical: 5,
+    marginLeft: 32,
+    backgroundColor: '#ffffff',
+    height: 40,
+    borderRadius: 5,
+    color: '#000000',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
+    width: '90%',
+  },
+
+  textInput2: {
+    padding: 10,
+
+    marginVertical: 5,
+    marginLeft: 20,
+    backgroundColor: '#ffffff',
+    height: 40,
+    borderRadius: 5,
+    color: '#000000',
+
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: {width: 1, height: 13},
+    marginBottom: 60,
+  },
   separator: {
     height: 1,
   },
   listView: {
     position: 'absolute',
     top: 105,
+  },
+
+  listView2: {
+    position: 'absolute',
+    top: 105,
+
+    marginTop: 60,
   },
   autocompleteContainer: {
     position: 'absolute',
@@ -31,12 +82,32 @@ const styles = StyleSheet.create({
     right: 10,
   },
 
+  autocompleteContainer2: {
+    position: 'absolute',
+
+    left: 10,
+    right: 10,
+    marginTop: 60,
+  },
+
+  autocompleteContainer3: {
+    position: 'absolute',
+
+    left: 10,
+    right: 10,
+
+    marginTop: 5,
+
+    height: 300,
+    display: 'flex',
+  },
+
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 0,
     backgroundColor: '#fff',
-    height: 40,
+    height: 38,
     borderRadius: 10,
   },
   iconContainer: {
@@ -68,6 +139,15 @@ const styles = StyleSheet.create({
     top: 43,
     left: 17,
   },
+
+  line2: {
+    width: 1,
+    height: 25,
+    backgroundColor: '#171717',
+    position: 'absolute',
+    top: 100,
+    left: 17,
+  },
   square: {
     width: 20,
     height: 20,
@@ -79,19 +159,43 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  square2: {
+    width: 20,
+    height: 20,
+    backgroundColor: 'black',
+    position: 'absolute',
+    top: 130,
+    left: 6,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
+  square3: {
+    width: 20,
+    height: 20,
+    backgroundColor: 'black',
+    position: 'absolute',
+    top: 130,
+    left: 6,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   drivertxt: {
     height: 40,
     borderRadius: 5,
     color: '#ffffff',
     position: 'absolute',
     paddingLeft: 10,
-    width: '95%',
+    width: '80%',
     color: '#000000',
-    top: 90,
+    bottom: 10,
     alignSelf: 'center',
-    borderBottomColor: '#000',
+    borderBottomColor: '#373737',
     borderBottomWidth: 0.5,
+    left: 10,
+    borderColor: '#373737',
   },
 
   info: {
@@ -136,13 +240,15 @@ const styles = StyleSheet.create({
   },
 
   infoView: {
-    width: '95%',
-    height: 160,
-    backgroundColor: '#171717',
-    borderRadius: 5,
+    width: '100%',
+    height: 155,
+    backgroundColor: '#fff',
+
     position: 'absolute',
-    bottom: 10,
+    bottom: 0,
     alignSelf: 'center',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
   bottomBar: {
     position: 'absolute',
@@ -188,9 +294,10 @@ const styles = StyleSheet.create({
     left: 10,
     width: '80%',
     height: 100,
+    color: '#000',
   },
 
-  title: {color: '#fff', fontWeight: 'bold', margin: 10, fontSize: 19},
+  title: {color: '#000', fontWeight: 'bold', margin: 10, fontSize: 19},
 
   driverNote: {
     width: '100%',
@@ -209,6 +316,35 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     borderRadius: 10,
+  },
+
+  note: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  notetxt: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  noteTxt: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+  },
+
+  noteTxtTitle: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    fontWeight: 'bold',
+    fontSize: 17,
   },
 });
 

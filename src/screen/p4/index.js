@@ -24,6 +24,7 @@ const P4 = () => {
     duration: 1000,
   });
   const [tarifa, setTarifa] = useState(70);
+
   const date = new Date();
 
   useEffect(() => {
@@ -150,13 +151,13 @@ const P4 = () => {
           apikey={GOOGLE_MAPS_APIKEY}
           onReady={info}
           strokeWidth={4}
-          strokeColor="#171717"
+          strokeColor="#7b16e0"
         />
       </MapView>
       <View style={styles.infoView}>
         {/* arrow */}
         <TouchableOpacity style={styles.price}>
-          <Text style={{color: '#fff'}}>{orderPrice} NIO</Text>
+          <Text style={{color: '#000'}}>{orderPrice} NIO</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -169,15 +170,20 @@ const P4 = () => {
             })
           }
           onPress={order}>
-          <Icon name="md-arrow-forward-sharp" size={30} color="#ffffff" />
+          <Icon name="md-arrow-forward-sharp" size={30} color="#286EFA" />
         </TouchableOpacity>
 
         {/* info  */}
 
         <View style={styles.destino}>
           <Text style={styles.title}>{text1}</Text>
+          <Text style={{color: '#000'}}>{text2}</Text>
 
-          <Text style={{color: '#fff'}}>{text2}</Text>
+          <Text style={{color: '#000'}}>
+            <Icon name="md-radio-button-on" size={10} color="#000" />{' '}
+            {route.params.text === '' && '...........'}
+            {route.params.text != '' && route.params.text}
+          </Text>
         </View>
         {/* bottom bar  */}
       </View>

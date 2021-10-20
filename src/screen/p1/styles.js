@@ -10,10 +10,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   custom: {
-    width: 25,
-    height: 25,
+    width: 30,
+    height: 30,
     borderRadius: 100,
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#ffffff',
   },
   text21: {

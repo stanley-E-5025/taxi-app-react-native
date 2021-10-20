@@ -180,7 +180,10 @@ const P6 = () => {
     },
   });
 
-  console.log(state);
+  if (state === 'rejected') {
+    move();
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.view}>
@@ -212,10 +215,11 @@ const P6 = () => {
                 latitude: car.latitude,
                 longitude: car.longitude,
               }}>
-              <Image
-                style={{width: 35, height: 35, resizeMode: 'contain'}}
-                source={require('./car.png')}
-              />
+              <View style={styles.custom}>
+                <Text>
+                  <Icon name="taxi" size={15} color="#171717" />
+                </Text>
+              </View>
             </Marker>
           ))}
         </MapView>

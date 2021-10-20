@@ -11,7 +11,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
-
+  custom: {
+    width: 30,
+    height: 30,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
   t2: {
     color: '#ffffff',
   },

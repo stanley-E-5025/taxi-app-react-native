@@ -5,7 +5,6 @@ import {
   Pressable,
   Text,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import styles from './styles';
@@ -26,7 +25,7 @@ const P1 = () => {
   const [cars, setCars] = useState([]);
   const [orders, setOrders] = useState([]);
   const [Users, setUsers] = useState([]);
-  const [CarInfoId, setCaInfoId] = useState([]);
+  const [step, setStep] = useState(true);
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -87,13 +86,17 @@ const P1 = () => {
 
               const cost = data.cost;
               const orden = {latA, lonA};
-
-              console.log(orden);
-              navigation.navigate('P6', {
-                orden,
-                drivers,
-                cost,
-              });
+              console.log(drivers);
+              if (route.params.cancel === true) {
+                console.log('cancelled');
+                setOrders([]);
+              } else {
+                navigation.navigate('P6', {
+                  orden,
+                  drivers,
+                  cost,
+                });
+              }
             }
           } catch (e) {
             console.error(e);

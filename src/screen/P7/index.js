@@ -6,9 +6,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const P7 = () => {
   const navigation = useNavigation();
-
+  const cancel = true;
   const move = () => {
-    navigation.navigate('P1');
+    navigation.navigate('P1', {
+      cancel,
+    });
   };
 
   return (
